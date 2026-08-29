@@ -3000,11 +3000,30 @@ body::before{
 </script>
 
 <script>
-/* 전체 강의 저장 버튼 피드백 (native download 유지) */
+/* 전체 강의 저장: 데스크톱=파일 다운로드 / 모바일=공유 시트(링크 저장·공유) */
 (function(){
   var b=document.getElementById('dl-all'); if(!b)return;
   var s=b.querySelector('span'); var orig=s?s.textContent:'';
-  b.addEventListener('click',function(){
+  var COURSE_URL='https://yuns52775-ops.github.io/mc-class-f7dfe8/';
+  var isMobile=/Android|iPhone|iPad|iPod|Mobile|Silk/i.test(navigator.userAgent||'') || (navigator.maxTouchPoints>1 && matchMedia('(pointer:coarse)').matches);
+  if(isMobile && s){ s.textContent='링크 저장 · 공유'; orig=s.textContent; }
+  b.addEventListener('click',function(e){
+    if(isMobile && navigator.share){
+      e.preventDefault();
+      navigator.share({title:'머니크루 클래스', text:'AI 자동화 수익 실전 클래스 — 전체 강의 보기', url:COURSE_URL})
+        .then(function(){ if(s){s.textContent='공유 완료 ✓'; setTimeout(function(){s.textContent=orig;},2500);} })
+        .catch(function(){});
+      return;
+    }
+    if(isMobile && !navigator.share){
+      /* 공유 미지원 폰: 링크 복사 시도 후 안내 */
+      e.preventDefault();
+      var done=function(){ if(s){s.textContent='링크 복사됨 ✓'; setTimeout(function(){s.textContent=orig;},2500);} };
+      if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(COURSE_URL).then(done).catch(function(){window.open(COURSE_URL,'_blank');}); }
+      else { window.open(COURSE_URL,'_blank'); }
+      return;
+    }
+    /* 데스크톱: native download 진행 + 피드백 */
     if(s)s.textContent='저장을 시작합니다…';
     setTimeout(function(){ if(s)s.textContent=orig; },3200);
   });
