@@ -526,6 +526,10 @@ body::before{
 .tmpl p{margin:0 0 6px;font-size:13.5px;line-height:1.72;color:var(--ink)}
 .tmpl p:last-child{margin-bottom:0}
 .tmpl b{color:var(--gold-bright)}
+.dl-all{display:flex;flex-direction:column;align-items:center;gap:3px;margin-top:14px;text-decoration:none;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(227,193,121,.10),rgba(227,193,121,.03));color:var(--gold-bright);font-weight:700;font-size:13.5px;letter-spacing:.01em;text-align:center;transition:.18s;cursor:pointer}
+.dl-all:hover{background:linear-gradient(180deg,rgba(227,193,121,.18),rgba(227,193,121,.06));border-color:rgba(227,193,121,.45);transform:translateY(-1px)}
+.dl-all span{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10px;letter-spacing:.12em;color:var(--bronze);text-transform:uppercase}
+.dl-all.saving{opacity:.7;pointer-events:none}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
 </style>
 
@@ -550,6 +554,7 @@ body::before{
     <div class="sb-intro">
       <div class="t">AI 자동화 수익 실전 클래스</div>
       <div class="s">이론 4강 · 실전 4스텝 · 완벽 가이드 · 53 레슨</div>
+      <a class="dl-all" id="dl-all" href="index.html" download="머니크루-클래스.html">⤓ 전체 강의 저장<span>오프라인 소장용 · 약 3.6MB</span></a>
     </div>
 
     <!-- OT -->
@@ -2991,6 +2996,18 @@ body::before{
     });
   });
   render();
+})();
+</script>
+
+<script>
+/* 전체 강의 저장 버튼 피드백 (native download 유지) */
+(function(){
+  var b=document.getElementById('dl-all'); if(!b)return;
+  var s=b.querySelector('span'); var orig=s?s.textContent:'';
+  b.addEventListener('click',function(){
+    if(s)s.textContent='저장을 시작합니다…';
+    setTimeout(function(){ if(s)s.textContent=orig; },3200);
+  });
 })();
 </script>
 
