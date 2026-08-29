@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>머니크루 클래스 · 입장</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0A0C; --panel:#121218; --ink:#F1EAD9; --muted:#9a9280;
+    --gold:#E3C179; --gold-bright:#F2DFAE; --bronze:#C9A24E;
+    --line:rgba(227,193,121,.22);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'IBM Plex Sans KR',-apple-system,sans-serif;
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden; padding:40px 22px;
+  }
+  /* atmosphere */
+  .bg{position:fixed;inset:0;z-index:0;
+    background-image:
+      radial-gradient(closest-side 900px 620px at 50% 42%, rgba(227,193,121,.14), rgba(227,193,121,0) 70%),
+      linear-gradient(rgba(227,193,121,.045) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(227,193,121,.045) 1px,transparent 1px);
+    background-size:auto, 52px 52px, 52px 52px;}
+  .vign{position:fixed;inset:0;z-index:0;background:radial-gradient(120% 90% at 50% 50%, transparent 52%, #050506 100%);}
+  .card{position:relative;z-index:1;width:100%;max-width:560px;text-align:center;
+    display:flex;flex-direction:column;align-items:center;
+    animation:rise .9s cubic-bezier(.2,.7,.2,1) both;}
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  .emblem{width:84px;height:84px;filter:drop-shadow(0 6px 26px rgba(227,193,121,.28))}
+  .brand{font-family:'Cormorant Garamond',serif;font-weight:700;
+    font-size:clamp(38px,10vw,62px);line-height:.98;letter-spacing:.1em;margin-top:14px;padding-left:.1em;
+    background:linear-gradient(135deg,#FBEFCB 0%,#E9C97E 45%,#C79A44 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .rule{display:flex;align-items:center;gap:16px;margin:15px 0 4px}
+  .rule .ln{width:64px;height:1px;background:linear-gradient(90deg,transparent,rgba(227,193,121,.7),transparent)}
+  .rule .en{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.42em;color:var(--bronze);text-transform:uppercase;padding-left:.42em}
+  .title{font-family:'IBM Plex Sans KR',sans-serif;font-weight:700;
+    font-size:clamp(22px,6vw,30px);letter-spacing:-.01em;margin-top:22px;color:var(--ink)}
+  .sub{color:var(--muted);font-weight:300;font-size:clamp(14px,3.6vw,16px);margin-top:9px;line-height:1.6}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:20px}
+  .chip{font-size:12.5px;font-weight:500;color:#CDBE95;border:1px solid var(--line);border-radius:100px;
+    padding:7px 15px;background:rgba(227,193,121,.05)}
+  .enter{margin-top:34px;display:inline-flex;align-items:center;gap:12px;
+    font-family:'IBM Plex Sans KR',sans-serif;font-weight:700;font-size:18px;letter-spacing:.02em;
+    color:#1a1408;text-decoration:none;padding:17px 46px;border-radius:100px;
+    background:linear-gradient(135deg,#F7E7BC 0%,#E3C179 48%,#CBA24E 100%);
+    box-shadow:0 10px 34px rgba(227,193,121,.30), inset 0 1px 0 rgba(255,255,255,.5);
+    transition:transform .18s cubic-bezier(.2,.7,.2,1), box-shadow .18s, filter .18s;}
+  .enter:hover{transform:translateY(-2px);box-shadow:0 16px 44px rgba(227,193,121,.42), inset 0 1px 0 rgba(255,255,255,.6);filter:brightness(1.04)}
+  .enter:active{transform:translateY(0)}
+  .enter .arw{font-size:20px;transition:transform .18s}
+  .enter:hover .arw{transform:translateX(4px)}
+  .note{margin-top:22px;font-size:12.5px;color:#7d766a;letter-spacing:.01em;
+    display:flex;align-items:center;gap:7px;justify-content:center}
+  .note::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--bronze);box-shadow:0 0 8px var(--gold)}
+  .foot{position:fixed;left:0;right:0;bottom:22px;z-index:1;text-align:center;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:#5f5a4c}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="vign"></div>
+
+  <main class="card">
+    <svg class="emblem" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <circle cx="50" cy="50" r="46" stroke="url(#g)" stroke-width="1.3"/>
+      <circle cx="50" cy="50" r="30" stroke="url(#g)" stroke-width="1.3" stroke-dasharray="3 4"/>
+      <path d="M35 62 L35 42 L50 54 L65 38 L65 62" stroke="url(#g)" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/>
+      <circle cx="50" cy="50" r="4.2" fill="#F2DFAE"/>
+      <defs><linearGradient id="g" x1="0" y1="0" x2="100" y2="100"><stop stop-color="#F2DFAE"/><stop offset="1" stop-color="#C9A24E"/></linearGradient></defs>
+    </svg>
+
+    <div class="brand">MONEY&nbsp;CREW</div>
+    <div class="rule"><span class="ln"></span><span class="en">Automation&nbsp;Class</span><span class="ln"></span></div>
+
+    <h1 class="title">머니크루 클래스</h1>
+    <p class="sub">지식이 없어도, 코딩을 몰라도 — AI로 짓는 자동화 수익 시스템<br>이론 4강 · 실전 4스텝 · 완벽 가이드까지 한 번에.</p>
+
+    <div class="chips">
+      <span class="chip">자동화 수익 설계도</span>
+      <span class="chip">실전 4스텝</span>
+      <span class="chip">완벽 가이드</span>
+      <span class="chip">53 레슨</span>
+    </div>
+
+    <a class="enter" href="https://yuns52775-ops.github.io/mc-class-f7dfe8/" target="_blank" rel="noopener">
+      입장하기 <span class="arw">→</span>
+    </a>
+
+    <p class="note">구매하신 회원만 입장하실 수 있습니다</p>
+  </main>
+
+  <div class="foot">MONEYFIX.CO.KR</div>
+</body>
+</html>
