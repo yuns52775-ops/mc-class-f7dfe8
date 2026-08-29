@@ -62,6 +62,12 @@
   .note::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--bronze);box-shadow:0 0 8px var(--gold)}
   .foot{position:fixed;left:0;right:0;bottom:22px;z-index:1;text-align:center;
     font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:#5f5a4c}
+  .welcome{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.32em;color:var(--bronze);text-transform:uppercase;margin-top:20px;padding-left:.32em}
+  .thanks{font-family:'IBM Plex Sans KR',sans-serif;font-weight:700;font-size:clamp(24px,6.6vw,36px);line-height:1.32;letter-spacing:-.01em;margin-top:12px;color:var(--ink);text-wrap:balance}
+  .thanks b{font-weight:700;background:linear-gradient(135deg,#F7E7BC,#E3C179 55%,#CBA24E);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lead{color:var(--muted);font-weight:300;font-size:clamp(14px,3.6vw,16px);line-height:1.78;margin-top:16px;max-width:46ch}
+  .quote{position:relative;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;color:var(--gold-bright);font-size:clamp(18px,4.6vw,24px);line-height:1.48;margin:26px 0 2px;padding:16px 10px;max-width:42ch;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .signoff{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:var(--bronze);margin-top:18px}
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -81,8 +87,11 @@
     <div class="brand">MONEY&nbsp;CREW</div>
     <div class="rule"><span class="ln"></span><span class="en">Automation&nbsp;Class</span><span class="ln"></span></div>
 
-    <h1 class="title">머니크루 클래스</h1>
-    <p class="sub">지식이 없어도, 코딩을 몰라도 — AI로 짓는 자동화 수익 시스템<br>이론 4강 · 실전 4스텝 · 완벽 가이드까지 한 번에.</p>
+    <div class="welcome">Welcome · 머니크루 클래스</div>
+    <h1 class="thanks">강의를 구입해 주셔서<br><b>진심으로 감사합니다</b></h1>
+    <p class="lead">지식이 없어도, 코딩을 몰라도 괜찮습니다. 지금부터 AI로 나만의 자동화 수익 시스템을 함께 지어갑니다. 필요한 건 재능이 아니라 딱 하나 — ‘오늘의 실행’입니다.</p>
+
+    <div class="quote">완벽보다 완성입니다.<br>오늘 시작한 사람만이 30일 뒤에 남습니다.</div>
 
     <div class="chips">
       <span class="chip">자동화 수익 설계도</span>
@@ -96,6 +105,7 @@
     </a>
 
     <p class="note">구매하신 회원만 입장하실 수 있습니다</p>
+    <div class="signoff">— 머니크루 드림</div>
   </main>
 
   <div class="foot">MONEYFIX.CO.KR</div>
