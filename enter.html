@@ -33,7 +33,32 @@
   .tb-r{display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;
     letter-spacing:.18em;text-transform:uppercase;color:var(--bronze);white-space:nowrap}
   .tb-r .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold)}
-  @media(max-width:600px){.tb-brand small{display:none}.tb-r{font-size:9px;letter-spacing:.1em}}
+  .tb-l{display:flex;align-items:center;gap:14px;min-width:0}
+  .burger{display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid var(--line);border-radius:100px;cursor:pointer;padding:7px 13px;transition:.2s}
+  .burger:hover{background:rgba(227,193,121,.09);border-color:rgba(227,193,121,.42)}
+  .burger .bi{display:flex;flex-direction:column;gap:3.5px}
+  .burger .bi span{display:block;width:18px;height:2px;background:var(--gold);border-radius:2px;transition:.25s}
+  .burger .bt{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--gold-bright)}
+  body.menu-open .burger .bi span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+  body.menu-open .burger .bi span:nth-child(2){opacity:0}
+  body.menu-open .burger .bi span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+  .scrim{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:70;opacity:0;visibility:hidden;transition:.25s}
+  body.menu-open .scrim{opacity:1;visibility:visible}
+  .drawer{position:fixed;top:0;left:0;bottom:0;width:min(322px,86vw);z-index:80;background:#0d0d12;
+    border-right:1px solid var(--line);transform:translateX(-100%);transition:transform .3s cubic-bezier(.2,.7,.2,1);
+    display:flex;flex-direction:column;padding:20px 18px 22px;overflow-y:auto;box-shadow:24px 0 60px rgba(0,0,0,.5)}
+  body.menu-open .drawer{transform:none}
+  .dw-head{display:flex;align-items:center;justify-content:space-between}
+  .dw-t{font-family:'Cormorant Garamond',serif;font-size:25px;color:var(--gold-bright);font-weight:700}
+  .dw-x{background:none;border:0;color:var(--muted);font-size:27px;line-height:1;cursor:pointer;padding:0 4px}
+  .dw-sub{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--bronze);text-transform:uppercase;margin:2px 0 14px}
+  .dw-nav{display:flex;flex-direction:column;gap:2px;flex:1}
+  .dw-item{display:flex;align-items:center;gap:12px;padding:11px 10px;border-radius:10px;text-decoration:none;transition:.15s}
+  .dw-item:hover{background:rgba(227,193,121,.08)}
+  .dw-no{flex:none;width:24px;height:24px;border-radius:7px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gold)}
+  .dw-lb{font-size:13.5px;color:var(--ink);line-height:1.4}
+  .dw-enter{margin-top:16px;display:flex;align-items:center;justify-content:center;gap:9px;font-weight:700;font-size:15px;color:#1a1408;text-decoration:none;padding:14px;border-radius:100px;background:linear-gradient(135deg,#F7E7BC,#E3C179 48%,#CBA24E);box-shadow:0 8px 24px rgba(227,193,121,.28)}
+  @media(max-width:600px){.tb-brand small{display:none}.tb-r{font-size:9px;letter-spacing:.1em}.burger .bt{display:none}.burger{padding:8px}}
   /* atmosphere */
   .bg{position:fixed;inset:0;z-index:0;
     background-image:
@@ -86,9 +111,30 @@
 </head>
 <body>
   <header class="topbar">
-    <a class="tb-brand" href="#">MONEY&nbsp;CREW<small>AUTOMATION CLASS</small></a>
+    <div class="tb-l">
+      <button class="burger" id="burger" aria-label="메뉴 열기"><span class="bi"><span></span><span></span><span></span></span><span class="bt">메뉴</span></button>
+      <a class="tb-brand" href="#">MONEY&nbsp;CREW<small>AUTOMATION CLASS</small></a>
+    </div>
     <div class="tb-r"><span class="dot"></span>구매 회원 전용</div>
   </header>
+
+  <div class="scrim" id="scrim"></div>
+  <aside class="drawer" id="drawer" aria-label="커리큘럼 메뉴">
+    <div class="dw-head"><span class="dw-t">커리큘럼</span><button class="dw-x" id="dwClose" aria-label="닫기">×</button></div>
+    <div class="dw-sub">Money Crew · Automation Class · 53 Lessons</div>
+    <nav class="dw-nav">
+      <a class="dw-item" href="https://yuns52775-ops.github.io/mc-class-f7dfe8/" target="_blank" rel="noopener"><span class="dw-no">0</span><span class="dw-lb">오리엔테이션 · 자동화 수익 설계도</span></a>
+      <a class="dw-item" href="https://yuns52775-ops.github.io/mc-class-f7dfe8/" target="_blank" rel="noopener"><span class="dw-no">1</span><span class="dw-lb">돈이 따르게 만드는 생각의 기술</span></a>
+      <a class="dw-item" href="https://yuns52775-ops.github.io/mc-class-f7dfe8/" target="_blank" rel="noopener"><span class="dw-no">2</span><span class="dw-lb">돈이 되는 가격 전략</span></a>
+      <a class="dw-item" href="https://yuns52775-ops.github.io/mc-class-f7dfe8/" target="_blank" rel="noopener"><span class="dw-no">3</span><span class="dw-lb">메타 광고 완전 정복</span></a>
+      <a class="dw-item" href="https://yuns52775-ops.github.io/mc-class-f7dfe8/" target="_blank" rel="noopener"><span class="dw-no">4</span><span class="dw-lb">웹사이트 구축 (초보 가능)</span></a>
+      <a class="dw-item" href="https://yuns52775-ops.github.io/mc-class-f7dfe8/" target="_blank" rel="noopener"><span class="dw-no">5</span><span class="dw-lb">본격 자동화 수익 제작 · 실전 4스텝</span></a>
+      <a class="dw-item" href="https://yuns52775-ops.github.io/mc-class-f7dfe8/" target="_blank" rel="noopener"><span class="dw-no">6</span><span class="dw-lb">완벽 가이드 · 처음부터 따라하기</span></a>
+      <a class="dw-item" href="https://yuns52775-ops.github.io/mc-class-f7dfe8/" target="_blank" rel="noopener"><span class="dw-no">7</span><span class="dw-lb">실전 운영 &amp; 성장</span></a>
+      <a class="dw-item" href="https://yuns52775-ops.github.io/mc-class-f7dfe8/" target="_blank" rel="noopener"><span class="dw-no">8</span><span class="dw-lb">도구 &amp; 마무리</span></a>
+    </nav>
+    <a class="dw-enter" href="https://yuns52775-ops.github.io/mc-class-f7dfe8/" target="_blank" rel="noopener">입장하기 →</a>
+  </aside>
 
   <div class="bg"></div>
   <div class="vign"></div>
@@ -123,5 +169,19 @@
     <div class="signoff">— 머니크루 드림</div>
     <div class="foot">MONEYFIX.CO.KR</div>
   </main>
+
+  <script>
+  (function(){
+    var b=document.getElementById('burger'),
+        s=document.getElementById('scrim'),
+        x=document.getElementById('dwClose');
+    function open(){document.body.classList.add('menu-open');}
+    function close(){document.body.classList.remove('menu-open');}
+    if(b)b.addEventListener('click',open);
+    if(s)s.addEventListener('click',close);
+    if(x)x.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  })();
+  </script>
 </body>
 </html>
