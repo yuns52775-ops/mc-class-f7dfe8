@@ -19,7 +19,7 @@
     background:var(--bg); color:var(--ink);
     font-family:'IBM Plex Sans KR',-apple-system,sans-serif;
     min-height:100vh; display:flex; align-items:center; justify-content:center;
-    position:relative; overflow:hidden; padding:40px 22px;
+    position:relative; overflow-x:hidden; overflow-y:auto; padding:48px 22px;
   }
   /* atmosphere */
   .bg{position:fixed;inset:0;z-index:0;
@@ -60,7 +60,7 @@
   .note{margin-top:22px;font-size:12.5px;color:#7d766a;letter-spacing:.01em;
     display:flex;align-items:center;gap:7px;justify-content:center}
   .note::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--bronze);box-shadow:0 0 8px var(--gold)}
-  .foot{position:fixed;left:0;right:0;bottom:22px;z-index:1;text-align:center;
+  .foot{margin-top:26px;text-align:center;
     font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:#5f5a4c}
   .welcome{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.32em;color:var(--bronze);text-transform:uppercase;margin-top:20px;padding-left:.32em}
   .thanks{font-family:'IBM Plex Sans KR',sans-serif;font-weight:700;font-size:clamp(24px,6.6vw,36px);line-height:1.32;letter-spacing:-.01em;margin-top:12px;color:var(--ink);text-wrap:balance}
@@ -106,8 +106,7 @@
 
     <p class="note">구매하신 회원만 입장하실 수 있습니다</p>
     <div class="signoff">— 머니크루 드림</div>
+    <div class="foot">MONEYFIX.CO.KR</div>
   </main>
-
-  <div class="foot">MONEYFIX.CO.KR</div>
 </body>
 </html>
