@@ -1264,10 +1264,16 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
             var lines=anim.querySelectorAll('.sch-anim-line');
             [].forEach.call(lines,function(l){ l.classList.remove('in'); });
             anim.hidden=false; anim.style.opacity='';
-            setTimeout(function(){ anim.scrollIntoView({behavior:'smooth',block:'center'}); },40);
+            // pin the view to the message area during the intro
+            var pinY=null, prevSB=document.documentElement.style.scrollBehavior;
+            document.documentElement.style.scrollBehavior='auto';
+            function centerNow(){ var r=anim.getBoundingClientRect(); pinY=Math.max(0, window.pageYOffset + r.top - Math.max(20,(window.innerHeight - r.height)/2)); window.scrollTo(0,pinY); }
+            setTimeout(centerNow,40); setTimeout(centerNow,120);
+            var pinTimer=setInterval(function(){ if(pinY!=null) window.scrollTo(0,pinY); },140);
             var step=1000;
-            [].forEach.call(lines,function(l,idx){ setTimeout(function(){ l.classList.add('in'); }, 320+idx*step); });
+            [].forEach.call(lines,function(l,idx){ setTimeout(function(){ l.classList.add('in'); centerNow(); }, 320+idx*step); });
             setTimeout(function(){
+              clearInterval(pinTimer); pinY=null; document.documentElement.style.scrollBehavior=prevSB;
               anim.style.transition='opacity .5s'; anim.style.opacity='0';
               setTimeout(function(){ anim.hidden=true; anim.style.opacity=''; anim.style.transition=''; revealCert(); }, 520);
             }, 320 + lines.length*step + 700);
