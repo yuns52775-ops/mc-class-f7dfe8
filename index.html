@@ -1125,7 +1125,7 @@ body::before{
         <div class="sc-box">
           <div class="sc-form">
             <input id="sc-name" type="text" placeholder="이름 (예: 홍길동)" maxlength="20" autocomplete="off">
-            <input id="sc-start" type="date" aria-label="수강 시작일">
+            
             <button class="sc-issue" id="sc-issue" type="button">스타터 인증서 발급받기 ✦</button>
           </div>
           <p class="sc-err" id="sc-err"></p>
@@ -1179,8 +1179,8 @@ body::before{
           function fmt(d){return d.getFullYear()+'. '+two(d.getMonth()+1)+'. '+two(d.getDate());}
           function fmtDot(d){return d.getFullYear()+'.'+two(d.getMonth()+1)+'.'+two(d.getDate());}
           var today=new Date();
-          var si=document.getElementById('sc-start');
-          si.value=today.getFullYear()+'-'+two(today.getMonth()+1)+'-'+two(today.getDate());
+          
+          
           function fit(){
             if(hold.hidden) return;
             var W=hold.clientWidth, base=640, s=Math.min(1,W/base);
@@ -1197,7 +1197,7 @@ body::before{
             var err=document.getElementById('sc-err');
             if(!name){ err.textContent='이름을 입력해 주세요.'; nameEl.focus(); return; }
             err.textContent='';
-            var sd=si.value? new Date(si.value+'T00:00:00') : today;
+            var sd=today;
             if(isNaN(sd.getTime())) sd=today;
             document.getElementById('sc-cname').textContent=name;
             document.getElementById('sc-cstart').textContent=fmt(sd);
@@ -1213,7 +1213,7 @@ body::before{
             fit();
             requestAnimationFrame(function(){ cert.classList.add('show'); fit(); });
             setTimeout(fit,120); setTimeout(fit,700);
-            try{ localStorage.setItem('mc_starter_name',name); localStorage.setItem('mc_starter_start',si.value);}catch(e){}
+            try{ localStorage.setItem('mc_starter_name',name);}catch(e){}
             setTimeout(function(){ hold.scrollIntoView({behavior:'smooth',block:'center'}); },160);
             document.getElementById('sc-issue').textContent='인증서 재발급 ✦';
           }
@@ -1280,7 +1280,7 @@ body::before{
           document.getElementById('sc-dl').addEventListener('click',download);
           document.getElementById('sc-share').addEventListener('click',shareCert);
           document.getElementById('sc-name').addEventListener('keydown',function(e){ if(e.key==='Enter')issue(); });
-          try{ var sn=localStorage.getItem('mc_starter_name'); if(sn)document.getElementById('sc-name').value=sn; var ss=localStorage.getItem('mc_starter_start'); if(ss)si.value=ss; }catch(e){}
+          try{ var sn=localStorage.getItem('mc_starter_name'); if(sn)document.getElementById('sc-name').value=sn; }catch(e){}
         })();
         </script>
         </div>

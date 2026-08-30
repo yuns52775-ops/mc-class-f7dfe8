@@ -1127,7 +1127,7 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
 <div class="sch-box">
           <div class="sch-form">
             <div class="sch-field"><label for="sch-name">이름</label><input id="sch-name" type="text" placeholder="예: 홍길동" maxlength="20" autocomplete="off"></div>
-            <div class="sch-field"><label for="sch-start">시작일</label><input id="sch-start" type="date" aria-label="수강 시작일"></div>
+            
             <button class="sch-issue" id="sch-issue" type="button">스타터 인증서 발급받기 ✦</button>
           </div>
           <p class="sch-err" id="sch-err"></p>
@@ -1185,8 +1185,8 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
           function fmt(d){return d.getFullYear()+'. '+two(d.getMonth()+1)+'. '+two(d.getDate());}
           function fmtDot(d){return d.getFullYear()+'.'+two(d.getMonth()+1)+'.'+two(d.getDate());}
           var today=new Date();
-          var si=document.getElementById('sch-start');
-          si.value=today.getFullYear()+'-'+two(today.getMonth()+1)+'-'+two(today.getDate());
+          
+          
           function fit(){
             if(hold.hidden) return;
             var W=hold.clientWidth, base=640, s=Math.min(1,W/base);
@@ -1203,7 +1203,7 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
             var err=document.getElementById('sch-err');
             if(!name){ err.textContent='이름을 입력해 주세요.'; nameEl.focus(); return; }
             err.textContent='';
-            var sd=si.value? new Date(si.value+'T00:00:00') : today;
+            var sd=today;
             if(isNaN(sd.getTime())) sd=today;
             document.getElementById('sch-cname').textContent=name;
             document.getElementById('sch-cstart').textContent=fmt(sd);
@@ -1219,7 +1219,7 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
             fit();
             requestAnimationFrame(function(){ cert.classList.add('show'); fit(); });
             setTimeout(fit,120); setTimeout(fit,700);
-            try{ localStorage.setItem('mc_starter_name',name); localStorage.setItem('mc_starter_start',si.value);}catch(e){}
+            try{ localStorage.setItem('mc_starter_name',name);}catch(e){}
             setTimeout(function(){ hold.scrollIntoView({behavior:'smooth',block:'center'}); },160);
             document.getElementById('sch-issue').textContent='인증서 재발급 ✦';
           }
@@ -1286,7 +1286,7 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
           document.getElementById('sch-dl').addEventListener('click',download);
           document.getElementById('sch-share').addEventListener('click',shareCert);
           document.getElementById('sch-name').addEventListener('keydown',function(e){ if(e.key==='Enter')issue(); });
-          try{ var sn=localStorage.getItem('mc_starter_name'); if(sn)document.getElementById('sch-name').value=sn; var ss=localStorage.getItem('mc_starter_start'); if(ss)si.value=ss; }catch(e){}
+          try{ var sn=localStorage.getItem('mc_starter_name'); if(sn)document.getElementById('sch-name').value=sn; }catch(e){}
         })();
         </script>
 
