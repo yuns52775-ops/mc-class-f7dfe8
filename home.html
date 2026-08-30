@@ -963,7 +963,11 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
         .sch-issue{flex:1 1 100%;background:linear-gradient(135deg,#FBEFCB,#E9C97E 45%,#C79A44);color:#1a1200;font-weight:800;font-size:15px;border:0;border-radius:10px;padding:15px;cursor:pointer;font-family:inherit;box-shadow:0 14px 30px -12px rgba(201,162,78,.5);transition:transform .15s;}
         .sch-issue:hover{transform:translateY(-2px);}
         .sch-err{color:#e79a9a;font-size:12.5px;min-height:15px;margin:8px 0 0;}
-        .sch-hold{margin-top:26px;position:relative;overflow:hidden;}
+        .sch-anim{max-width:620px;margin:20px auto 0;text-align:center;min-height:150px;display:flex;flex-direction:column;gap:16px;align-items:center;justify-content:center;padding:10px 16px;}
+.sch-anim-line{font-size:clamp(17px,3.6vw,23px);font-weight:700;color:var(--text);line-height:1.6;letter-spacing:-.01em;opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);}
+.sch-anim-line b{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.sch-anim-line.in{opacity:1;transform:none;}
+.sch-hold{margin-top:26px;position:relative;overflow:hidden;}
         .sch-scaler{width:640px;transform-origin:top left;margin:0 auto;}
         .sch-cert{position:relative;width:640px;border-radius:6px;padding:7px;background:linear-gradient(135deg,#454850,#2b2d33 42%,#4d5058 68%,#313339);box-shadow:0 40px 84px -28px rgba(0,0,0,.72);opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s;}
         .sch-cert.show{opacity:1;transform:none;}
@@ -1152,6 +1156,12 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
           </div>
           <p class="sch-err" id="sch-err"></p>
 
+          <div class="sch-anim" id="sch-anim" hidden>
+            <p class="sch-anim-line">축하합니다 — 오늘, 당신은 <b>'시작'</b>을 선택했습니다.</p>
+            <p class="sch-anim-line">대부분은 고민만 하다 멈춥니다.<br>당신은 <b>한 걸음</b> 더 나아갔어요.</p>
+            <p class="sch-anim-line">이제, 당신의 이름을 <b>인증서에 새깁니다.</b></p>
+          </div>
+
           <div class="sch-hold" id="sch-hold" hidden>
             <div class="sch-scaler">
               <div class="sch-cert" id="sch-cert">
@@ -1217,6 +1227,16 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
           }
           window.addEventListener('resize',fit);
           window.addEventListener('orientationchange',fit);
+          function revealCert(){
+            hold.hidden=false;
+            document.getElementById('sch-savehint').hidden=false;
+            document.getElementById('sch-actions').hidden=false;
+            cert.classList.add('show'); cert.style.opacity='1'; cert.style.transform='none';
+            fit();
+            setTimeout(function(){ cert.classList.add('show'); cert.style.opacity='1'; cert.style.transform='none'; fit(); },30);
+            setTimeout(fit,120); setTimeout(fit,700);
+            setTimeout(function(){ hold.scrollIntoView({behavior:'smooth',block:'center'}); },160);
+          }
           function issue(){
             var nameEl=document.getElementById('sch-name');
             var name=(nameEl.value||'').trim();
@@ -1233,15 +1253,24 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
             document.getElementById('sch-cno').textContent='MC-S-'+today.getFullYear()+'-'+('00000'+seq).slice(-5);
             var mno=0; for(var i=0;i<name.length;i++){mno=(mno*31+name.charCodeAt(i))%90000;}
             document.getElementById('sch-cmno').textContent='MC-M-'+('00000'+(10000+mno)).slice(-5);
-            hold.hidden=false;
-            document.getElementById('sch-savehint').hidden=false;
-            document.getElementById('sch-actions').hidden=false;
-            fit();
-            requestAnimationFrame(function(){ cert.classList.add('show'); fit(); });
-            setTimeout(fit,120); setTimeout(fit,700);
             try{ localStorage.setItem('mc_starter_name',name);}catch(e){}
-            setTimeout(function(){ hold.scrollIntoView({behavior:'smooth',block:'center'}); },160);
             document.getElementById('sch-issue').textContent='인증서 재발급 ✦';
+            // reset any previous cert before intro
+            hold.hidden=true; cert.classList.remove('show');
+            document.getElementById('sch-actions').hidden=true;
+            document.getElementById('sch-savehint').hidden=true;
+            // encouraging 3-line intro, one by one, then reveal certificate
+            var anim=document.getElementById('sch-anim');
+            var lines=anim.querySelectorAll('.sch-anim-line');
+            [].forEach.call(lines,function(l){ l.classList.remove('in'); });
+            anim.hidden=false; anim.style.opacity='';
+            setTimeout(function(){ anim.scrollIntoView({behavior:'smooth',block:'center'}); },40);
+            var step=1000;
+            [].forEach.call(lines,function(l,idx){ setTimeout(function(){ l.classList.add('in'); }, 320+idx*step); });
+            setTimeout(function(){
+              anim.style.transition='opacity .5s'; anim.style.opacity='0';
+              setTimeout(function(){ anim.hidden=true; anim.style.opacity=''; anim.style.transition=''; revealCert(); }, 520);
+            }, 320 + lines.length*step + 700);
           }
           document.getElementById('sch-issue').addEventListener('click',issue);
           function roundRect(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath();}
