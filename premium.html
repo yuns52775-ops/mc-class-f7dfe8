@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>머니크루 프리미엄 클래스</title>
+<meta name="theme-color" content="#0A0A0B">
+<meta property="og:title" content="머니크루 프리미엄 클래스">
+<meta property="og:description" content="소수 정예로 운영되는 머니크루 프리미엄 클래스.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--gold:#E3C179;--grad:linear-gradient(135deg,#F5E4B8 0%,#E3C179 42%,#C9A24E 100%);--serif:'Cormorant Garamond',serif;--mono:'IBM Plex Mono',monospace;}
+html,body{height:100%;}
+body{min-height:100dvh;background:#0A0A0B;color:#EFEFF2;font-family:Pretendard,system-ui,sans-serif;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;text-align:center;}
+/* ambient */
+.bg{position:fixed;inset:0;background:radial-gradient(60% 45% at 50% 30%,rgba(227,193,121,.14),transparent 60%),radial-gradient(40% 30% at 50% 100%,rgba(140,120,70,.12),transparent 60%),#0A0A0B;z-index:0;}
+.orb{position:fixed;border-radius:50%;filter:blur(60px);opacity:.5;z-index:0;}
+.orb.a{width:340px;height:340px;background:rgba(227,193,121,.18);top:-90px;left:-70px;animation:float1 9s ease-in-out infinite;}
+.orb.b{width:300px;height:300px;background:rgba(150,110,60,.16);bottom:-90px;right:-70px;animation:float2 11s ease-in-out infinite;}
+@keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,26px)}}
+@keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(-28px,-24px)}}
+/* corner frames */
+.cf{position:fixed;width:52px;height:52px;border:2px solid rgba(227,193,121,.5);z-index:2;}
+.cf.tl{top:26px;left:26px;border-right:none;border-bottom:none;}
+.cf.tr{top:26px;right:26px;border-left:none;border-bottom:none;}
+.cf.bl{bottom:26px;left:26px;border-right:none;border-top:none;}
+.cf.br{bottom:26px;right:26px;border-left:none;border-top:none;}
+.wrap{position:relative;z-index:3;padding:40px 26px;max-width:560px;
+  opacity:0;transform:translateY(18px);animation:rise 1.1s cubic-bezier(.2,.7,.2,1) .1s forwards;}
+@keyframes rise{to{opacity:1;transform:none;}}
+.seal{width:96px;height:96px;margin:0 auto 30px;border-radius:50%;border:1px solid rgba(227,193,121,.5);
+  display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:34px;font-weight:700;
+  color:var(--gold);letter-spacing:.03em;background:radial-gradient(circle,rgba(227,193,121,.14),transparent 70%);
+  box-shadow:0 0 50px -8px rgba(227,193,121,.4);position:relative;}
+.seal::after{content:'';position:absolute;inset:-9px;border-radius:50%;border:1px solid rgba(227,193,121,.22);}
+.kicker{font-family:var(--mono);font-size:13px;letter-spacing:.42em;color:var(--gold);text-transform:uppercase;margin-bottom:22px;}
+.title{font-family:var(--serif);font-size:clamp(38px,10vw,62px);font-weight:700;line-height:1.12;letter-spacing:.01em;}
+.title .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.hair{width:64px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:26px auto;}
+.tagline{font-size:clamp(15px,4vw,17px);color:#C7C7D2;line-height:1.9;letter-spacing:.01em;}
+.tagline b{color:#EFEFF2;font-weight:600;}
+.enter{display:inline-flex;align-items:center;gap:12px;margin-top:38px;
+  background:var(--grad);color:#1a1200;font-size:18px;font-weight:800;letter-spacing:.02em;text-decoration:none;
+  padding:19px 52px;border-radius:100px;box-shadow:0 16px 44px -12px rgba(227,193,121,.6);
+  transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden;}
+.enter:hover{transform:translateY(-3px);box-shadow:0 22px 54px -12px rgba(227,193,121,.75);}
+.enter .arrow{transition:transform .2s;}
+.enter:hover .arrow{transform:translateX(4px);}
+.enter::before{content:'';position:absolute;top:0;left:-120%;width:60%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);
+  animation:sheen 3.4s ease-in-out infinite;}
+@keyframes sheen{0%{left:-120%}55%{left:150%}100%{left:150%}}
+.note{margin-top:20px;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:#6f6f7a;}
+</style></head>
+<body>
+  <div class="bg"></div>
+  <div class="orb a"></div><div class="orb b"></div>
+  <span class="cf tl"></span><span class="cf tr"></span><span class="cf bl"></span><span class="cf br"></span>
+
+  <div class="wrap">
+    <div class="seal">MC</div>
+    <div class="kicker">Premium · Members Only</div>
+    <h1 class="title">머니크루<br><span class="g">프리미엄 클래스</span></h1>
+    <div class="hair"></div>
+    <p class="tagline">소수 정예로 운영되는 <b>머니크루 프리미엄 클래스.</b><br>준비된 분만 입장하실 수 있습니다.</p>
+    <a class="enter" href="https://moneyfix.co.kr/shop_view/?idx=3" target="_top">입장하기 <span class="arrow">→</span></a>
+    <div class="note">MONEY CREW · PREMIUM CLASS</div>
+  </div>
+</body></html>
