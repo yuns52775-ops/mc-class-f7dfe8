@@ -1023,12 +1023,14 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
 <section class="ash-pad sch-sec-h">
   <div class="ash-wrap">
     <span class="sch-eyebrow">Starter Certificate</span>
-    <p class="sch-lead">오리엔테이션만 마쳐도 <b>스타터 인증서</b>가 발급됩니다. 지금 미리 이름을 새겨보세요.</p>
+    <p class="sch-lead">지금 바로 <b>스타터 인증서</b>를 발급해 보세요.</p>
     <button class="sch-open" id="sch-open" type="button" onclick="document.getElementById('sch-panel').hidden=false;this.style.display='none';var n=document.getElementById('sch-name');if(n){n.focus();}">🎓 스타터 인증서 발급하기</button>
 <style>
         .sch-box{margin:20px auto 6px;max-width:760px;text-align:center;}
         .sch-form{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:540px;margin:0 auto;}
-        .sch-form input{flex:1 1 200px;min-width:0;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:13px 16px;color:var(--text);font-family:inherit;font-size:14px;outline:none;transition:border-color .2s;}
+        .sch-field{flex:1 1 200px;min-width:0;text-align:left;}
+        .sch-field label{display:block;font-size:12.5px;font-weight:600;color:var(--text-dim);margin:0 0 7px 2px;letter-spacing:.02em;}
+        .sch-form input{width:100%;min-width:0;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:13px 16px;color:var(--text);font-family:inherit;font-size:14px;outline:none;transition:border-color .2s;box-sizing:border-box;}
         .sch-form input:focus{border-color:var(--gold);}
         .sch-form input::placeholder{color:var(--text-faint);}
         .sch-form input[type=date]{color-scheme:dark;}
@@ -1090,8 +1092,8 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
     <div id="sch-panel" hidden>
 <div class="sch-box">
           <div class="sch-form">
-            <input id="sch-name" type="text" placeholder="이름 (예: 홍길동)" maxlength="20" autocomplete="off">
-            <input id="sch-start" type="date" aria-label="수강 시작일">
+            <div class="sch-field"><label for="sch-name">이름</label><input id="sch-name" type="text" placeholder="예: 홍길동" maxlength="20" autocomplete="off"></div>
+            <div class="sch-field"><label for="sch-start">시작일</label><input id="sch-start" type="date" aria-label="수강 시작일"></div>
             <button class="sch-issue" id="sch-issue" type="button">스타터 인증서 발급받기 ✦</button>
           </div>
           <p class="sch-err" id="sch-err"></p>
