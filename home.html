@@ -565,7 +565,8 @@ body.ash-modal-lock{overflow:hidden;}
 .mcc-cert-signline{width:144px;height:1px;background:rgba(160,120,50,.5);margin:0 auto;}
 .mcc-cert-signrole{font-size:9.5px;color:#8b7748;margin-top:6px;letter-spacing:.1em;}
 .mcc-cert-signsvg{width:184px;height:auto;display:block;margin:0 auto 2px;}
-.mcc-cert-signimg{width:180px;height:auto;display:block;margin:0 auto 3px;}
+.mcc-cert-signimg{width:138px;height:auto;display:block;margin:0 auto 3px;}
+.mcc-cert-hold{position:relative;}
 .mcc-cert-course{display:inline-flex;align-items:center;gap:9px;margin:18px auto 0;font-size:12px;color:#6a5c38;letter-spacing:.02em;}
 .mcc-cert-course span{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.16em;color:#fff8ea;background:#a9791f;padding:3px 8px;border-radius:3px;}
 .mcc-cert-verify{margin-top:18px;padding-top:14px;border-top:1px solid rgba(160,120,50,.28);font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.04em;color:#9a8a5e;line-height:1.7;}
@@ -577,18 +578,8 @@ body.ash-modal-lock{overflow:hidden;}
   .mcc-tiers{grid-template-columns:1fr;max-width:300px;gap:14px;}
   .mcc-dia{flex-direction:column;text-align:center;padding:28px 22px;gap:16px;}
   .mcc-dia-desc{margin-left:auto;margin-right:auto;}
-  .mcc-cert-inner{padding:32px 20px 26px;}
-  .mcc-cert-title{font-size:32px;letter-spacing:.1em;}
-  .mcc-cert-name{font-size:30px;}
-  .mcc-cert-stmt{font-size:12.5px;line-height:1.9;}
-  .mcc-cert-stats{flex-direction:column;max-width:250px;}
-  .mcc-cert-stat + .mcc-cert-stat{border-left:0;border-top:1px solid rgba(160,120,50,.28);}
-  .mcc-cert-fl{width:38px;height:38px;top:16px;left:16px;}
-  .mcc-cert-fl.f2{right:16px;left:auto;}
-  .mcc-cert-fl.f3{bottom:16px;top:auto;}
-  .mcc-cert-fl.f4{bottom:16px;right:16px;top:auto;left:auto;}
-  .mcc-cert-foot{flex-direction:column;align-items:center;gap:18px;}
-  .mcc-cert-meta{text-align:center;align-items:center;}
+  .mcc-cert-hold{overflow:hidden;}
+  .mcc-cert-scaler{width:680px;}
 }
 .ash-final-cta{background:radial-gradient(130% 120% at 50% -12%,rgba(227,193,121,.10),transparent 55%),var(--bg);color:var(--text);text-align:center;padding:120px 0;position:relative;overflow:hidden;}
 .ash-final-cta .ash-bg-orb{display:none;}
@@ -1687,6 +1678,7 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
     </div>
 
     <p class="mcc-cert-lead ash-reveal">▼ 실제 발급되는 인증서는 이렇게 생겼습니다</p>
+    <div class="mcc-cert-hold"><div class="mcc-cert-scaler">
     <div class="mcc-cert ash-reveal">
       <div class="mcc-cert-inner">
         <div class="mcc-cert-wm"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="90" fill="none" stroke="#a9791f" stroke-width="2"/><circle cx="100" cy="100" r="78" fill="none" stroke="#a9791f" stroke-width="1"/><text x="100" y="131" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="92" font-weight="700" fill="#a9791f">MC</text></svg></div>
@@ -1723,10 +1715,28 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
           <div class="mcc-cert-verify">본 인증서는 머니크루가 공식 발급한 문서이며, 인증번호로 진위 여부를 확인할 수 있습니다 &nbsp;·&nbsp; VERIFY AT <b>moneyfix.co.kr</b></div>
         </div>
       </div>
-    </div>
+    </div></div></div>
     <p class="mcc-cert-note ash-reveal">✦ 인증서는 <b>고해상도 이미지</b>로 발급되어 SNS · 블로그 · 포트폴리오에 자유롭게 자랑할 수 있습니다.</p>
   </div>
 </section>
+<script>
+(function(){
+  function mccFit(){
+    var hold=document.querySelector('.mcc-cert-hold'), sc=document.querySelector('.mcc-cert-scaler');
+    if(!hold||!sc)return;
+    if(window.innerWidth<=720){
+      var W=hold.clientWidth, base=680, s=Math.min(1,W/base);
+      sc.style.transformOrigin='top left';
+      sc.style.transform='scale('+s+')';
+      sc.style.marginLeft=((W-base*s)/2)+'px';
+      hold.style.height=(sc.offsetHeight*s)+'px';
+    }else{ sc.style.transform=''; sc.style.marginLeft=''; hold.style.height=''; }
+  }
+  ['load','resize','orientationchange'].forEach(function(e){window.addEventListener(e,mccFit);});
+  if(document.readyState!=='loading')mccFit(); else document.addEventListener('DOMContentLoaded',mccFit);
+  setTimeout(mccFit,60); setTimeout(mccFit,500); setTimeout(mccFit,1200);
+})();
+</script>
 
 <!-- ===== FINAL CTA ===== -->
 <section class="ash-final-cta">
