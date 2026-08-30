@@ -654,6 +654,12 @@ body::before{
       <div class="lnk" data-target="v-canva"><span class="chk">✓</span><span class="lt">캔바로 썸네일·광고 이미지 만들기</span></div>
     </div>
 
+    <!-- Prompt Pack -->
+    <div class="mod">
+      <div class="mod-h"><span class="no">✦</span><span class="tt">실전 프롬프트팩<small>Copy &amp; Paste</small></span></div>
+      <div class="lnk" data-target="prompt-pack"><span class="chk">✓</span><span class="lt">🧰 바로 쓰는 프롬프트 모음</span></div>
+    </div>
+
     <!-- M8 -->
     <div class="mod">
       <div class="mod-h"><span class="no">9</span><span class="tt">도구 &amp; 마무리<small>Tools · Wrap-up</small></span></div>
@@ -3031,6 +3037,494 @@ body::before{
         <!--FOOT-->
       </article>
 
+      <!-- ===== PROMPT PACK ===== -->
+      <article class="lesson" id="prompt-pack">
+        <div class="pp-wrap">
+        <style>
+        #prompt-pack .pp-wrap{--pg:#E3C179;--ppbg:#0e0e12;--ppcard:#16161c;--pptext:#e9e7e2;--ppdim:#9a978f;--ppfaint:#6c6a64;--ppbd:rgba(255,255,255,.09);max-width:1000px;margin:0 auto;color:var(--pptext);}
+        #prompt-pack .pp-eyebrow{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.34em;color:var(--pg);text-transform:uppercase;}
+        #prompt-pack .pp-hd h1{font-size:clamp(28px,5vw,42px);font-weight:900;margin:12px 0 12px;letter-spacing:-.02em;color:#fff;line-height:1.15;}
+        #prompt-pack .pp-hd>p{font-size:15px;color:var(--ppdim);line-height:1.8;max-width:640px;margin:0 0 8px;}
+        #prompt-pack .pp-hd>p b{color:var(--pptext);}
+        #prompt-pack .pp-hint{display:flex;gap:10px;align-items:flex-start;background:rgba(227,193,121,.07);border:1px solid rgba(227,193,121,.22);border-radius:12px;padding:13px 16px;font-size:13.5px;color:var(--ppdim);line-height:1.65;margin:18px 0 22px;}
+        #prompt-pack .pp-hint b{color:var(--pg);}
+        #prompt-pack .pp-search{width:100%;box-sizing:border-box;background:var(--ppcard);border:1px solid var(--ppbd);border-radius:12px;padding:14px 16px;color:var(--pptext);font-size:15px;outline:none;transition:border-color .2s;}
+        #prompt-pack .pp-search:focus{border-color:rgba(227,193,121,.5);}
+        #prompt-pack .pp-search::placeholder{color:var(--ppfaint);}
+        #prompt-pack .pp-cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 8px;}
+        #prompt-pack .pp-chip{font-family:inherit;font-size:13px;font-weight:700;color:var(--ppdim);background:var(--ppcard);border:1px solid var(--ppbd);border-radius:999px;padding:8px 15px;cursor:pointer;transition:all .18s;white-space:nowrap;}
+        #prompt-pack .pp-chip:hover{color:var(--pptext);border-color:rgba(227,193,121,.4);}
+        #prompt-pack .pp-chip.active{color:#1a1200;background:linear-gradient(135deg,#f3d9a3,#E3C179);border-color:transparent;box-shadow:0 6px 18px -6px rgba(227,193,121,.5);}
+        #prompt-pack .pp-count{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ppfaint);margin:14px 0 18px;}
+        #prompt-pack .pp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+        #prompt-pack .pp-card{background:linear-gradient(165deg,rgba(255,255,255,.035),rgba(18,18,24,.5));border:1px solid var(--ppbd);border-radius:16px;padding:20px 20px 18px;display:flex;flex-direction:column;transition:border-color .2s,transform .2s;}
+        #prompt-pack .pp-card:hover{border-color:rgba(227,193,121,.32);transform:translateY(-3px);}
+        #prompt-pack .pp-c-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px;}
+        #prompt-pack .pp-tag{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--pg);background:rgba(227,193,121,.1);border:1px solid rgba(227,193,121,.24);border-radius:6px;padding:4px 9px;}
+        #prompt-pack .pp-copy{font-family:inherit;font-size:12.5px;font-weight:800;color:var(--pptext);background:rgba(255,255,255,.06);border:1px solid var(--ppbd);border-radius:8px;padding:7px 14px;cursor:pointer;transition:all .18s;white-space:nowrap;flex:none;}
+        #prompt-pack .pp-copy:hover{background:rgba(227,193,121,.16);border-color:rgba(227,193,121,.45);color:#fff;}
+        #prompt-pack .pp-copy.done{color:#1a1200;background:linear-gradient(135deg,#f3d9a3,#E3C179);border-color:transparent;}
+        #prompt-pack .pp-card h3{font-size:16.5px;font-weight:800;color:#fff;margin:0 0 6px;letter-spacing:-.01em;line-height:1.35;}
+        #prompt-pack .pp-desc{font-size:13px;color:var(--ppdim);line-height:1.6;margin:0 0 14px;}
+        #prompt-pack .pp-code{background:#0b0b0f;border:1px solid var(--ppbd);border-radius:10px;padding:14px 15px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12.5px;line-height:1.7;color:#cfccc4;white-space:pre-wrap;word-break:break-word;margin:auto 0 0;max-height:230px;overflow-y:auto;}
+        #prompt-pack .pp-code::-webkit-scrollbar{width:8px;}
+        #prompt-pack .pp-code::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:8px;}
+        #prompt-pack .pp-empty{display:none;text-align:center;color:var(--ppfaint);padding:50px 0;font-size:14px;}
+        #prompt-pack .pp-foot-note{margin-top:26px;text-align:center;font-size:13px;color:var(--ppfaint);line-height:1.7;}
+        @media(max-width:720px){#prompt-pack .pp-grid{grid-template-columns:1fr;}}
+        </style>
+
+        <header class="pp-hd">
+          <div class="pp-eyebrow">Prompt Pack</div>
+          <h1>바로 쓰는 실전 프롬프트팩</h1>
+          <p>수익화 <b>전 과정</b>에 필요한 프롬프트를 한곳에 모았습니다. <b>복사 → ChatGPT·Claude에 붙여넣기 → 대괄호 [ ] 안만 내 상황으로</b> 바꾸면 끝입니다.</p>
+          <div class="pp-hint">💡 <span><b>사용법</b> — 카드의 <b>복사</b> 버튼을 누르고 AI 채팅창에 그대로 붙여넣으세요. <b>[대괄호]</b> 부분만 내 주제·상품·타깃으로 바꾸면 결과가 확 달라집니다.</span></div>
+          <input class="pp-search" id="pp-search" type="text" placeholder="🔍 프롬프트 검색 — 예: 상세페이지, 후기, 네이밍, 광고">
+          <div class="pp-cats" id="pp-cats">
+            <button class="pp-chip active" data-cat="all">전체</button>
+            <button class="pp-chip" data-cat="item">아이템 발굴</button>
+            <button class="pp-chip" data-cat="market">고객·시장</button>
+            <button class="pp-chip" data-cat="product">상품 기획</button>
+            <button class="pp-chip" data-cat="sales">상세·카피</button>
+            <button class="pp-chip" data-cat="content">콘텐츠</button>
+            <button class="pp-chip" data-cat="ad">광고</button>
+            <button class="pp-chip" data-cat="image">이미지</button>
+            <button class="pp-chip" data-cat="cs">이메일·CS</button>
+            <button class="pp-chip" data-cat="auto">자동화</button>
+          </div>
+          <div class="pp-count" id="pp-count"></div>
+        </header>
+
+        <div class="pp-grid" id="pp-grid">
+
+          <div class="pp-card" data-cat="item">
+            <div class="pp-c-top"><span class="pp-tag">아이템 발굴</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>수익 아이템 30개 브레인스토밍</h3>
+            <p class="pp-desc">내 경험·관심사에서 지금 바로 팔 수 있는 상품을 한 번에.</p>
+            <pre class="pp-code">너는 디지털 부업 코치야. 내 상황을 보고 지금 바로 팔 수 있는 디지털 상품 아이디어 30개를 표로 만들어줘.
+
+- 나의 관심사/경험: [예: 엑셀, 육아, 다이어트]
+- 하루 투자 가능 시간: [예: 1시간]
+- 목표 월수익: [예: 100만원]
+
+각 아이디어마다 상품형태(전자책/템플릿/강의 등) · 예상 가격 · 타깃 고객 · 난이도(상/중/하)를 표로 정리하고, 난이도 '하'부터 정렬해줘.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="item">
+            <div class="pp-c-top"><span class="pp-tag">아이템 발굴</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>돈 되는 틈새 시장 찾기</h3>
+            <p class="pp-desc">경쟁이 덜한, 그런데 지갑은 여는 주제를 발굴.</p>
+            <pre class="pp-code">[관심 분야]에서 대기업이나 유명인이 잘 안 다루는 '틈새 주제' 10개를 찾아줘.
+
+각 주제마다 아래를 알려줘.
+- 왜 틈새인지 (경쟁이 적은 이유)
+- 어떤 사람이 돈을 내고 살지
+- 검색·커뮤니티로 수요를 무료로 확인하는 방법
+
+수익화가 쉬운 순서로 정렬해줘.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="item">
+            <div class="pp-c-top"><span class="pp-tag">아이템 발굴</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>수요 검증 질문 설계</h3>
+            <p class="pp-desc">만들기 전에 "진짜 팔릴까?"를 미리 확인.</p>
+            <pre class="pp-code">내가 만들려는 상품은 [상품 설명]이야.
+
+이게 진짜 팔릴지 검증하기 위해,
+1) 잠재 고객에게 직접 물어볼 질문 10개
+2) 온라인에서 수요를 무료로 확인하는 방법 5가지
+3) '이러면 만들지 말자'는 위험 신호 3가지
+를 알려줘.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="market">
+            <div class="pp-c-top"><span class="pp-tag">고객·시장</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>타깃 고객 페르소나 3명</h3>
+            <p class="pp-desc">누구에게 파는지 또렷해지면 카피가 쉬워진다.</p>
+            <pre class="pp-code">내 상품 [상품]의 이상적인 고객 페르소나를 3명 만들어줘.
+
+각 인물마다 아래를 구체적으로 써줘.
+- 이름 · 나이 · 직업 · 라이프스타일
+- 지금 겪고 있는 고민
+- 구매를 망설이는 이유
+- 무엇을 보면 '이거다' 하고 결심하는지
+
+마지막에, 3명 모두에게 통하는 한 문장 메시지도 제안해줘.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="market">
+            <div class="pp-c-top"><span class="pp-tag">고객·시장</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>경쟁사 분석 프레임</h3>
+            <p class="pp-desc">경쟁자의 약점이 곧 나의 기회.</p>
+            <pre class="pp-code">[경쟁 상품 또는 채널]을 분석해줘.
+
+표로 정리해줘.
+- 강점
+- 약점
+- 가격대
+- 고객이 남긴 불만 (내가 파고들 틈)
+
+그리고 내가 차별화할 수 있는 포인트 3가지를 제안해줘.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="market">
+            <div class="pp-c-top"><span class="pp-tag">고객·시장</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>고객 언어 수집</h3>
+            <p class="pp-desc">고객이 실제 쓰는 표현을 카피에 그대로.</p>
+            <pre class="pp-code">[타깃 고객]이 [고민 주제]에 대해 실제로 쓰는 표현·단어를 20개 뽑아줘.
+
+- 고객이 검색창에 칠 법한 문장 형태로
+- 감정이 드러나는 표현 위주로
+
+이 표현들을 상세페이지 헤드라인에 어떻게 쓰면 좋을지도 예시로 보여줘.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="product">
+            <div class="pp-c-top"><span class="pp-tag">상품 기획</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>전자책 목차 설계</h3>
+            <p class="pp-desc">팔리는 목차는 첫 장과 마지막 장이 다르다.</p>
+            <pre class="pp-code">주제 [주제]로 전자책을 만들 거야. 팔리는 목차를 설계해줘.
+
+- 챕터 5~7개, 각 챕터마다 소제목 3개씩
+- 첫 장은 '왜 이걸 지금 읽어야 하는가'로 시작
+- 마지막은 '바로 실행 체크리스트'로 마무리
+- 각 챕터가 다음 챕터를 궁금하게 만들도록 흐름 설계
+
+목차 옆에 각 챕터의 핵심 메시지도 한 줄씩 붙여줘.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="product">
+            <div class="pp-c-top"><span class="pp-tag">상품 기획</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>상품명·브랜드 네이밍</h3>
+            <p class="pp-desc">기억에 남고 검색되는 이름 20개.</p>
+            <pre class="pp-code">[상품 설명]에 어울리는 상품명 20개를 지어줘.
+
+- 절반은 무엇인지 바로 아는 '직관형'
+- 절반은 기억에 남는 '감성형'
+- 각 이름 옆에 한 줄 이유
+
+마지막에 가장 추천하는 3개와 그 이유를 알려줘.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="product">
+            <div class="pp-c-top"><span class="pp-tag">상품 기획</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>3단 가격 구성</h3>
+            <p class="pp-desc">가운데가 제일 많이 팔리게 만드는 설계.</p>
+            <pre class="pp-code">내 상품 [상품]을 베이직 / 스탠다드 / 프리미엄 3단 가격으로 설계해줘.
+
+- 각 티어에 무엇을 넣을지
+- 추천 가격 (근거 포함)
+- 가운데(스탠다드)가 가장 많이 팔리게 만드는 구성 팁
+- 프리미엄을 사고 싶게 만드는 '한 방' 요소
+
+표로 정리해줘.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="product">
+            <div class="pp-c-top"><span class="pp-tag">상품 기획</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>무료 미끼상품 설계</h3>
+            <p class="pp-desc">공짜로 주고 유료로 자연스럽게 연결.</p>
+            <pre class="pp-code">유료 상품 [상품]으로 이어지는 무료 미끼상품(리드마그넷) 아이디어 5개를 만들어줘.
+
+각각 아래를 포함해줘.
+- 형태 (체크리스트 / 미니 전자책 / 템플릿 등)
+- 끌리는 제목
+- 유료 상품으로 자연스럽게 넘어가는 연결고리
+
+가장 만들기 쉬우면서 효과 좋은 순서로.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="sales">
+            <div class="pp-c-top"><span class="pp-tag">상세·카피</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>상세페이지 전체 구성</h3>
+            <p class="pp-desc">후킹부터 구매 유도까지 순서대로 통째로.</p>
+            <pre class="pp-code">상품 [상품], 가격 [가격], 타깃 [타깃].
+구매로 이어지는 상세페이지 전체를 순서대로 실제 문장으로 써줘.
+
+1) 시선을 멈추는 헤드라인
+2) 공감 (고객의 진짜 고민)
+3) 해결책 제시
+4) 상품 소개 (무엇을 주는가)
+5) 얻게 될 결과 (before → after)
+6) 후기가 들어갈 자리 (예시 문구)
+7) 자주 묻는 질문
+8) 마지막 구매 유도 한 문단
+
+전체 톤은 신뢰가 가면서 친근하게.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="sales">
+            <div class="pp-c-top"><span class="pp-tag">상세·카피</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>헤드라인 10개</h3>
+            <p class="pp-desc">첫 문장이 클릭과 이탈을 가른다.</p>
+            <pre class="pp-code">상품 [상품]의 첫 문장(헤드라인) 10개를 써줘.
+
+- 궁금증 유발형 / 결과 약속형 / 공감형 / 숫자 강조형을 섞어서
+- 각 헤드라인은 30자 이내로
+
+가장 강력한 3개를 이유와 함께 표시해줘.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="sales">
+            <div class="pp-c-top"><span class="pp-tag">상세·카피</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>반론 처리 FAQ</h3>
+            <p class="pp-desc">망설이는 이유를 미리 풀어주면 결제한다.</p>
+            <pre class="pp-code">고객이 [상품] 구매 전에 망설이는 이유(비싸다 / 시간 없다 / 나도 될까 / 효과 있을까 등)를 예상해서,
+
+각 반론을 부드럽게 해소하는 FAQ 8개를 '질문 - 답변' 형식으로 써줘.
+답변은 방어적이지 않고, 오히려 신뢰를 높이는 방향으로.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="sales">
+            <div class="pp-c-top"><span class="pp-tag">상세·카피</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>제작자 스토리 소개글</h3>
+            <p class="pp-desc">내 이야기가 가장 강력한 세일즈다.</p>
+            <pre class="pp-code">신뢰를 주는 '제작자 소개' 글을 써줘.
+
+- 나의 배경/경험: [평범했던 나의 상황]
+- 계기: [무엇을 계기로 바뀌었는지]
+- 변화: [지금의 결과]
+
+'평범했던 나 → 계기 → 변화 → 그래서 이 상품을 만든 이유' 순서로,
+과장 없이 진솔하게. 마지막은 독자에게 건네는 한 마디로.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="sales">
+            <div class="pp-c-top"><span class="pp-tag">상세·카피</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>후기 요청 메시지</h3>
+            <p class="pp-desc">부담 없이 좋은 후기를 받아내는 문장.</p>
+            <pre class="pp-code">구매 고객에게 진심 어린 후기를 부탁하는 메시지를 써줘.
+
+- 부담스럽지 않게, 짧게
+- 무엇을 써주면 좋은지 3가지 질문을 곁들여서
+- 정중하지만 친근한 말투로
+
+문자/카톡으로 바로 보낼 수 있게 완성된 형태로.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="content">
+            <div class="pp-c-top"><span class="pp-tag">콘텐츠</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>SEO 블로그 글</h3>
+            <p class="pp-desc">검색 상위를 노리는 글 한 편.</p>
+            <pre class="pp-code">키워드 [키워드]로 검색 상위를 노리는 블로그 글을 써줘.
+
+- 제목 후보 3개
+- 소제목(H2) 구성
+- 본문 1500자 내외
+- 마지막에 자연스러운 상품 언급
+
+초등학생도 이해할 만큼 쉬운 말투로, 문단은 짧게.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="content">
+            <div class="pp-c-top"><span class="pp-tag">콘텐츠</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>인스타·스레드 캡션</h3>
+            <p class="pp-desc">첫 줄에서 스크롤을 멈추게.</p>
+            <pre class="pp-code">상품 [상품]을 홍보하는 SNS 캡션 5개를 써줘.
+
+- 첫 줄에서 스크롤을 멈추게 하는 훅
+- 이모지는 적당히
+- 마지막에 행동 유도 한 줄
+- 어울리는 해시태그 10개
+
+각 캡션은 서로 다른 각도로.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="content">
+            <div class="pp-c-top"><span class="pp-tag">콘텐츠</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>유튜브 제목·오프닝</h3>
+            <p class="pp-desc">클릭을 부르는 제목과 이탈 막는 첫 15초.</p>
+            <pre class="pp-code">주제 [주제]로 유튜브 영상을 만들 거야.
+
+1) 클릭을 부르는 제목 10개
+2) 첫 15초 안에 이탈을 막는 오프닝 대본 3가지 버전
+
+썸네일에 넣을 짧은 문구도 5개 제안해줘.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="content">
+            <div class="pp-c-top"><span class="pp-tag">콘텐츠</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>릴스·숏폼 훅 10개</h3>
+            <p class="pp-desc">첫 3초가 조회수를 결정한다.</p>
+            <pre class="pp-code">[주제]에 대한 릴스 첫 3초 훅 문장 10개를 써줘.
+
+- 스크롤을 멈추게 만드는 강한 한 문장
+- 각기 다른 각도로 (충격 / 공감 / 호기심 / 반전)
+
+각 훅에 이어질 내용 한 줄 요약도 붙여줘.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="ad">
+            <div class="pp-c-top"><span class="pp-tag">광고</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>광고 문구 세트</h3>
+            <p class="pp-desc">짧은 카피부터 긴 카피까지 한 세트.</p>
+            <pre class="pp-code">상품 [상품], 타깃 [타깃].
+광고 문구를 만들어줘.
+
+- 짧은 카피 5개 (각 20자 이내)
+- 긴 카피 3개 (각 3~4문장)
+
+클릭하고 싶게 만드는 후킹 위주로. 과장 광고 표현은 피해줘.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="ad">
+            <div class="pp-c-top"><span class="pp-tag">광고</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>타깃별 카피 변형</h3>
+            <p class="pp-desc">같은 상품, 다른 사람에겐 다른 말로.</p>
+            <pre class="pp-code">같은 상품 [상품]을 서로 다른 3가지 고객층에게 각각 다르게 소개하는 광고 문구를 써줘.
+
+고객층: [A] / [B] / [C]
+
+각 문구가 그 사람의 언어와 고민에 정확히 꽂히게. 각 3~4문장.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="image">
+            <div class="pp-c-top"><span class="pp-tag">이미지</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>대표 이미지 생성 프롬프트</h3>
+            <p class="pp-desc">미드저니·DALL·E용 영어 프롬프트 자동 생성.</p>
+            <pre class="pp-code">이미지 생성 AI(미드저니 / DALL·E)에 넣을 영어 프롬프트를 만들어줘.
+
+- 용도: [상품] 상세페이지 대표 이미지
+- 원하는 분위기: [예: 깔끔한 / 고급스러운 / 따뜻한]
+
+결과는 영어 프롬프트로 3가지 버전. 색감·조명·구도·스타일을 구체적으로 넣어줘.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="image">
+            <div class="pp-c-top"><span class="pp-tag">이미지</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>상세컷 이미지 5장 기획</h3>
+            <p class="pp-desc">어떤 이미지를 만들지부터 프롬프트까지.</p>
+            <pre class="pp-code">[상품]의 상세페이지에 들어갈 이미지 5장을 기획해줘.
+
+각 컷마다
+- 컨셉 (예: 문제 상황컷 / 결과컷 / 사용 장면컷)
+- 영어 생성 프롬프트
+
+한국형 상세페이지 흐름에 맞춰 순서대로.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="cs">
+            <div class="pp-c-top"><span class="pp-tag">이메일·CS</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>구매 감사 이메일</h3>
+            <p class="pp-desc">첫 인상을 좋게, 다음 행동까지 안내.</p>
+            <pre class="pp-code">상품 [상품]을 구매한 고객에게 보내는 감사 이메일을 써줘.
+
+- 따뜻한 인사
+- 상품 이용 첫 단계 안내
+- 마지막에 자연스럽게 후기 또는 다음 상품 언급
+
+바로 복붙해서 보낼 수 있게 완성형으로.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="cs">
+            <div class="pp-c-top"><span class="pp-tag">이메일·CS</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>CS 답변 템플릿</h3>
+            <p class="pp-desc">자주 오는 문의 5종 답변을 미리.</p>
+            <pre class="pp-code">자주 오는 문의 5가지(환불 / 사용법 / 전달·배송 / 오류 / 추가 질문)에 대한
+정중하고 신뢰가 가는 CS 답변 템플릿을 각각 만들어줘.
+
+- 복붙해서 바로 쓸 수 있게
+- 필요한 부분은 [   ]로 비워서</pre>
+          </div>
+
+          <div class="pp-card" data-cat="cs">
+            <div class="pp-c-top"><span class="pp-tag">이메일·CS</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>재구매 유도 메시지</h3>
+            <p class="pp-desc">한 번 산 고객이 가장 좋은 고객.</p>
+            <pre class="pp-code">한 번 구매한 고객에게 다음 상품 [상품2]를 제안하는 메시지를 써줘.
+
+- 강매 느낌 없이
+- 이미 산 상품과 어떻게 연결되는지 설명
+- 특별 혜택을 곁들여서
+
+정중하지만 설레게 만드는 톤으로.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="auto">
+            <div class="pp-c-top"><span class="pp-tag">자동화</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>30일 콘텐츠 캘린더</h3>
+            <p class="pp-desc">매일 뭘 올릴지 고민 끝.</p>
+            <pre class="pp-code">[주제 또는 상품] 홍보를 위한 30일 SNS 콘텐츠 캘린더를 표로 만들어줘.
+
+각 날짜마다
+- 콘텐츠 주제
+- 형식 (글 / 이미지 / 릴스)
+- 한 줄 카피 아이디어
+
+요일별로 리듬 있게 (예: 월-정보, 수-후기, 금-혜택).</pre>
+          </div>
+
+          <div class="pp-card" data-cat="auto">
+            <div class="pp-c-top"><span class="pp-tag">자동화</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>업무 자동화 진단</h3>
+            <p class="pp-desc">반복 작업을 AI·도구로 줄이는 법.</p>
+            <pre class="pp-code">1인 디지털 사업을 하는데, 아래 업무들을 자동화하거나 AI로 줄이고 싶어.
+
+- 내 반복 업무: [업무 나열]
+
+우선순위를 매겨서, 각 업무를 어떻게 자동화할지와
+추천 도구(무료/유료)를 함께 알려줘.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="auto">
+            <div class="pp-c-top"><span class="pp-tag">자동화</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>하루 실행 루틴 설계</h3>
+            <p class="pp-desc">본업 있어도 굴러가는 현실 루틴.</p>
+            <pre class="pp-code">본업이 있고 하루 [시간]시간만 쓸 수 있어.
+
+[목표: 예 3개월 안에 첫 매출]를 위한
+요일별·시간대별 실행 루틴을 현실적으로 짜줘.
+
+- 무리하지 않게
+- 매주 조금씩 쌓이도록
+- 주말 활용법도 포함</pre>
+          </div>
+
+        </div>
+        <div class="pp-empty" id="pp-empty">검색 결과가 없어요. 다른 단어로 찾아보세요.</div>
+        <p class="pp-foot-note">✦ 프롬프트는 계속 추가됩니다. 결과가 아쉬우면 <b>“더 구체적으로, 예시 3개 들어서 다시”</b>라고 이어서 요청해 보세요.</p>
+        </div>
+        <!--FOOT-->
+      </article>
+
+      <script>
+      (function(){
+        var pp=document.getElementById('prompt-pack'); if(!pp)return;
+        var cards=[].slice.call(pp.querySelectorAll('.pp-card'));
+        var chips=[].slice.call(pp.querySelectorAll('.pp-chip'));
+        var search=pp.querySelector('#pp-search');
+        var countEl=pp.querySelector('#pp-count');
+        var emptyEl=pp.querySelector('#pp-empty');
+        var curCat='all';
+        function fallbackCopy(txt){var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.top='-9999px';document.body.appendChild(ta);ta.focus();ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
+        pp.addEventListener('click',function(e){
+          var b=e.target.closest('.pp-copy'); if(!b)return;
+          var card=b.closest('.pp-card'); var code=card.querySelector('.pp-code');
+          var txt=code.innerText;
+          function ok(){b.textContent='복사됨 ✓';b.classList.add('done');setTimeout(function(){b.textContent='복사';b.classList.remove('done');},1500);}
+          if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,function(){fallbackCopy(txt);ok();});}
+          else{fallbackCopy(txt);ok();}
+        });
+        function apply(){
+          var q=(search.value||'').trim().toLowerCase();
+          var shown=0;
+          cards.forEach(function(c){
+            var okCat=curCat==='all'||c.getAttribute('data-cat')===curCat;
+            var okQ=!q||c.textContent.toLowerCase().indexOf(q)>=0;
+            var vis=okCat&&okQ;
+            c.style.display=vis?'':'none';
+            if(vis)shown++;
+          });
+          if(countEl)countEl.textContent=shown+'개 프롬프트';
+          if(emptyEl)emptyEl.style.display=shown?'none':'block';
+        }
+        chips.forEach(function(ch){ch.addEventListener('click',function(){chips.forEach(function(x){x.classList.remove('active');});ch.classList.add('active');curCat=ch.getAttribute('data-cat');apply();});});
+        if(search)search.addEventListener('input',apply);
+        apply();
+      })();
+      </script>
+
+
     </div>
   </main>
 </div>
@@ -3066,7 +3560,7 @@ body::before{
   function linkFor(id){return links.filter(function(a){return a.getAttribute('data-target')===id;})[0];}
 
   function updateProgress(){
-    var total=order.filter(function(x){return x!=='ot-cert';}).length, n=0;
+    var total=order.filter(function(x){return x!=='ot-cert'&&x!=='prompt-pack';}).length, n=0;
     order.forEach(function(id){if(done[id])n++;});
     var pct=total?Math.round(n/total*100):0;
     document.getElementById('progbar').style.width=pct+'%';
@@ -3086,7 +3580,7 @@ body::before{
     var cur=document.getElementById(id);
     var idx=order.indexOf(id);
     var pv=cur.querySelector('.pv'), nx=cur.querySelector('.nx'), db=cur.querySelector('.l-done-btn');
-    if(db && id==='ot-cert'){db.style.display='none';db=null;}
+    if(db && (id==='ot-cert'||id==='prompt-pack')){db.style.display='none';db=null;}
     if(pv){pv.disabled=idx<=0; pv.onclick=function(){if(idx>0)show(order[idx-1],true);};}
     if(nx){nx.disabled=idx>=order.length-1; nx.onclick=function(){if(idx<order.length-1)show(order[idx+1],true);};}
     if(db){
