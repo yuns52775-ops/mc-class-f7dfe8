@@ -658,6 +658,7 @@ body::before{
     <div class="mod">
       <div class="mod-h"><span class="no">✦</span><span class="tt">실전 프롬프트팩<small>Copy &amp; Paste</small></span></div>
       <div class="lnk" data-target="prompt-pack"><span class="chk">✓</span><span class="lt">🧰 바로 쓰는 프롬프트 모음</span></div>
+      <div class="lnk" data-target="ai-guide"><span class="chk">✓</span><span class="lt">🤖 AI별 사용법 (설치·접속·따라하기)</span></div>
     </div>
 
     <!-- M8 -->
@@ -4609,6 +4610,262 @@ body::before{
         apply();
       })();
       </script>
+
+      <article class="lesson" id="ai-guide">
+        <div class="aig">
+        <style>
+        #ai-guide .aig{--ag:#E3C179;--agtext:#e9e7e2;--agdim:#9a978f;--agfaint:#6c6a64;--agcard:#16161c;--agbd:rgba(255,255,255,.09);max-width:1000px;margin:0 auto;color:var(--agtext);}
+        #ai-guide .aig-eyebrow{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.34em;color:var(--ag);text-transform:uppercase;}
+        #ai-guide .aig-hd h1{font-size:clamp(28px,5vw,42px);font-weight:900;margin:12px 0 12px;letter-spacing:-.02em;color:#fff;line-height:1.15;}
+        #ai-guide .aig-hd>p{font-size:15px;color:var(--agdim);line-height:1.85;max-width:660px;margin:0 0 8px;}
+        #ai-guide .aig-hd>p b{color:var(--agtext);}
+        #ai-guide .aig-quick{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0 14px;}
+        #ai-guide .aig-qstep{background:linear-gradient(165deg,rgba(227,193,121,.09),rgba(18,18,24,.4));border:1px solid rgba(227,193,121,.2);border-radius:14px;padding:16px 16px;}
+        #ai-guide .aig-qstep .qn{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:700;color:#1a1200;background:linear-gradient(135deg,#f3d9a3,#E3C179);border-radius:7px;padding:3px 9px;display:inline-block;margin-bottom:9px;}
+        #ai-guide .aig-qstep b{display:block;color:#fff;font-size:14.5px;margin-bottom:4px;}
+        #ai-guide .aig-qstep span{font-size:12.5px;color:var(--agdim);line-height:1.6;}
+        #ai-guide .aig-note{display:flex;gap:10px;align-items:flex-start;background:rgba(227,193,121,.06);border:1px solid rgba(227,193,121,.2);border-radius:12px;padding:13px 16px;font-size:13px;color:var(--agdim);line-height:1.7;margin:14px 0 30px;}
+        #ai-guide .aig-note b{color:var(--ag);}
+        #ai-guide .aig-cat{margin:38px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--agbd);}
+        #ai-guide .aig-cat .ct{font-size:20px;font-weight:900;color:#fff;letter-spacing:-.01em;}
+        #ai-guide .aig-cat .cs{font-size:13px;color:var(--agdim);margin-top:5px;line-height:1.6;}
+        #ai-guide .aig-card{background:linear-gradient(165deg,rgba(255,255,255,.035),rgba(18,18,24,.5));border:1px solid var(--agbd);border-radius:18px;padding:22px 22px 20px;margin-bottom:16px;}
+        #ai-guide .aig-card.rec{border-color:rgba(227,193,121,.4);box-shadow:0 0 0 1px rgba(227,193,121,.12);}
+        #ai-guide .aig-ch{display:flex;align-items:center;gap:13px;margin-bottom:13px;}
+        #ai-guide .aig-logo{width:46px;height:46px;flex:none;border-radius:12px;background:rgba(227,193,121,.1);border:1px solid rgba(227,193,121,.24);display:flex;align-items:center;justify-content:center;font-size:24px;}
+        #ai-guide .aig-name{flex:1;min-width:0;}
+        #ai-guide .aig-name b{display:block;font-size:18px;font-weight:900;color:#fff;letter-spacing:-.01em;}
+        #ai-guide .aig-name b .en{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;color:var(--agfaint);letter-spacing:.04em;margin-left:7px;}
+        #ai-guide .aig-name .role{font-size:12.5px;color:var(--agdim);margin-top:3px;line-height:1.5;}
+        #ai-guide .aig-recpill{flex:none;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.06em;color:#1a1200;background:linear-gradient(135deg,#f3d9a3,#E3C179);border-radius:999px;padding:5px 10px;}
+        #ai-guide .aig-badges{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:15px;}
+        #ai-guide .aig-badge{font-size:11.5px;font-weight:700;border-radius:7px;padding:5px 10px;border:1px solid var(--agbd);color:var(--agdim);background:rgba(255,255,255,.03);}
+        #ai-guide .aig-badge.free{color:#7fd6a2;border-color:rgba(127,214,162,.35);background:rgba(127,214,162,.08);}
+        #ai-guide .aig-badge.paid{color:#e6b96b;border-color:rgba(230,185,107,.35);background:rgba(230,185,107,.08);}
+        #ai-guide .aig-links{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:16px;}
+        #ai-guide .aig-link{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:800;text-decoration:none;color:#1a1200;background:linear-gradient(135deg,#f3d9a3,#E3C179);border-radius:10px;padding:10px 16px;transition:transform .15s,box-shadow .15s;box-shadow:0 6px 16px -8px rgba(227,193,121,.5);}
+        #ai-guide .aig-link:hover{transform:translateY(-2px);box-shadow:0 10px 22px -8px rgba(227,193,121,.65);}
+        #ai-guide .aig-link.alt{color:var(--agtext);background:rgba(255,255,255,.06);border:1px solid var(--agbd);box-shadow:none;}
+        #ai-guide .aig-link.alt:hover{background:rgba(227,193,121,.14);border-color:rgba(227,193,121,.45);color:#fff;}
+        #ai-guide .aig-sub{font-size:13px;color:var(--agdim);line-height:1.7;margin:0 0 12px;padding:11px 14px;background:rgba(255,255,255,.025);border:1px solid var(--agbd);border-radius:10px;}
+        #ai-guide .aig-sub b{color:var(--agtext);}
+        #ai-guide .aig-steps{margin:0;padding:0;list-style:none;counter-reset:agstep;}
+        #ai-guide .aig-steps>li{counter-increment:agstep;position:relative;padding:0 0 12px 40px;font-size:14px;color:var(--agtext);line-height:1.7;}
+        #ai-guide .aig-steps>li::before{content:counter(agstep);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:8px;background:rgba(227,193,121,.12);border:1px solid rgba(227,193,121,.3);color:var(--ag);font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+        #ai-guide .aig-steps>li:last-child{padding-bottom:0;}
+        #ai-guide .aig-steps b{color:#fff;}
+        #ai-guide .aig-steps .k{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ag);background:rgba(227,193,121,.1);border:1px solid rgba(227,193,121,.22);border-radius:6px;padding:1px 7px;}
+        #ai-guide .aig-tip{display:flex;gap:9px;align-items:flex-start;margin-top:15px;font-size:13px;color:var(--agdim);line-height:1.7;border-top:1px dashed var(--agbd);padding-top:14px;}
+        #ai-guide .aig-tip b{color:var(--ag);}
+        #ai-guide .aig-wrap-tip{background:linear-gradient(165deg,rgba(227,193,121,.1),rgba(18,18,24,.4));border:1px solid rgba(227,193,121,.28);border-radius:16px;padding:22px 22px;margin:34px 0 8px;}
+        #ai-guide .aig-wrap-tip h3{font-size:17px;font-weight:900;color:#fff;margin:0 0 14px;}
+        #ai-guide .aig-combo{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px;}
+        #ai-guide .aig-combo div{background:rgba(255,255,255,.03);border:1px solid var(--agbd);border-radius:11px;padding:13px 14px;font-size:13px;line-height:1.6;color:var(--agdim);}
+        #ai-guide .aig-combo div b{display:block;color:var(--ag);font-size:12px;font-family:'IBM Plex Mono',monospace;letter-spacing:.08em;margin-bottom:5px;}
+        #ai-guide .aig-combo div span{color:var(--agtext);font-weight:700;}
+        #ai-guide .aig-warn{margin:0;padding:0;list-style:none;}
+        #ai-guide .aig-warn li{position:relative;padding:0 0 10px 24px;font-size:13.5px;color:var(--agtext);line-height:1.7;}
+        #ai-guide .aig-warn li::before{content:'⚠';position:absolute;left:0;top:0;color:var(--ag);font-size:13px;}
+        #ai-guide .aig-warn li:last-child{padding-bottom:0;}
+        #ai-guide .aig-warn b{color:#fff;}
+        @media(max-width:720px){
+          #ai-guide .aig-quick{grid-template-columns:1fr;}
+          #ai-guide .aig-combo{grid-template-columns:1fr;}
+          #ai-guide .aig-card{padding:18px 16px 16px;}
+        }
+        </style>
+
+        <header class="aig-hd">
+          <div class="aig-eyebrow">How to use · AI 사용법</div>
+          <h1>AI별 사용법 — 설치부터 따라 하기</h1>
+          <p>프롬프트팩에서 복사한 프롬프트를 <b>어디에, 어떻게 넣는지</b> 완전 초보 기준으로 정리했어요. AI마다 <b>접속 링크·설치 여부·무료/유료·단계별 사용법</b>을 그대로 따라 하시면 됩니다.</p>
+
+          <div class="aig-quick">
+            <div class="aig-qstep"><span class="qn">STEP 1</span><b>프롬프트 복사</b><span>프롬프트팩 카드의 <b style="color:#fff">복사</b> 버튼을 누르세요.</span></div>
+            <div class="aig-qstep"><span class="qn">STEP 2</span><b>맞는 AI 열기</b><span>카드에 적힌 <b style="color:#fff">추천 AI</b>를 아래 링크로 열어 로그인.</span></div>
+            <div class="aig-qstep"><span class="qn">STEP 3</span><b>붙여넣고 수정</b><span>입력창에 붙여넣고 <b style="color:#fff">[대괄호]</b>만 내 상황으로 바꿔 실행.</span></div>
+          </div>
+          <div class="aig-note">💡 <span><b>거의 다 '설치 없이' 웹사이트 접속만으로</b> 됩니다(스마트폰만 앱 설치). 요금·화면은 수시로 바뀔 수 있으니, <b>결제 전 금액을 꼭 확인</b>하세요. 처음엔 <b>무료 도구부터</b> 연습하는 걸 추천해요.</span></div>
+        </header>
+
+        <!-- ============ 글쓰기 AI ============ -->
+        <div class="aig-cat">
+          <div class="ct">✍️ 글쓰기 AI</div>
+          <div class="cs">프롬프트팩 <b style="color:#e9e7e2">'글'</b> 카드 전용 · 아이디어·기획·카피·요약·이메일. 두 개 다 무료라 같은 프롬프트를 양쪽에 넣어보고 더 나은 걸 쓰세요.</div>
+        </div>
+
+        <div class="aig-card rec">
+          <div class="aig-ch">
+            <div class="aig-logo">💬</div>
+            <div class="aig-name"><b>ChatGPT <span class="en">챗지피티 · OpenAI</span></b><div class="role">가장 대중적인 대화형 AI. 글·기획·아이디어 만능.</div></div>
+            <span class="aig-recpill">입문 추천</span>
+          </div>
+          <div class="aig-badges"><span class="aig-badge free">무료로 시작</span><span class="aig-badge">웹 + 스마트폰 앱</span><span class="aig-badge">설치 안 해도 됨(웹)</span></div>
+          <div class="aig-links"><a class="aig-link" href="https://chatgpt.com" target="_blank" rel="noopener">🔗 열기 · chatgpt.com</a></div>
+          <ol class="aig-steps">
+            <li><b>컴퓨터:</b> 인터넷 주소창에 <span class="k">chatgpt.com</span> 입력 → 접속. <b>스마트폰:</b> 앱스토어·플레이스토어에서 <b>"ChatGPT"</b> 검색해 설치(만든 곳이 <b>OpenAI</b>인지 꼭 확인).</li>
+            <li>"로그인 / 회원가입" → <b>구글 계정</b>이나 이메일로 무료 가입(1분이면 끝).</li>
+            <li>화면 <b>아래 긴 입력창</b>에 프롬프트팩에서 복사한 내용을 붙여넣기(컴퓨터 <span class="k">Ctrl+V</span>, 폰은 입력창 꾹 눌러 '붙여넣기').</li>
+            <li>프롬프트 안의 <b>[대괄호]</b> 부분만 내 주제·상품·타깃으로 바꾸기.</li>
+            <li><span class="k">Enter</span>(또는 종이비행기 ▶ 버튼) → 잠깐 기다리면 답변이 완성돼요.</li>
+            <li>아쉬우면 바로 아래에 <b>"더 구체적으로, 예시 3개 넣어서 다시"</b>처럼 이어서 대화하면 점점 좋아져요.</li>
+          </ol>
+          <div class="aig-tip">💰 <span><b>요금</b> — 무료로 충분히 사용. 최신·고성능 모델과 빠른 속도는 유료 <b>Plus 월 약 $20(≈2.9만원)</b>. 처음엔 무료로 시작하세요.</span></div>
+        </div>
+
+        <div class="aig-card">
+          <div class="aig-ch">
+            <div class="aig-logo">🟠</div>
+            <div class="aig-name"><b>Claude <span class="en">클로드 · Anthropic</span></b><div class="role">자연스러운 한국어 글·긴 문서·상세페이지 카피에 강함.</div></div>
+          </div>
+          <div class="aig-badges"><span class="aig-badge free">무료로 시작</span><span class="aig-badge">웹 + 스마트폰 앱</span><span class="aig-badge">설치 안 해도 됨(웹)</span></div>
+          <div class="aig-links"><a class="aig-link" href="https://claude.ai" target="_blank" rel="noopener">🔗 열기 · claude.ai</a></div>
+          <ol class="aig-steps">
+            <li>주소창에 <span class="k">claude.ai</span> 입력(스마트폰은 <b>"Claude"</b> 앱 검색, 만든 곳 <b>Anthropic</b> 확인).</li>
+            <li><b>구글 계정</b>·이메일로 무료 가입.</li>
+            <li>입력창에 프롬프트 붙여넣기 → <b>[대괄호]</b> 수정 → <span class="k">Enter</span>.</li>
+            <li>엑셀·PDF·이미지 파일은 <b>클립(📎) 버튼</b>으로 첨부해 "이거 요약/분석해줘"도 가능.</li>
+            <li>이어서 <b>"표로 정리해줘", "더 짧게"</b>처럼 말하면 원하는 형태로 다듬어져요.</li>
+          </ol>
+          <div class="aig-tip">💰 <span><b>요금</b> — 무료 사용 가능. 더 많이·길게 쓰려면 유료 <b>Pro 월 약 $20(≈2.9만원)</b>. 긴 글·정중한 이메일·상세페이지는 Claude가 특히 자연스러워요.</span></div>
+        </div>
+
+        <!-- ============ 이미지 AI ============ -->
+        <div class="aig-cat">
+          <div class="ct">🎨 이미지(사진) AI</div>
+          <div class="cs">프롬프트팩 <b style="color:#e9e7e2">'사진'</b> 카드 전용 · 대표컷·썸네일·광고 이미지. 영어 프롬프트를 그대로 넣으면 더 정확해요. <b style="color:#e9e7e2">무료인 나노바나나부터</b> 연습하는 걸 추천!</div>
+        </div>
+
+        <div class="aig-card rec">
+          <div class="aig-ch">
+            <div class="aig-logo">🍌</div>
+            <div class="aig-name"><b>나노바나나 <span class="en">Nano Banana · Google Gemini</span></b><div class="role">구글 제미나이의 이미지 기능. 가장 쉽고 무료 · 한국어 OK.</div></div>
+            <span class="aig-recpill">사진 입문 추천</span>
+          </div>
+          <div class="aig-badges"><span class="aig-badge free">무료</span><span class="aig-badge">웹 + 앱</span><span class="aig-badge">한국어로도 OK</span><span class="aig-badge">설치 안 해도 됨(웹)</span></div>
+          <div class="aig-links"><a class="aig-link" href="https://gemini.google.com" target="_blank" rel="noopener">🔗 열기 · gemini.google.com</a></div>
+          <div class="aig-sub">ℹ️ <b>'나노바나나'</b>는 구글 <b>제미나이(Gemini)</b>의 이미지 생성 기능 별명이에요. 따로 설치할 게 없고 <b>제미나이 안에서</b> 사용합니다.</div>
+          <ol class="aig-steps">
+            <li>주소창에 <span class="k">gemini.google.com</span> 입력(스마트폰은 <b>"Gemini"</b> 앱 검색·설치).</li>
+            <li>이미 쓰는 <b>구글(지메일) 계정</b>으로 로그인 — 새로 가입 안 해도 돼요.</li>
+            <li>입력창에 <b>"다음 느낌의 이미지를 만들어줘:"</b>라고 쓰고, 프롬프트팩 '사진' 카드의 <b>영어 프롬프트</b>를 붙여넣기.</li>
+            <li>잠시 후 이미지 생성 → 마음에 안 들면 <b>"더 밝게", "배경을 카페로"</b>처럼 말로 수정.</li>
+            <li>이미지에서 <b>다운로드/저장</b>(우측 하단 아이콘 또는 이미지 꾹 누르기).</li>
+            <li>내 사진을 올리고 <b>"이 사진 배경만 바꿔줘"</b>처럼 편집도 가능해요.</li>
+          </ol>
+          <div class="aig-tip">💡 <span><b>팁</b> — 한국어로 말해도 되지만, 프롬프트팩의 <b>영어 프롬프트</b>를 그대로 넣으면 훨씬 정확하게 나와요. 무료(하루 사용량 제한이 있을 수 있음).</span></div>
+        </div>
+
+        <div class="aig-card">
+          <div class="aig-ch">
+            <div class="aig-logo">🖌️</div>
+            <div class="aig-name"><b>DALL·E <span class="en">달리 · OpenAI</span></b><div class="role">무료로 여러 장 뽑기 좋은 이미지 AI(Bing으로 무료 사용).</div></div>
+          </div>
+          <div class="aig-badges"><span class="aig-badge free">무료(Bing)</span><span class="aig-badge">웹</span><span class="aig-badge">설치 안 해도 됨</span></div>
+          <div class="aig-links"><a class="aig-link" href="https://www.bing.com/images/create" target="_blank" rel="noopener">🔗 무료로 열기 · Bing 이미지 크리에이터</a><a class="aig-link alt" href="https://copilot.microsoft.com" target="_blank" rel="noopener">🔗 copilot.microsoft.com</a></div>
+          <div class="aig-sub">ℹ️ DALL·E는 ChatGPT 안에서 "~그려줘"로도 쓰지만, <b>무료로 여러 장</b> 뽑으려면 마이크로소프트의 <b>'Bing 이미지 크리에이터'</b>가 편해요(엔진이 DALL·E).</div>
+          <ol class="aig-steps">
+            <li>주소창에 <span class="k">bing.com/images/create</span> 입력.</li>
+            <li>우측 위 <b>"로그인"</b> → 마이크로소프트 계정(없으면 이메일로 무료 가입).</li>
+            <li>입력창에 프롬프트팩 '사진' <b>영어 프롬프트</b> 붙여넣기 → <b>"만들기(Create)"</b>.</li>
+            <li>이미지 4장 생성 → 마음에 드는 것 클릭 → <b>"다운로드"</b>로 저장.</li>
+            <li>ChatGPT <b>유료(Plus)</b> 쓰는 분은 ChatGPT에 "~한 이미지 그려줘"라고만 해도 DALL·E가 그려줘요.</li>
+          </ol>
+          <div class="aig-tip">💡 <span><b>팁</b> — 무료로 <b>시안 여러 개</b>를 빠르게 뽑아 고를 때 좋아요(무료 빠른 생성 크레딧 소진 시 조금 느려짐).</span></div>
+        </div>
+
+        <div class="aig-card">
+          <div class="aig-ch">
+            <div class="aig-logo">⛵</div>
+            <div class="aig-name"><b>미드저니 <span class="en">Midjourney</span></b><div class="role">퀄리티 최상급. 광고·상세페이지 '대표컷'에 추천(유료).</div></div>
+          </div>
+          <div class="aig-badges"><span class="aig-badge paid">유료(무료 없음)</span><span class="aig-badge">웹(+디스코드)</span><span class="aig-badge">설치 안 해도 됨(웹)</span></div>
+          <div class="aig-links"><a class="aig-link" href="https://www.midjourney.com" target="_blank" rel="noopener">🔗 열기 · midjourney.com</a></div>
+          <ol class="aig-steps">
+            <li>주소창에 <span class="k">midjourney.com</span> 입력 → <b>"Sign In"</b> → 구글이나 디스코드 계정으로 로그인.</li>
+            <li><b>요금제 구독</b>(무료 없음, 월 <b>약 $10(≈1.4만원)</b>부터).</li>
+            <li>왼쪽 메뉴 <b>"Create"</b> → 상단 입력창에 프롬프트팩 <b>영어 프롬프트</b> 붙여넣기 → <span class="k">Enter</span>.</li>
+            <li>잠시 후 이미지 4장 생성 → 마음에 드는 것에 마우스 올려 <b>'Upscale(크게)'</b> → 다운로드(⤓ 또는 우클릭 저장).</li>
+            <li>프롬프트 끝에 <span class="k">--ar 1:1</span>(정사각) <span class="k">--ar 9:16</span>(세로)처럼 <b>비율</b>을 붙이면 원하는 크기로.</li>
+          </ol>
+          <div class="aig-tip">💡 <span><b>팁</b> — 돈이 아깝다면 먼저 무료인 <b>나노바나나</b>로 연습하고, '진짜 잘 나와야 하는 대표 이미지'만 미드저니로 뽑으세요. (옛 방식: 디스코드 설치 → 미드저니 서버 입장 → 채팅에 <span class="k">/imagine</span> 후 프롬프트)</span></div>
+        </div>
+
+        <!-- ============ 영상 AI ============ -->
+        <div class="aig-cat">
+          <div class="ct">🎬 영상 AI</div>
+          <div class="cs">프롬프트팩 <b style="color:#e9e7e2">'영상'</b> 카드 전용 · 짧은 홍보영상·릴스·사진을 움직이는 영상. <b style="color:#e9e7e2">무료 크레딧</b>이 있는 Kling·Runway로 먼저 연습하세요.</div>
+        </div>
+
+        <div class="aig-card rec">
+          <div class="aig-ch">
+            <div class="aig-logo">🎞️</div>
+            <div class="aig-name"><b>Runway <span class="en">런웨이</span></b><div class="role">글·사진을 짧은 영상으로. 사진을 움직이게(Image to Video)가 쉬움.</div></div>
+            <span class="aig-recpill">영상 입문 추천</span>
+          </div>
+          <div class="aig-badges"><span class="aig-badge free">무료 체험 크레딧</span><span class="aig-badge">웹</span><span class="aig-badge">설치 안 해도 됨</span></div>
+          <div class="aig-links"><a class="aig-link" href="https://runwayml.com" target="_blank" rel="noopener">🔗 열기 · runwayml.com</a></div>
+          <ol class="aig-steps">
+            <li>주소창에 <span class="k">runwayml.com</span> 입력 → <b>"Get started / Sign up"</b> → 구글·이메일 가입.</li>
+            <li>대시보드에서 <b>"Generate Video"</b>(Gen-4/Gen-3) 선택.</li>
+            <li><b>'Text to Video'</b>(글로 영상) 또는 <b>'Image to Video'</b>(사진을 움직이게) 고르기.</li>
+            <li>프롬프트팩 '영상' <b>영어 프롬프트</b> 붙여넣기 / Image to Video면 <b>사진 업로드</b>.</li>
+            <li><b>"Generate"</b> → 몇십 초~몇 분 기다림 → 완성되면 <b>다운로드(⤓)</b>.</li>
+          </ol>
+          <div class="aig-tip">💡 <span><b>팁</b> — 초보는 <b>사진 한 장 올려서 '살짝 움직이게'(Image to Video)</b>가 가장 쉽고 성공률이 높아요. 무료 크레딧 소진 후 유료(월 <b>약 $12≈1.7만원~</b>).</span></div>
+        </div>
+
+        <div class="aig-card">
+          <div class="aig-ch">
+            <div class="aig-logo">🌀</div>
+            <div class="aig-name"><b>Kling <span class="en">클링 · KlingAI</span></b><div class="role">매일 무료 크레딧이 채워져 연습용으로 최고.</div></div>
+          </div>
+          <div class="aig-badges"><span class="aig-badge free">매일 무료 크레딧</span><span class="aig-badge">웹</span><span class="aig-badge">설치 안 해도 됨</span></div>
+          <div class="aig-links"><a class="aig-link" href="https://klingai.com" target="_blank" rel="noopener">🔗 열기 · klingai.com</a></div>
+          <ol class="aig-steps">
+            <li>주소창에 <span class="k">klingai.com</span> 입력 → <b>"Sign in"</b> → 이메일·구글 가입.</li>
+            <li>상단 <b>"AI Videos"</b> 메뉴 → <b>'Text to Video'</b> 또는 <b>'Image to Video'</b>.</li>
+            <li>프롬프트 붙여넣기(또는 <b>사진 업로드</b>) → 길이·비율 선택 → <b>"Generate"</b>.</li>
+            <li>몇 분 기다리면 완성 → <b>다운로드</b>.</li>
+          </ol>
+          <div class="aig-tip">💡 <span><b>팁</b> — 무료 크레딧이 <b>매일</b> 채워져서 부담 없이 여러 번 연습하기 좋아요.</span></div>
+        </div>
+
+        <div class="aig-card">
+          <div class="aig-ch">
+            <div class="aig-logo">🎥</div>
+            <div class="aig-name"><b>Sora <span class="en">소라 · OpenAI</span></b><div class="role">텍스트로 영상 생성. ChatGPT 계정으로 로그인.</div></div>
+          </div>
+          <div class="aig-badges"><span class="aig-badge">ChatGPT 계정</span><span class="aig-badge">웹(+앱)</span><span class="aig-badge">지역·플랜에 따라 다름</span></div>
+          <div class="aig-links"><a class="aig-link" href="https://sora.com" target="_blank" rel="noopener">🔗 열기 · sora.com</a></div>
+          <ol class="aig-steps">
+            <li>주소창에 <span class="k">sora.com</span> 입력 → <b>ChatGPT(OpenAI) 계정</b>으로 로그인.</li>
+            <li>입력창에 프롬프트팩 <b>영어 프롬프트</b> 붙여넣기.</li>
+            <li><b>"Create / Generate"</b> → 생성되면 <b>다운로드</b>.</li>
+            <li>스마트폰은 <b>"Sora"</b> 앱이 있는 지역도 있어요(만든 곳 <b>OpenAI</b> 확인).</li>
+          </ol>
+          <div class="aig-tip">💡 <span><b>팁</b> — 이용 가능 여부가 <b>지역·계정마다</b> 달라요(주로 ChatGPT 유료 Plus/Pro에 포함). 안 되면 위의 <b>Runway·Kling</b>으로 대체하세요.</span></div>
+        </div>
+
+        <!-- ============ 마무리 ============ -->
+        <div class="aig-wrap-tip">
+          <h3>💸 0원으로 시작하는 조합 + 꼭 알아둘 것</h3>
+          <div class="aig-combo">
+            <div><b>글</b><span>ChatGPT / Claude</span><br>둘 다 무료</div>
+            <div><b>사진</b><span>나노바나나</span><br>무료로 연습 → 대표컷만 미드저니</div>
+            <div><b>영상</b><span>Kling / Runway</span><br>무료 크레딧으로 연습</div>
+          </div>
+          <ul class="aig-warn">
+            <li>앱 설치 시 <b>'만든 곳(제작사)'을 꼭 확인</b> — 짝퉁 유료 앱 주의(ChatGPT=OpenAI, Gemini=Google, Claude=Anthropic).</li>
+            <li><b>요금·화면 구성은 수시로 바뀝니다.</b> 결제 전 금액과 자동결제 여부를 꼭 확인하세요.</li>
+            <li>카드에 뜬 <b>'추천 AI'</b>가 그 프롬프트에 가장 잘 맞아요 — 글은 ChatGPT/Claude, 사진은 이미지 AI, 영상은 영상 AI에 넣기.</li>
+            <li>결과가 아쉬우면 버리지 말고 <b>'이어서 수정'</b>하세요. AI는 대화할수록 좋아집니다.</li>
+          </ul>
+        </div>
+
+        </div>
+        <!--FOOT-->
+      </article>
 
 
     </div>
