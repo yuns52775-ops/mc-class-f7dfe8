@@ -1701,30 +1701,35 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
 <!-- ===== HOW IT WORKS (진행 방식) ===== -->
 <style>
 .hiw-grad{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-.hiw-flow3{display:flex;align-items:stretch;justify-content:center;gap:14px;max-width:900px;margin:0 auto;flex-wrap:wrap;}
-.hiw-p{flex:1 1 240px;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:30px 26px;text-align:center;transition:transform .2s,border-color .2s;}
-.hiw-p:hover{transform:translateY(-4px);border-color:rgba(227,193,121,.4);}
-.hiw-p-end{background:linear-gradient(150deg,rgba(227,193,121,.16),rgba(18,18,24,.5));border-color:rgba(227,193,121,.45);}
-.hiw-pn{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;color:var(--gold);}
-.hiw-pt{font-size:24px;font-weight:800;color:var(--text);margin:8px 0 10px;}
-.hiw-pd{font-size:13.5px;color:var(--text-dim);line-height:1.7;}
-.hiw-pd b{color:var(--text);}
-.hiw-ar3{display:flex;align-items:center;color:var(--gold);font-size:22px;font-weight:800;}
+.hiw-flow3{display:flex;align-items:stretch;justify-content:center;gap:16px;max-width:940px;margin:0 auto;flex-wrap:wrap;}
+.hiw-p{flex:1 1 250px;position:relative;background:linear-gradient(165deg,rgba(255,255,255,.045),rgba(18,18,24,.5));border:1px solid var(--border);border-radius:20px;padding:34px 28px;text-align:center;transition:transform .25s,border-color .25s,box-shadow .25s;overflow:hidden;}
+.hiw-p:hover{transform:translateY(-5px);border-color:rgba(227,193,121,.45);box-shadow:0 24px 56px -26px rgba(201,162,78,.4);}
+.hiw-p-end{background:linear-gradient(160deg,rgba(227,193,121,.14),rgba(18,18,24,.5));border-color:rgba(227,193,121,.4);}
+.hiw-p-ic{width:58px;height:58px;margin:0 auto 18px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,rgba(227,193,121,.16),rgba(227,193,121,.03));border:1px solid rgba(227,193,121,.28);}
+.hiw-p-ic svg{width:28px;height:28px;stroke:#E3C179;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.hiw-pn{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;color:var(--gold);opacity:.85;}
+.hiw-pt{font-size:23px;font-weight:800;color:var(--text);margin:7px 0 10px;letter-spacing:-.01em;}
+.hiw-pd{font-size:13.5px;color:var(--text-dim);line-height:1.75;}
+.hiw-pd b{color:var(--text);font-weight:700;}
+.hiw-ar3{display:flex;align-items:center;color:rgba(227,193,121,.7);font-size:20px;}
+.hiw-ar3 svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;}
 .hiw-adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-.hiw-adv{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:26px 22px;transition:transform .2s,border-color .2s;}
-.hiw-adv:hover{transform:translateY(-4px);border-color:rgba(227,193,121,.4);}
-.hiw-adv-ic{font-size:28px;display:block;margin-bottom:12px;}
-.hiw-adv h3{font-size:17px;font-weight:800;color:var(--text);margin:0 0 8px;}
-.hiw-adv p{font-size:13.5px;color:var(--text-dim);line-height:1.7;margin:0;}
-.hiw-adv p b{color:var(--text);}
-.hiw-prog{margin-top:15px;display:flex;align-items:center;gap:10px;}
-.hiw-prog-bar{flex:1;height:7px;border-radius:4px;background:rgba(255,255,255,.08);overflow:hidden;}
-.hiw-prog-bar i{display:block;height:100%;width:68%;background:var(--grad-gold);border-radius:4px;}
-.hiw-prog span{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold);white-space:nowrap;}
+.hiw-adv{position:relative;background:linear-gradient(165deg,rgba(255,255,255,.045),rgba(18,18,24,.4));border:1px solid var(--border);border-radius:18px;padding:28px 24px;transition:transform .25s,border-color .25s,box-shadow .25s;}
+.hiw-adv:hover{transform:translateY(-5px);border-color:rgba(227,193,121,.42);box-shadow:0 24px 54px -26px rgba(201,162,78,.35);}
+.hiw-adv-ic{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,rgba(227,193,121,.15),rgba(227,193,121,.03));border:1px solid rgba(227,193,121,.24);margin-bottom:18px;}
+.hiw-adv-ic svg{width:26px;height:26px;stroke:#E3C179;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.hiw-adv-ic svg .fillg{fill:#E3C179;stroke:none;}
+.hiw-adv h3{font-size:17px;font-weight:800;color:var(--text);margin:0 0 9px;letter-spacing:-.01em;}
+.hiw-adv p{font-size:13.5px;color:var(--text-dim);line-height:1.75;margin:0;}
+.hiw-adv p b{color:var(--text);font-weight:700;}
+.hiw-prog{margin-top:16px;display:flex;align-items:center;gap:11px;}
+.hiw-prog-bar{flex:1;height:6px;border-radius:4px;background:rgba(255,255,255,.08);overflow:hidden;}
+.hiw-prog-bar i{display:block;height:100%;width:68%;background:var(--grad-gold);border-radius:4px;box-shadow:0 0 12px -2px rgba(227,193,121,.5);}
+.hiw-prog span{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold);white-space:nowrap;letter-spacing:.03em;}
 @media(max-width:760px){
-  .hiw-flow3{gap:10px;}
+  .hiw-flow3{gap:12px;}
   .hiw-ar3{transform:rotate(90deg);width:100%;justify-content:center;}
-  .hiw-p{flex:1 1 100%;padding:24px 22px;}
+  .hiw-p{flex:1 1 100%;padding:28px 24px;}
   .hiw-adv-grid{grid-template-columns:1fr;}
 }
 </style>
@@ -1736,11 +1741,23 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
       <p>복잡한 준비물은 필요 없습니다. 딱 3단계 — 나머지는 강의 안에서 화면 그대로 따라만 하세요.</p>
     </div>
     <div class="hiw-flow3 ash-reveal">
-      <div class="hiw-p"><div class="hiw-pn">STEP 1</div><div class="hiw-pt">배운다</div><div class="hiw-pd">돈이 흐르는 <b>구조의 원리</b>를 먼저 이해합니다.</div></div>
-      <span class="hiw-ar3">→</span>
-      <div class="hiw-p"><div class="hiw-pn">STEP 2</div><div class="hiw-pt">만든다</div><div class="hiw-pd">화면을 따라 <b>나만의 자동 수익 시스템</b>을 세팅합니다.</div></div>
-      <span class="hiw-ar3">→</span>
-      <div class="hiw-p hiw-p-end"><div class="hiw-pn">STEP 3</div><div class="hiw-pt">번다</div><div class="hiw-pd">한 번 세팅하면 <b>광고가 24시간</b> 대신 판매합니다.</div></div>
+      <div class="hiw-p">
+        <div class="hiw-p-ic"><svg viewBox="0 0 24 24"><path d="M12 6c-1.6-1-4-1.4-6-1.4S2 5 2 5v13s2-.4 4-.4 4.4.4 6 1.4c1.6-1 4-1.4 6-1.4s4 .4 4 .4V5s-2-.4-4-.4-4.4.4-6 1.4z"/><path d="M12 6v12.6"/></svg></div>
+        <div class="hiw-pn">STEP 01</div><div class="hiw-pt">배운다</div>
+        <div class="hiw-pd">돈이 흐르는 <b>구조의 원리</b>를 먼저 이해합니다.</div>
+      </div>
+      <span class="hiw-ar3"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <div class="hiw-p">
+        <div class="hiw-p-ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></div>
+        <div class="hiw-pn">STEP 02</div><div class="hiw-pt">만든다</div>
+        <div class="hiw-pd">화면을 따라 <b>나만의 자동 수익 시스템</b>을 세팅합니다.</div>
+      </div>
+      <span class="hiw-ar3"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <div class="hiw-p hiw-p-end">
+        <div class="hiw-p-ic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7"/><path d="M15 8h5v5"/></svg></div>
+        <div class="hiw-pn">STEP 03</div><div class="hiw-pt">번다</div>
+        <div class="hiw-pd">한 번 세팅하면 <b>광고가 24시간</b> 대신 판매합니다.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1754,12 +1771,31 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
       <p>강의만 던져주지 않습니다. 완주율을 끌어올리는 장치가 다 들어 있습니다.</p>
     </div>
     <div class="hiw-adv-grid ash-reveal">
-      <div class="hiw-adv"><span class="hiw-adv-ic">📊</span><h3>진도율 자동 표시</h3><p>지금 <b>몇 %까지 들었는지</b> 실시간 표시. 완주 게이지가 끝까지 가게 만듭니다.</p><div class="hiw-prog"><div class="hiw-prog-bar"><i></i></div><span>68% 완료</span></div></div>
-      <div class="hiw-adv"><span class="hiw-adv-ic">🔖</span><h3>이어보기 · 진도 저장</h3><p>진도가 <b>자동 저장</b>되어, 며칠에 걸쳐 봐도 <b>이어서</b> 학습할 수 있습니다.</p></div>
-      <div class="hiw-adv"><span class="hiw-adv-ic">✅</span><h3>런칭 체크리스트</h3><p>출시 직전 <b>인터랙티브 체크리스트</b>로 하나씩 점검하고 광고를 켭니다.</p></div>
-      <div class="hiw-adv"><span class="hiw-adv-ic">🙋</span><h3>1:1 피드백</h3><p>막히면 질문 → <b>캡처까지 하나하나</b> 답변. 포기 없이 완주하게.</p></div>
-      <div class="hiw-adv"><span class="hiw-adv-ic">💾</span><h3>전체 강의 저장</h3><p>강의를 <b>통째로 소장</b>. 오프라인에서도 언제든 다시 볼 수 있습니다.</p></div>
-      <div class="hiw-adv"><span class="hiw-adv-ic">🏅</span><h3>완주 · 등급 인증서</h3><p>수료·성과에 따라 <b>스타터 → 골드 → 다이아</b> 공식 인증서를 발급합니다.</p></div>
+      <div class="hiw-adv">
+        <div class="hiw-adv-ic"><svg viewBox="0 0 24 24"><path d="M4 18a8 8 0 1 1 16 0"/><path d="M12 18l4.5-3.2"/><circle class="fillg" cx="12" cy="18" r="1.4"/></svg></div>
+        <h3>진도율 자동 표시</h3><p>지금 <b>몇 %까지 들었는지</b> 실시간 표시. 완주 게이지가 끝까지 가게 만듭니다.</p>
+        <div class="hiw-prog"><div class="hiw-prog-bar"><i></i></div><span>68% 완료</span></div>
+      </div>
+      <div class="hiw-adv">
+        <div class="hiw-adv-ic"><svg viewBox="0 0 24 24"><path d="M7 3h10a1 1 0 0 1 1 1v17l-6-3.6L6 21V4a1 1 0 0 1 1-1z"/></svg></div>
+        <h3>이어보기 · 진도 저장</h3><p>진도가 <b>자동 저장</b>되어, 며칠에 걸쳐 봐도 <b>이어서</b> 학습할 수 있습니다.</p>
+      </div>
+      <div class="hiw-adv">
+        <div class="hiw-adv-ic"><svg viewBox="0 0 24 24"><path d="M9 4.5h6v2H9z"/><path d="M15 5.5h3a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-13a1 1 0 0 1 1-1h3"/><path d="M9 13l2 2 4-4.5"/></svg></div>
+        <h3>런칭 체크리스트</h3><p>출시 직전 <b>인터랙티브 체크리스트</b>로 하나씩 점검하고 광고를 켭니다.</p>
+      </div>
+      <div class="hiw-adv">
+        <div class="hiw-adv-ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a7.5 7.5 0 0 1-10.6 6.8L4 20l1.7-4.4A7.5 7.5 0 1 1 21 11.5z"/><circle class="fillg" cx="9" cy="11.5" r=".9"/><circle class="fillg" cx="12.5" cy="11.5" r=".9"/><circle class="fillg" cx="16" cy="11.5" r=".9"/></svg></div>
+        <h3>1:1 피드백</h3><p>막히면 질문 → <b>캡처까지 하나하나</b> 답변. 포기 없이 완주하게.</p>
+      </div>
+      <div class="hiw-adv">
+        <div class="hiw-adv-ic"><svg viewBox="0 0 24 24"><path d="M12 4v11"/><path d="M8 11l4 4 4-4"/><path d="M5 20h14"/></svg></div>
+        <h3>전체 강의 저장</h3><p>강의를 <b>통째로 소장</b>. 오프라인에서도 언제든 다시 볼 수 있습니다.</p>
+      </div>
+      <div class="hiw-adv">
+        <div class="hiw-adv-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="4.6"/><path d="M9.4 12.8L8 21l4-2.4 4 2.4-1.4-8.2"/><path class="fillg" d="M12 6.6l.7 1.5 1.6.2-1.2 1.1.3 1.6L12 10.4l-1.4.8.3-1.6-1.2-1.1 1.6-.2z"/></svg></div>
+        <h3>완주 · 등급 인증서</h3><p>수료·성과에 따라 <b>스타터 → 골드 → 다이아</b> 공식 인증서를 발급합니다.</p>
+      </div>
     </div>
   </div>
 </section>
