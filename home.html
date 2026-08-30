@@ -992,7 +992,7 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
         .sch-meta{text-align:left;font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.03em;color:#9298a1;display:flex;flex-direction:column;gap:3px;justify-self:start;}
         .sch-seal2{width:60px;justify-self:center;}
         .sch-sign{justify-self:end;text-align:center;min-width:134px;}
-        .sch-sigimg{filter:invert(1);width:120px;display:block;margin:0 auto 2px;}
+        .sch-sigimg{filter:invert(1) brightness(1.9) contrast(1.15);width:120px;display:block;margin:0 auto 2px;}
         .sch-sigline{width:122px;height:1px;background:rgba(158,170,188,.5);margin:0 auto;}
         .sch-sigrole{font-size:9px;color:#9298a1;margin-top:5px;letter-spacing:.06em;}
         .sch-verify{margin-top:16px;padding-top:13px;border-top:1px solid rgba(158,170,188,.28);font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.03em;color:#313339;line-height:1.7;}
@@ -1291,7 +1291,7 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
             ctx.textAlign='left';ctx.font='400 9px '+MONO;ctx.fillStyle='#9298a1';lsp('.3px');
             ctx.fillText('\ubc1c\uae09\uc77c  '+issued,64,fy);ctx.fillText('\uc778\uc99d\ubc88\ud638  '+cno,64,fy+16);ctx.fillText('\ud68c\uc6d0\ubc88\ud638  '+mno,64,fy+32);lsp('0px');
             drawRosette(ctx,cx,fy-10);
-            if(sig&&sig.complete&&sig.naturalWidth){var sw=120,sh=sw*(sig.naturalHeight/sig.naturalWidth);ctx.save();ctx.filter='invert(1)';ctx.drawImage(sig,W-64-sw,fy-46,sw,sh);ctx.restore();}
+            if(sig&&sig.complete&&sig.naturalWidth){var sw=120,sh=sw*(sig.naturalHeight/sig.naturalWidth);ctx.save();ctx.filter='invert(1) brightness(1.9) contrast(1.15)';ctx.drawImage(sig,W-64-sw,fy-46,sw,sh);ctx.restore();}
             ctx.strokeStyle='rgba(158,170,188,.5)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(W-64-120,fy+14);ctx.lineTo(W-64,fy+14);ctx.stroke();
             ctx.font='400 10px '+SANS;ctx.fillStyle='#9298a1';ctx.textAlign='center';ctx.fillText('\uc724\uc0c1\ud604 \u00b7 \uba38\ub2c8\ud06c\ub8e8 \ub300\ud45c',W-64-60,fy+30);
             ctx.strokeStyle='rgba(158,170,188,.28)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(56,H-72);ctx.lineTo(W-56,H-72);ctx.stroke();
