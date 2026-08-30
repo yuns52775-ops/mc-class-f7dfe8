@@ -3066,6 +3066,8 @@ body::before{
         #prompt-pack .pp-copy.done{color:#1a1200;background:linear-gradient(135deg,#f3d9a3,#E3C179);border-color:transparent;}
         #prompt-pack .pp-card h3{font-size:16.5px;font-weight:800;color:#fff;margin:0 0 6px;letter-spacing:-.01em;line-height:1.35;}
         #prompt-pack .pp-desc{font-size:13px;color:var(--ppdim);line-height:1.6;margin:0 0 14px;}
+        #prompt-pack .pp-ai{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--ppdim);margin:0 0 12px;padding:7px 11px;background:rgba(227,193,121,.06);border:1px solid rgba(227,193,121,.18);border-radius:9px;}
+        #prompt-pack .pp-ai b{color:var(--pg);font-weight:700;}
         #prompt-pack .pp-code{background:#0b0b0f;border:1px solid var(--ppbd);border-radius:10px;padding:14px 15px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12.5px;line-height:1.7;color:#cfccc4;white-space:pre-wrap;word-break:break-word;margin:auto 0 0;max-height:230px;overflow-y:auto;}
         #prompt-pack .pp-code::-webkit-scrollbar{width:8px;}
         #prompt-pack .pp-code::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:8px;}
@@ -3091,6 +3093,9 @@ body::before{
             <button class="pp-chip" data-cat="image">이미지</button>
             <button class="pp-chip" data-cat="cs">이메일·CS</button>
             <button class="pp-chip" data-cat="auto">자동화</button>
+            <button class="pp-chip" data-cat="write">글쓰기</button>
+            <button class="pp-chip" data-cat="photo">사진</button>
+            <button class="pp-chip" data-cat="video">영상</button>
           </div>
           <div class="pp-count" id="pp-count"></div>
         </header>
@@ -3101,6 +3106,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">아이템 발굴</span><button class="pp-copy" type="button">복사</button></div>
             <h3>수익 아이템 30개 브레인스토밍</h3>
             <p class="pp-desc">내 경험·관심사에서 지금 바로 팔 수 있는 상품을 한 번에.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">너는 디지털 부업 코치야. 내 상황을 보고 지금 바로 팔 수 있는 디지털 상품 아이디어 30개를 표로 만들어줘.
 
 - 나의 관심사/경험: [예: 엑셀, 육아, 다이어트]
@@ -3113,6 +3119,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">아이템 발굴</span><button class="pp-copy" type="button">복사</button></div>
             <h3>돈 되는 틈새 시장 찾기</h3>
             <p class="pp-desc">경쟁이 덜한, 그런데 지갑은 여는 주제를 발굴.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">[관심 분야]에서 대기업이 잘 안 다루는 '틈새 주제' 10개를 찾아줘.
 
 각 주제마다
@@ -3126,6 +3133,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">아이템 발굴</span><button class="pp-copy" type="button">복사</button></div>
             <h3>수요 검증 질문 설계</h3>
             <p class="pp-desc">만들기 전에 '진짜 팔릴까'를 미리 확인.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">내가 만들려는 상품은 [상품 설명]이야.
 
 1) 잠재 고객에게 물어볼 질문 10개
@@ -3138,6 +3146,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">아이템 발굴</span><button class="pp-copy" type="button">복사</button></div>
             <h3>경쟁 없는 조합 아이템</h3>
             <p class="pp-desc">두 분야를 합쳐 나만의 포지션을 만든다.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">[분야 A]와 [분야 B]를 결합해서 만들 수 있는 새로운 디지털 상품 아이디어 10개를 제안해줘.
 각 아이디어마다 누구에게 팔릴지, 왜 경쟁이 적은지, 한 줄 컨셉을 붙여줘.</pre>
           </div>
@@ -3146,6 +3155,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">아이템 발굴</span><button class="pp-copy" type="button">복사</button></div>
             <h3>내 경험을 상품으로 전환</h3>
             <p class="pp-desc">평범한 경험도 팔리는 상품이 된다.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">나의 경험을 상품으로 바꾸고 싶어.
 
 - 내가 해본 일/겪은 일: [경험 나열]
@@ -3157,6 +3167,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">아이템 발굴</span><button class="pp-copy" type="button">복사</button></div>
             <h3>트렌드 기반 아이템</h3>
             <p class="pp-desc">지금 뜨는 흐름에 올라타는 아이템.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">[내 분야]에서 요즘 뜨고 있는 트렌드/키워드를 정리하고, 각 트렌드에 맞춰 지금 만들면 좋은 디지털 상품 아이디어를 2개씩 제안해줘. 유행이 짧을지 오래갈지도 표시해줘.</pre>
           </div>
 
@@ -3164,6 +3175,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">고객·시장</span><button class="pp-copy" type="button">복사</button></div>
             <h3>타깃 고객 페르소나 3명</h3>
             <p class="pp-desc">누구에게 파는지 또렷해지면 카피가 쉬워진다.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">내 상품 [상품]의 이상적인 고객 페르소나를 3명 만들어줘.
 각 인물마다 이름·나이·직업·지금의 고민·구매를 망설이는 이유·결심하는 순간을 구체적으로. 마지막에 3명 모두에게 통하는 한 문장 메시지도.</pre>
           </div>
@@ -3172,6 +3184,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">고객·시장</span><button class="pp-copy" type="button">복사</button></div>
             <h3>경쟁사 분석 프레임</h3>
             <p class="pp-desc">경쟁자의 약점이 곧 나의 기회.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">[경쟁 상품 또는 채널]을 분석해줘.
 표로: 강점 / 약점 / 가격대 / 고객 불만(내가 파고들 틈).
 그리고 내가 차별화할 포인트 3가지를 제안해줘.</pre>
@@ -3181,6 +3194,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">고객·시장</span><button class="pp-copy" type="button">복사</button></div>
             <h3>고객 언어 수집</h3>
             <p class="pp-desc">고객이 실제 쓰는 표현을 카피에 그대로.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">[타깃 고객]이 [고민 주제]에 대해 실제로 쓰는 표현·단어를 20개 뽑아줘. 검색창에 칠 법한 문장 형태로, 감정이 드러나게. 이 표현을 헤드라인에 어떻게 쓰면 좋을지 예시도.</pre>
           </div>
 
@@ -3188,6 +3202,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">고객·시장</span><button class="pp-copy" type="button">복사</button></div>
             <h3>고객 구매 여정 지도</h3>
             <p class="pp-desc">인지부터 구매까지 각 단계에 맞는 메시지.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">내 상품 [상품]의 고객 구매 여정을 인지 → 관심 → 비교 → 구매 → 재구매 5단계로 정리해줘.
 각 단계에서 고객이 하는 생각과, 그때 보여줘야 할 메시지/콘텐츠를 표로.</pre>
           </div>
@@ -3196,6 +3211,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">고객·시장</span><button class="pp-copy" type="button">복사</button></div>
             <h3>구매 반대 이유 리스트</h3>
             <p class="pp-desc">안 사는 이유를 알면 팔 수 있다.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">[상품]을 안 사거나 망설이는 이유를 최대한 많이 뽑아줘(가격/시간/신뢰/필요성 등). 각 이유마다 그것을 해소하는 한 줄 반박 메시지를 함께 써줘.</pre>
           </div>
 
@@ -3203,6 +3219,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">고객·시장</span><button class="pp-copy" type="button">복사</button></div>
             <h3>후기·커뮤니티에서 니즈 캐기</h3>
             <p class="pp-desc">진짜 니즈는 고객의 말 속에 있다.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">[내 분야] 관련 커뮤니티·후기에서 자주 나올 법한 불만/질문/바람을 20개 예상해서 정리해줘. 각 항목을 '고객의 진짜 욕구'로 한 줄 번역하고, 상품/콘텐츠 아이디어로 연결해줘.</pre>
           </div>
 
@@ -3210,6 +3227,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">상품 기획</span><button class="pp-copy" type="button">복사</button></div>
             <h3>전자책 목차 설계</h3>
             <p class="pp-desc">팔리는 목차는 첫 장과 마지막 장이 다르다.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">주제 [주제]로 전자책 목차를 설계해줘.
 - 챕터 5~7개, 각 소제목 3개씩
 - 첫 장은 '왜 지금 읽어야 하는가'
@@ -3221,6 +3239,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">상품 기획</span><button class="pp-copy" type="button">복사</button></div>
             <h3>상품명·브랜드 네이밍</h3>
             <p class="pp-desc">기억에 남고 검색되는 이름 20개.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">[상품 설명]에 어울리는 상품명 20개를 지어줘.
 절반은 직관형, 절반은 감성형. 각 이름 옆에 한 줄 이유. 마지막에 추천 3개와 이유도.</pre>
           </div>
@@ -3229,6 +3248,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">상품 기획</span><button class="pp-copy" type="button">복사</button></div>
             <h3>3단 가격 구성</h3>
             <p class="pp-desc">가운데가 제일 많이 팔리게 만드는 설계.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">내 상품 [상품]을 베이직/스탠다드/프리미엄 3단으로 설계해줘.
 각 티어 구성·추천 가격·근거, 가운데가 가장 많이 팔리게 만드는 팁, 프리미엄의 '한 방' 요소를 표로.</pre>
           </div>
@@ -3237,6 +3257,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">상품 기획</span><button class="pp-copy" type="button">복사</button></div>
             <h3>무료 미끼상품 설계</h3>
             <p class="pp-desc">공짜로 주고 유료로 자연스럽게 연결.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">유료 상품 [상품]으로 이어지는 무료 미끼상품 아이디어 5개.
 각각 형태·끌리는 제목·유료로 넘어가는 연결고리를 포함하고, 만들기 쉬운 순서로.</pre>
           </div>
@@ -3245,6 +3266,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">상품 기획</span><button class="pp-copy" type="button">복사</button></div>
             <h3>상품 패키지 구성</h3>
             <p class="pp-desc">무엇을 넣고 뺄지 정하면 가치가 보인다.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">[상품]의 구성(포함 항목)을 기획해줘.
 핵심 콘텐츠 / 보너스 / 특전으로 나눠서, 각 항목이 고객에게 주는 가치를 한 줄로. 빼도 되는 것과 꼭 넣어야 할 것도 표시해줘.</pre>
           </div>
@@ -3253,6 +3275,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">상품 기획</span><button class="pp-copy" type="button">복사</button></div>
             <h3>차별화 포인트 도출</h3>
             <p class="pp-desc">'왜 하필 당신 것'에 답하기.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">내 상품 [상품]과 경쟁 상품 [경쟁]을 비교해서, 고객이 '이걸 사야 하는 이유' 5가지를 뽑아줘. 각 이유를 상세페이지에 쓸 한 문장으로 다듬어줘.</pre>
           </div>
 
@@ -3260,6 +3283,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">상세·카피</span><button class="pp-copy" type="button">복사</button></div>
             <h3>상세페이지 전체 구성</h3>
             <p class="pp-desc">후킹부터 구매 유도까지 통째로.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">상품 [상품], 타깃 [타깃].
 구매로 이어지는 상세페이지를 순서대로 실제 문장으로 써줘:
 1) 후킹 헤드라인 2) 공감 3) 해결책 4) 상품 소개 5) 얻는 결과 6) 후기 자리 7) 자주 묻는 질문 8) 마지막 유도.
@@ -3270,6 +3294,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">상세·카피</span><button class="pp-copy" type="button">복사</button></div>
             <h3>헤드라인 10개</h3>
             <p class="pp-desc">첫 문장이 클릭과 이탈을 가른다.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">상품 [상품]의 첫 문장(헤드라인) 10개.
 궁금증형/결과약속형/공감형/숫자형을 섞어서, 각 30자 이내. 가장 강력한 3개는 이유와 함께.</pre>
           </div>
@@ -3278,6 +3303,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">상세·카피</span><button class="pp-copy" type="button">복사</button></div>
             <h3>반론 처리 FAQ</h3>
             <p class="pp-desc">망설이는 이유를 미리 풀어주면 결제한다.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">고객이 [상품] 구매 전 망설이는 이유(비싸다/시간없다/나도될까 등)를 예상해서, 부드럽게 해소하는 FAQ 8개를 질문-답변으로. 방어적이지 않고 신뢰를 높이는 방향으로.</pre>
           </div>
 
@@ -3285,6 +3311,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">상세·카피</span><button class="pp-copy" type="button">복사</button></div>
             <h3>제작자 스토리 소개글</h3>
             <p class="pp-desc">내 이야기가 가장 강력한 설득이다.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">신뢰를 주는 제작자 소개 글을 써줘.
 배경 [경험] → 계기 → 변화 → 그래서 이걸 만든 이유 순서로, 과장 없이 진솔하게. 마지막은 독자에게 건네는 한 마디로.</pre>
           </div>
@@ -3293,6 +3320,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">상세·카피</span><button class="pp-copy" type="button">복사</button></div>
             <h3>후기 요청 메시지</h3>
             <p class="pp-desc">부담 없이 좋은 후기를 받아내는 문장.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">구매 고객에게 진심 어린 후기를 부탁하는 메시지.
 부담 없이 짧게, 무엇을 써주면 좋은지 질문 3개를 곁들여서. 문자로 바로 보낼 수 있게 완성형으로.</pre>
           </div>
@@ -3301,6 +3329,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">상세·카피</span><button class="pp-copy" type="button">복사</button></div>
             <h3>강력한 후킹 오프닝</h3>
             <p class="pp-desc">3초 안에 시선을 붙잡는 첫 문장.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">[상품/주제]의 상세페이지나 광고 맨 첫 문장으로 쓸 강력한 후킹 오프닝 10개를 써줘. 충격/공감/질문/반전 등 서로 다른 각도로, 스크롤을 멈추게.</pre>
           </div>
 
@@ -3308,6 +3337,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">콘텐츠</span><button class="pp-copy" type="button">복사</button></div>
             <h3>SEO 블로그 글</h3>
             <p class="pp-desc">검색 상위를 노리는 글 한 편.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">키워드 [키워드]로 검색 상위를 노리는 블로그 글을 써줘.
 제목 후보 3개, 소제목 구성, 본문 1500자 내외, 마지막에 자연스러운 상품 언급. 쉬운 말투, 짧은 문단.</pre>
           </div>
@@ -3316,6 +3346,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">콘텐츠</span><button class="pp-copy" type="button">복사</button></div>
             <h3>인스타·스레드 캡션</h3>
             <p class="pp-desc">첫 줄에서 스크롤을 멈추게.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">상품 [상품]을 홍보하는 SNS 캡션 5개.
 첫 줄 훅, 이모지 적당히, 마지막에 행동 유도 한 줄과 해시태그 10개. 각기 다른 각도로.</pre>
           </div>
@@ -3324,6 +3355,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">콘텐츠</span><button class="pp-copy" type="button">복사</button></div>
             <h3>유튜브 제목·오프닝</h3>
             <p class="pp-desc">클릭을 부르는 제목과 이탈 막는 첫 15초.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">주제 [주제]로 유튜브 영상을 만들 거야.
 클릭을 부르는 제목 10개와, 첫 15초 이탈을 막는 오프닝 대본 3가지 버전. 썸네일 문구 5개도.</pre>
           </div>
@@ -3332,6 +3364,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">콘텐츠</span><button class="pp-copy" type="button">복사</button></div>
             <h3>릴스·숏폼 훅 10개</h3>
             <p class="pp-desc">첫 3초가 조회수를 결정한다.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">[주제]에 대한 릴스 첫 3초 훅 문장 10개.
 스크롤을 멈추게 하는 강한 한 문장으로, 충격/공감/호기심/반전 각도로. 각 훅에 이어질 내용 한 줄 요약도.</pre>
           </div>
@@ -3340,6 +3373,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">콘텐츠</span><button class="pp-copy" type="button">복사</button></div>
             <h3>카드뉴스 기획</h3>
             <p class="pp-desc">한 장씩 넘기게 만드는 구성.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">주제 [주제]로 인스타 카드뉴스(8장)를 기획해줘.
 1장(표지 후킹)부터 8장(행동 유도)까지, 각 장에 들어갈 한 줄 문구와 간단한 이미지 컨셉을 표로.</pre>
           </div>
@@ -3348,6 +3382,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">콘텐츠</span><button class="pp-copy" type="button">복사</button></div>
             <h3>콘텐츠 아이디어 30개</h3>
             <p class="pp-desc">소재 고갈 걱정 끝.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">[내 주제/상품]으로 SNS에 올릴 콘텐츠 아이디어 30개를 뽑아줘.
 정보형/공감형/후기형/비하인드형으로 분류하고, 각 아이디어에 한 줄 제목을 붙여줘.</pre>
           </div>
@@ -3356,6 +3391,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">광고</span><button class="pp-copy" type="button">복사</button></div>
             <h3>광고 문구 세트</h3>
             <p class="pp-desc">짧은 카피부터 긴 카피까지 한 세트.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">상품 [상품], 타깃 [타깃].
 짧은 카피 5개(각 20자 이내) + 긴 카피 3개(각 3~4문장). 클릭하고 싶게, 과장 표현은 빼고.</pre>
           </div>
@@ -3364,6 +3400,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">광고</span><button class="pp-copy" type="button">복사</button></div>
             <h3>타깃별 카피 변형</h3>
             <p class="pp-desc">같은 상품, 다른 사람에겐 다른 말로.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">같은 상품 [상품]을 3가지 고객층 [A]/[B]/[C]에게 각각 다르게 소개하는 광고 문구를 써줘. 각 문구가 그 사람의 언어와 고민에 정확히 꽂히게, 각 3~4문장.</pre>
           </div>
 
@@ -3371,6 +3408,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">광고</span><button class="pp-copy" type="button">복사</button></div>
             <h3>광고 후킹 첫 문장</h3>
             <p class="pp-desc">스크롤을 멈추게 하는 한 줄.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">[상품]의 광고 첫 문장(후킹) 15개를 써줘. 질문형/공감형/호기심형/숫자형을 섞어서, 각 25자 이내. 가장 강한 5개는 표시해줘.</pre>
           </div>
 
@@ -3378,6 +3416,7 @@ body::before{
             <div class="pp-c-top"><span class="pp-tag">광고</span><button class="pp-copy" type="button">복사</button></div>
             <h3>A/B 테스트 카피</h3>
             <p class="pp-desc">무엇이 먹히는지 비교해본다.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">상품 [상품]의 광고 카피를 A/B 테스트할 수 있게 2가지 컨셉으로 각 3개씩 써줘.
 A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇을 비교하는지도 한 줄로.</pre>
           </div>
@@ -3386,6 +3425,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">광고</span><button class="pp-copy" type="button">복사</button></div>
             <h3>광고 소재 컨셉 기획</h3>
             <p class="pp-desc">어떤 그림/영상으로 만들지부터.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">[상품] 광고 소재 컨셉 5개를 기획해줘.
 각 컨셉마다 비주얼 아이디어, 첫 3초 후킹, 카피 방향을 표로. 정지 이미지/영상 중 뭐가 맞을지도.</pre>
           </div>
@@ -3394,6 +3434,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">광고</span><button class="pp-copy" type="button">복사</button></div>
             <h3>리타게팅 광고 문구</h3>
             <p class="pp-desc">한 번 본 사람을 다시 데려온다.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">[상품]을 봤지만 구매 안 한 사람에게 보여줄 리타게팅 광고 문구 5개를 써줘.
 '다시 생각나게' + '마지막 이유'를 주는 톤으로, 부담스럽지 않게.</pre>
           </div>
@@ -3402,6 +3443,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">이미지</span><button class="pp-copy" type="button">복사</button></div>
             <h3>대표 이미지 생성 프롬프트</h3>
             <p class="pp-desc">미드저니·DALL·E용 영어 프롬프트 자동 생성.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>미드저니 · DALL·E</b></div>
             <pre class="pp-code">이미지 생성 AI에 넣을 영어 프롬프트를 만들어줘.
 용도: [상품] 상세페이지 대표 이미지 / 분위기: [예: 깔끔한, 고급스러운]
 영어 프롬프트 3버전, 색감·조명·구도·스타일 구체적으로.</pre>
@@ -3411,6 +3453,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">이미지</span><button class="pp-copy" type="button">복사</button></div>
             <h3>상세컷 이미지 5장 기획</h3>
             <p class="pp-desc">어떤 이미지를 만들지부터 프롬프트까지.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>미드저니 · DALL·E</b></div>
             <pre class="pp-code">[상품]의 상세페이지에 들어갈 이미지 5장을 기획해줘.
 각 컷마다 컨셉(문제상황/결과/사용장면 등)과 영어 생성 프롬프트를 순서대로.</pre>
           </div>
@@ -3419,6 +3462,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">이미지</span><button class="pp-copy" type="button">복사</button></div>
             <h3>썸네일 문구·디자인</h3>
             <p class="pp-desc">클릭을 부르는 썸네일.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>미드저니 · DALL·E</b></div>
             <pre class="pp-code">[주제/상품]의 썸네일을 기획해줘.
 큰 문구 3개 후보(각 8자 이내), 서브 문구, 색감/구도 아이디어, 그리고 배경 이미지용 영어 생성 프롬프트까지.</pre>
           </div>
@@ -3427,6 +3471,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">이미지</span><button class="pp-copy" type="button">복사</button></div>
             <h3>브랜드 무드보드</h3>
             <p class="pp-desc">일관된 비주얼 톤 잡기.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>미드저니 · DALL·E</b></div>
             <pre class="pp-code">내 브랜드 [브랜드/상품]의 무드보드를 정리해줘.
 키 컬러(3~4개 HEX), 폰트 느낌, 분위기 키워드, 어울리는 이미지 스타일. 이미지 생성용 영어 스타일 프롬프트도.</pre>
           </div>
@@ -3435,6 +3480,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">이미지</span><button class="pp-copy" type="button">복사</button></div>
             <h3>인스타 피드 컨셉</h3>
             <p class="pp-desc">통일감 있는 피드 만들기.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>미드저니 · DALL·E</b></div>
             <pre class="pp-code">[브랜드/상품] 인스타 피드 9칸의 이미지 컨셉을 기획해줘.
 전체 톤, 각 칸의 주제(정보/후기/비하인드 등), 반복되는 디자인 요소를 표로.</pre>
           </div>
@@ -3443,6 +3489,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">이미지</span><button class="pp-copy" type="button">복사</button></div>
             <h3>배너·광고 이미지 프롬프트</h3>
             <p class="pp-desc">광고용 비주얼 뽑기.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>미드저니 · DALL·E</b></div>
             <pre class="pp-code">[상품] 광고 배너용 이미지의 영어 생성 프롬프트를 3버전 만들어줘.
 비율(1:1, 9:16), 카피 들어갈 여백, 분위기를 고려해서. 각 버전 컨셉도 한 줄로.</pre>
           </div>
@@ -3451,6 +3498,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">이메일·CS</span><button class="pp-copy" type="button">복사</button></div>
             <h3>구매 감사 이메일</h3>
             <p class="pp-desc">첫 인상을 좋게, 다음 행동까지 안내.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">상품 [상품]을 구매한 고객에게 보내는 감사 이메일을 써줘.
 따뜻한 인사 + 이용 첫 단계 안내 + 자연스럽게 후기/다음 상품 언급. 바로 복붙해서 보낼 수 있게.</pre>
           </div>
@@ -3459,6 +3507,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">이메일·CS</span><button class="pp-copy" type="button">복사</button></div>
             <h3>CS 답변 템플릿</h3>
             <p class="pp-desc">자주 오는 문의 5종을 미리.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">자주 오는 문의 5가지(환불/사용법/전달/오류/추가질문)에 대한 정중하고 신뢰가는 CS 답변 템플릿을 각각 만들어줘. 필요한 부분은 대괄호로 비워서.</pre>
           </div>
 
@@ -3466,6 +3515,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">이메일·CS</span><button class="pp-copy" type="button">복사</button></div>
             <h3>재구매 유도 메시지</h3>
             <p class="pp-desc">한 번 산 고객이 가장 좋은 고객.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">한 번 구매한 고객에게 다음 상품 [상품2]를 제안하는 메시지.
 강매 느낌 없이, 이미 산 것과 어떻게 연결되는지 설명하고 특별 혜택을 곁들여서.</pre>
           </div>
@@ -3474,6 +3524,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">이메일·CS</span><button class="pp-copy" type="button">복사</button></div>
             <h3>환불 응대 스크립트</h3>
             <p class="pp-desc">감정 상하지 않게 매끄럽게.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">환불을 요청한 고객에게 보낼 응대 메시지를 써줘.
 공감 → 정책 안내 → 대안 제시(교환/부분환불 등) 순서로, 정중하고 방어적이지 않게. 2가지 버전으로.</pre>
           </div>
@@ -3482,6 +3533,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">이메일·CS</span><button class="pp-copy" type="button">복사</button></div>
             <h3>뉴스레터 1편</h3>
             <p class="pp-desc">구독자와 관계를 쌓는 편지.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">구독자에게 보낼 뉴스레터 1편을 써줘.
 주제 [주제] / 톤 [예: 친근한 선배 느낌]
 안부 → 유용한 정보 한 가지 → 자연스러운 상품/콘텐츠 언급 → 마무리 순서로.</pre>
@@ -3491,6 +3543,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">이메일·CS</span><button class="pp-copy" type="button">복사</button></div>
             <h3>구매 전 문의 응대</h3>
             <p class="pp-desc">살까 말까 하는 사람을 밀어준다.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">구매 전 '이거 저한테 맞을까요?' 같은 문의에 답하는 메시지 템플릿을 만들어줘.
 부담 주지 않으면서, 상품이 왜 맞는지 짚어주고 결정을 도와주는 톤으로. 3가지 상황별로.</pre>
           </div>
@@ -3499,6 +3552,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">자동화</span><button class="pp-copy" type="button">복사</button></div>
             <h3>30일 콘텐츠 캘린더</h3>
             <p class="pp-desc">매일 뭘 올릴지 고민 끝.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">[주제/상품] 홍보용 30일 SNS 콘텐츠 캘린더를 표로.
 날짜별 주제·형식(글/이미지/릴스)·한 줄 카피 아이디어. 요일별 리듬 있게.</pre>
           </div>
@@ -3507,6 +3561,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">자동화</span><button class="pp-copy" type="button">복사</button></div>
             <h3>업무 자동화 진단</h3>
             <p class="pp-desc">반복 작업을 AI·도구로 줄이는 법.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">1인 사업 업무 [업무 나열]을 자동화하거나 AI로 줄이는 방법을 우선순위와 함께 알려줘. 무료/유료 도구 추천 포함.</pre>
           </div>
 
@@ -3514,6 +3569,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">자동화</span><button class="pp-copy" type="button">복사</button></div>
             <h3>하루 실행 루틴 설계</h3>
             <p class="pp-desc">본업 있어도 굴러가는 현실 루틴.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">본업이 있고 하루 [시간]시간만 쓸 수 있어.
 [목표]를 위한 요일별·시간대별 실행 루틴을 현실적으로 짜줘. 무리하지 않게, 주말 활용법 포함.</pre>
           </div>
@@ -3522,6 +3578,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">자동화</span><button class="pp-copy" type="button">복사</button></div>
             <h3>반복 업무 SOP 만들기</h3>
             <p class="pp-desc">한 번 정리하면 계속 쓴다.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">내가 매번 반복하는 [업무]를 누가 봐도 따라 할 수 있는 SOP(작업 매뉴얼)로 정리해줘.
 단계별 순서, 각 단계 주의점, 체크리스트 형태로.</pre>
           </div>
@@ -3530,6 +3587,7 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">자동화</span><button class="pp-copy" type="button">복사</button></div>
             <h3>자동 응답 메시지 설계</h3>
             <p class="pp-desc">자주 묻는 건 자동으로.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">고객이 자주 묻는 질문에 대한 자동 응답 메시지를 설계해줘.
 예상 질문 8개와 각 답변, 그리고 자동답장 첫 인사말과 사람 연결 안내 문구까지.</pre>
           </div>
@@ -3538,8 +3596,170 @@ A: 이성적(혜택/기능) 컨셉, B: 감성적(공감/변화) 컨셉. 무엇�
             <div class="pp-c-top"><span class="pp-tag">자동화</span><button class="pp-copy" type="button">복사</button></div>
             <h3>주간 성과 리뷰 템플릿</h3>
             <p class="pp-desc">숫자를 보면 다음이 보인다.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
             <pre class="pp-code">1인 사업의 주간 성과를 점검하는 리뷰 템플릿을 만들어줘.
 확인할 지표(방문/문의/판매 등), 잘된 점/아쉬운 점/다음 주 할 일 칸을 표로. 매주 5분이면 쓰게 간단히.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="write">
+            <div class="pp-c-top"><span class="pp-tag">글쓰기</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>블로그 글 완성</h3>
+            <p class="pp-desc">키워드만 주면 초안부터 마무리까지.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
+            <pre class="pp-code">키워드 [키워드]로 블로그 글을 써줘.
+제목 후보 3개, 소제목 구성, 본문 1500자 내외, 마지막 요약. 쉬운 말투로, 문단은 짧게.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="write">
+            <div class="pp-c-top"><span class="pp-tag">글쓰기</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>상황별 이메일·메시지</h3>
+            <p class="pp-desc">정중하게, 바로 보낼 수 있게.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
+            <pre class="pp-code">[상황: 예 협업 제안 / 사과 / 요청]에 맞는 이메일을 써줘.
+제목과 본문까지, 정중하고 명확하게. 너무 길지 않게.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="write">
+            <div class="pp-c-top"><span class="pp-tag">글쓰기</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>긴 자료 요약·정리</h3>
+            <p class="pp-desc">핵심만 뽑아 시간 절약.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
+            <pre class="pp-code">아래 내용을 핵심만 정리해줘.
+- 3줄 요약
+- 중요 포인트 5개
+- 바로 실행할 것 3가지
+
+[여기에 자료 붙여넣기]</pre>
+          </div>
+
+          <div class="pp-card" data-cat="write">
+            <div class="pp-c-top"><span class="pp-tag">글쓰기</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>말투·톤 바꾸기</h3>
+            <p class="pp-desc">같은 글, 다른 느낌으로.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
+            <pre class="pp-code">아래 글을 [원하는 톤: 예 친근하게 / 전문적으로 / 짧고 강하게]로 다시 써줘. 의미는 유지하고.
+
+[여기에 글 붙여넣기]</pre>
+          </div>
+
+          <div class="pp-card" data-cat="write">
+            <div class="pp-c-top"><span class="pp-tag">글쓰기</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>클릭되는 제목·카피</h3>
+            <p class="pp-desc">제목이 절반이다.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
+            <pre class="pp-code">[주제/글 내용]에 어울리는 제목 15개를 뽑아줘. 궁금증형·숫자형·공감형을 섞어서 각 25자 이내. 가장 강한 3개는 표시해줘.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="write">
+            <div class="pp-c-top"><span class="pp-tag">글쓰기</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>경험을 스토리로</h3>
+            <p class="pp-desc">밋밋한 사실을 이야기로.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>ChatGPT · Claude</b></div>
+            <pre class="pp-code">나의 경험 [경험]을 사람들이 끝까지 읽는 스토리로 써줘.
+갈등 → 전환 → 깨달음 구조로, 진솔하게. 마지막 한 줄로 여운을 남겨줘.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="photo">
+            <div class="pp-c-top"><span class="pp-tag">사진</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>제품 사진 생성</h3>
+            <p class="pp-desc">스튜디오 촬영 느낌으로.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>미드저니 · DALL·E · 나노바나나</b></div>
+            <pre class="pp-code">[제품]의 스튜디오 제품 사진을 만들 영어 프롬프트 3개를 만들어줘.
+깔끔한 배경·조명·각도를 다르게. 미드저니/DALL·E에 바로 넣을 수 있게 영어로.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="photo">
+            <div class="pp-c-top"><span class="pp-tag">사진</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>인물·모델 컷</h3>
+            <p class="pp-desc">광고에 쓸 인물 이미지.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>미드저니 · DALL·E · 나노바나나</b></div>
+            <pre class="pp-code">[상황/분위기]에 맞는 인물 사진 영어 프롬프트 3개를 만들어줘.
+표정·복장·배경·조명을 구체적으로, 자연스럽게.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="photo">
+            <div class="pp-c-top"><span class="pp-tag">사진</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>감성 무드 이미지</h3>
+            <p class="pp-desc">브랜드 분위기 컷.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>미드저니 · DALL·E · 나노바나나</b></div>
+            <pre class="pp-code">[브랜드/분위기 키워드]에 맞는 감성 무드 이미지 영어 프롬프트 3개.
+색감·질감·조명을 살려서, SNS 피드에 어울리게.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="photo">
+            <div class="pp-c-top"><span class="pp-tag">사진</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>썸네일 배경 이미지</h3>
+            <p class="pp-desc">눈길 끄는 배경.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>미드저니 · DALL·E · 나노바나나</b></div>
+            <pre class="pp-code">[주제]의 썸네일 배경으로 쓸 영어 이미지 프롬프트 3개.
+텍스트 넣을 여백 고려, 시선을 끄는 색감으로.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="photo">
+            <div class="pp-c-top"><span class="pp-tag">사진</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>배경·컨셉 합성</h3>
+            <p class="pp-desc">원하는 장면 연출.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>미드저니 · DALL·E · 나노바나나</b></div>
+            <pre class="pp-code">[제품/피사체]를 [원하는 배경/장면]에 놓은 합성 이미지 영어 프롬프트를 만들어줘. 자연스러운 조명과 그림자까지.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="photo">
+            <div class="pp-c-top"><span class="pp-tag">사진</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>로고·아이콘 컨셉</h3>
+            <p class="pp-desc">심플한 마크 아이디어.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>미드저니 · DALL·E · 나노바나나</b></div>
+            <pre class="pp-code">[브랜드/서비스]의 로고·아이콘 컨셉 영어 프롬프트 5개.
+미니멀·심볼형으로, 어울리는 색상 제안도 함께.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="video">
+            <div class="pp-c-top"><span class="pp-tag">영상</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>짧은 홍보 영상 컨셉</h3>
+            <p class="pp-desc">5~15초 광고 영상 아이디어.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>Runway · Kling · Sora</b></div>
+            <pre class="pp-code">[상품/브랜드]의 짧은 홍보 영상 컨셉 3개를 기획하고, 각 컨셉의 영상 생성 프롬프트(영어)를 만들어줘. 장면·움직임·분위기 포함.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="video">
+            <div class="pp-c-top"><span class="pp-tag">영상</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>이미지를 영상으로</h3>
+            <p class="pp-desc">가진 사진을 움직이게.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>Runway · Kling · Sora</b></div>
+            <pre class="pp-code">내가 가진 [사진 설명]을 자연스럽게 움직이는 영상으로 만들 프롬프트를 만들어줘. 카메라 움직임·속도·분위기를 영어로 지정해서. (image-to-video)</pre>
+          </div>
+
+          <div class="pp-card" data-cat="video">
+            <div class="pp-c-top"><span class="pp-tag">영상</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>릴스·숏폼 영상</h3>
+            <p class="pp-desc">세로 짧은 영상 프롬프트.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>Runway · Kling · Sora</b></div>
+            <pre class="pp-code">[주제]의 릴스용 세로 영상(9:16) 생성 프롬프트를 3개 만들어줘. 첫 1초 후킹 장면 강조, 각 씬 설명을 영어로.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="video">
+            <div class="pp-c-top"><span class="pp-tag">영상</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>제품 소개 영상 씬</h3>
+            <p class="pp-desc">제품이 돋보이는 구성.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>Runway · Kling · Sora</b></div>
+            <pre class="pp-code">[제품] 소개 영상의 씬 구성을 짜줘.
+씬별(도입-특징-사용-마무리) 화면 설명과 영상 생성 프롬프트(영어), 자막 문구까지.</pre>
+          </div>
+
+          <div class="pp-card" data-cat="video">
+            <div class="pp-c-top"><span class="pp-tag">영상</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>텍스트를 영상으로</h3>
+            <p class="pp-desc">글만으로 영상 만들기.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>Runway · Kling · Sora</b></div>
+            <pre class="pp-code">[전달할 메시지/문장]을 영상으로 만들 프롬프트를 만들어줘. 어울리는 비주얼·분위기·음악 느낌을 영어 프롬프트로. (text-to-video)</pre>
+          </div>
+
+          <div class="pp-card" data-cat="video">
+            <div class="pp-c-top"><span class="pp-tag">영상</span><button class="pp-copy" type="button">복사</button></div>
+            <h3>영상 대본 + 자막</h3>
+            <p class="pp-desc">말할 내용과 자막 한 번에.</p>
+            <div class="pp-ai">🤖 추천 AI · <b>Runway · Kling · Sora</b></div>
+            <pre class="pp-code">[주제]의 30초 영상 대본을 써줘.
+나레이션 대본 + 화면 자막 + 각 구간 초 단위 타임라인으로.</pre>
           </div>
 
         </div>
