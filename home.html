@@ -1146,7 +1146,7 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
   <div class="ash-wrap" style="text-align:center;">
     <span class="sch-eyebrow">Starter Certificate</span>
     <p class="sch-lead">지금 바로 <b>스타터 인증서</b>를 발급해 보세요.</p>
-        <button class="sch-open" id="sch-open" type="button" onclick="document.getElementById('sch-panel').hidden=false;this.style.display='none';var n=document.getElementById('sch-name');if(n){n.focus();}">🎓 스타터 인증서 발급하기</button>
+        <button class="sch-open" id="sch-open" type="button" onclick="var p=document.getElementById('sch-panel');p.hidden=false;this.style.display='none';var n=document.getElementById('sch-name');function go(sm){try{if(n)n.focus({preventScroll:true});}catch(e){}try{p.scrollIntoView({behavior:sm?'smooth':'auto',block:'center'});}catch(e){try{p.scrollIntoView();}catch(e2){}}}setTimeout(function(){go(true);},60);setTimeout(function(){go(false);},420);">🎓 스타터 인증서 발급하기</button>
     <div id="sch-panel" hidden>
 <div class="sch-box">
           <div class="sch-form">
