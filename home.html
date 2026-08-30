@@ -115,7 +115,8 @@ section{position:relative;}
 .mcp-label{display:inline-flex;align-items:center;gap:13px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.32em;text-transform:uppercase;color:#E3C179;justify-content:center;margin-bottom:0;}
 .mcp-label::before,.mcp-label::after{content:"";width:38px;height:1px;background:linear-gradient(90deg,transparent,#E3C179);}
 .mcp-label::after{background:linear-gradient(90deg,#E3C179,transparent);}
-.mcp-hairline{width:260px;max-width:70%;height:1px;background:linear-gradient(90deg,transparent,rgba(227,193,121,.55),transparent);margin:12px auto 22px;}
+.mcp-hairline{width:260px;max-width:70%;height:1px;background:linear-gradient(90deg,transparent,rgba(227,193,121,.55),transparent);margin:12px auto 14px;}
+.mcp-sub{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:600;letter-spacing:.01em;color:var(--text);text-align:center;margin:0 auto 22px;}
 .ash-hero h1 .ash-grad{background:linear-gradient(100deg,#C79A44 0%,#E9C97E 30%,#FFF6DF 46%,#E9C97E 62%,#C79A44 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:mcp-shimmer 4.4s linear infinite;}
 @keyframes mcp-shimmer{0%{background-position:180% 0;}100%{background-position:-40% 0;}}
 @media(max-width:920px){
@@ -123,7 +124,8 @@ section{position:relative;}
   .mcp-seal .mcp-mono b{font-size:22px;}
   .mcp-label{font-size:10px;letter-spacing:.24em;gap:9px;}
   .mcp-label::before,.mcp-label::after{width:24px;}
-  .mcp-hairline{margin:10px auto 18px;}
+  .mcp-hairline{margin:10px auto 12px;}
+  .mcp-sub{font-size:20px;margin-bottom:18px;}
   .ash-hero .mcp-corner{width:20px;height:20px;top:14px;left:14px;}
   .ash-hero .mcp-corner.c2{right:14px;left:auto;}
   .ash-hero .mcp-corner.c3{bottom:14px;top:auto;}
@@ -622,6 +624,7 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
     </div>
     <div class="mcp-label"><span>Premium Automation Class</span></div>
     <div class="mcp-hairline"></div>
+    <div class="mcp-sub">소수 정예 · 프리미엄 클래스</div>
     <div class="ash-badge"><span class="ash-pulse"></span>마감 <b>D-5</b> · 남은수량 4개</div>
     <h1>퇴근 후 하루 1시간<br><span class="ash-grad">AI</span>로 만드는 <span class="ash-grad">월 500+ 부수입</span></h1>
     <p class="ash-hero-urgency">지금 시작하지 않으면<br><b>내년에도 똑같은 고민을 하고 있을 거예요</b></p>
