@@ -498,6 +498,72 @@ body.ash-modal-lock{overflow:hidden;}
 .ash-audience-body p{font-size:13.5px;color:var(--text-dim);line-height:1.6;}
 
 /* ===== Final CTA ===== */
+/* ===== 수료증 · 멤버 인증 ===== */
+.mcc-sec{background:var(--bg);color:var(--text);text-align:center;}
+.mcc-sec h2{font-size:clamp(26px,4.6vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.28;}
+.mcc-grad{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.mcc-lead{color:var(--text-dim);font-size:16px;line-height:1.8;margin:16px auto 46px;max-width:640px;}
+.mcc-lead b{color:var(--text);}
+.mcc-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:760px;margin:0 auto;}
+.mcc-tier{position:relative;background:linear-gradient(165deg,rgba(255,255,255,.05),rgba(18,18,24,.5));border:1px solid var(--border);border-radius:18px;padding:28px 16px 24px;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s;}
+.mcc-tier:hover{transform:translateY(-4px);border-color:rgba(227,193,121,.4);box-shadow:0 18px 40px -18px rgba(0,0,0,.6);}
+.mcc-medal-svg{width:74px;height:auto;display:block;margin:0 auto 12px;filter:drop-shadow(0 7px 15px rgba(0,0,0,.45));}
+.mcc-tname{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.28em;font-weight:500;}
+.mcc-tko{font-size:13.5px;color:var(--text-dim);margin:3px 0 12px;}
+.mcc-tth{font-size:14.5px;font-weight:700;color:var(--text);}
+.mcc-tth b{color:#E3C179;}
+.mcc-bronze .mcc-tname{color:#E4A768;}
+.mcc-silver .mcc-tname{color:#D3D8DE;}
+.mcc-gold .mcc-tname{color:#F0D28A;}
+/* 다이아 */
+.mcc-dia{position:relative;display:flex;align-items:center;gap:28px;text-align:left;max-width:760px;margin:20px auto 0;padding:30px 34px;border-radius:22px;overflow:hidden;background:linear-gradient(120deg,rgba(120,210,245,.12),rgba(150,130,255,.09) 55%,rgba(18,18,24,.5));border:1px solid rgba(140,215,245,.35);box-shadow:0 24px 64px -28px rgba(120,200,245,.5);}
+.mcc-dia-glow{position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(140,220,250,.3),transparent 65%);top:-130px;right:-70px;pointer-events:none;}
+.mcc-medal-lg{width:112px;flex:none;position:relative;z-index:2;filter:drop-shadow(0 10px 22px rgba(120,200,245,.45));}
+.mcc-dia-body{position:relative;z-index:2;}
+.mcc-dia-name{font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.3em;font-weight:600;background:linear-gradient(100deg,#EAFBFF,#8FD8F5 50%,#C6AEFF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.mcc-dia .mcc-tko{margin:4px 0 2px;}
+.mcc-dia .mcc-tth{font-size:23px;margin-top:2px;}
+.mcc-dia .mcc-tth b{color:#9FE3FF;}
+.mcc-dia-desc{color:var(--text-dim);font-size:13.5px;margin-top:9px;max-width:430px;line-height:1.65;}
+/* 인증서 */
+.mcc-cert-lead{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.12em;color:var(--text-dim);margin:56px auto 20px;}
+.mcc-cert{position:relative;max-width:600px;margin:0 auto;border-radius:8px;padding:6px;background:linear-gradient(135deg,#E9C97E,#8a6a2c 42%,#F3D592 68%,#b98f3e);box-shadow:0 34px 74px -26px rgba(0,0,0,.72);}
+.mcc-cert-inner{position:relative;background:linear-gradient(170deg,#FBF7EC 0%,#F2E7CF 100%);border-radius:5px;padding:42px 42px 30px;color:#2c2417;overflow:hidden;}
+.mcc-cert-inner::before{content:"";position:absolute;inset:11px;border:1px solid rgba(160,120,50,.4);border-radius:3px;pointer-events:none;}
+.mcc-cert-top{display:flex;flex-direction:column;align-items:center;gap:9px;position:relative;z-index:2;}
+.mcc-cert-seal{width:54px;height:54px;}
+.mcc-cert-kicker{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.32em;color:#9a7a35;}
+.mcc-cert-title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;letter-spacing:.14em;color:#26200f;margin-top:8px;line-height:1;position:relative;z-index:2;}
+.mcc-cert-subt{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#8a6f34;margin-top:2px;position:relative;z-index:2;}
+.mcc-cert-line{width:66px;height:2px;background:linear-gradient(90deg,transparent,#c39a45,transparent);margin:16px auto 18px;position:relative;z-index:2;}
+.mcc-cert-body{position:relative;z-index:2;}
+.mcc-cert-label{font-size:12px;color:#7c6c4a;letter-spacing:.02em;}
+.mcc-cert-name{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;letter-spacing:.18em;color:#211b0c;margin:7px 0 5px;}
+.mcc-cert-ach{display:inline-flex;flex-direction:column;align-items:center;gap:5px;margin-top:16px;padding:13px 30px;border:1px solid rgba(160,120,50,.4);border-radius:10px;background:rgba(233,201,126,.2);}
+.mcc-cert-tier{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.2em;color:#9a7a2f;font-weight:600;}
+.mcc-cert-amt{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:700;color:#2a2110;word-break:keep-all;}
+.mcc-cert-amt b{color:#a9791f;}
+.mcc-cert-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-top:28px;position:relative;z-index:2;}
+.mcc-cert-meta{display:flex;flex-direction:column;gap:3px;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.03em;color:#8b7748;}
+.mcc-cert-sign{text-align:center;}
+.mcc-cert-signname{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:700;color:#2a2110;border-bottom:1px solid rgba(160,120,50,.5);padding:0 12px 2px;}
+.mcc-cert-signrole{font-size:9.5px;color:#8b7748;margin-top:4px;letter-spacing:.08em;}
+.mcc-cert-stamp{position:absolute;right:4px;bottom:22px;width:64px;height:64px;border:2.5px solid rgba(178,52,42,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(178,52,42,.62);font-size:16px;font-weight:700;letter-spacing:.12em;transform:rotate(-14deg);font-family:'Cormorant Garamond',serif;}
+.mcc-cert-note{color:var(--text-dim);font-size:13.5px;margin-top:24px;line-height:1.7;}
+.mcc-cert-note b{color:#E3C179;}
+@media(max-width:720px){
+  .mcc-tiers{grid-template-columns:1fr;max-width:300px;gap:14px;}
+  .mcc-dia{flex-direction:column;text-align:center;padding:28px 22px;gap:16px;}
+  .mcc-dia-desc{margin-left:auto;margin-right:auto;}
+  .mcc-cert-inner{padding:32px 22px 24px;}
+  .mcc-cert-title{font-size:33px;}
+  .mcc-cert-name{font-size:31px;}
+  .mcc-cert-ach{padding:12px 18px;}
+  .mcc-cert-amt{font-size:21px;}
+  .mcc-cert-foot{flex-direction:column;align-items:center;gap:18px;}
+  .mcc-cert-meta{text-align:center;align-items:center;}
+  .mcc-cert-stamp{position:static;transform:rotate(-8deg);margin-top:2px;}
+}
 .ash-final-cta{background:radial-gradient(130% 120% at 50% -12%,rgba(227,193,121,.10),transparent 55%),var(--bg);color:var(--text);text-align:center;padding:120px 0;position:relative;overflow:hidden;}
 .ash-final-cta .ash-bg-orb{display:none;}
 .ash-final-cta h2{font-size:clamp(28px,5vw,46px);font-weight:800;letter-spacing:-0.02em;margin-bottom:18px;position:relative;z-index:2;}
@@ -1552,6 +1618,78 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
         <div class="ash-faq-a"><div class="ash-faq-a-inner">네, 강의를 구매하시면 추가적인 비용 없이 모든 커리큘럼과 자료를 자유롭게 이용하실 수 있습니다.</div></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ===== 수료증 · 멤버 인증 ===== -->
+<section class="ash-pad mcc-sec">
+  <div class="ash-wrap">
+    <span class="ash-eyebrow ash-reveal">Membership Certification</span>
+    <h2 class="ash-reveal">수익을 증명하면,<br><span class="mcc-grad">공식 인증서</span>가 발급됩니다</h2>
+    <p class="mcc-lead ash-reveal">수강생의 <b>실제 수익 달성 단계</b>에 따라 머니크루가 공식 <b>멤버 인증서</b>를 발급합니다.<br>당신의 성취를, 눈에 보이는 증표로 남기세요.</p>
+
+    <div class="mcc-tiers ash-reveal">
+      <div class="mcc-tier mcc-bronze">
+        <svg class="mcc-medal-svg" viewBox="0 0 88 108" aria-hidden="true"><defs><linearGradient id="mccB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F0C08A"/><stop offset="1" stop-color="#A9682B"/></linearGradient></defs><path d="M32 2 L32 40 L44 31 L56 40 L56 2 Z" fill="url(#mccB)" opacity=".5"/><circle cx="44" cy="68" r="30" fill="url(#mccB)"/><circle cx="44" cy="68" r="23" fill="none" stroke="#ffffff66" stroke-width="1.4"/><text x="44" y="80" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="34" font-weight="700" fill="#6a3d15">B</text></svg>
+        <div class="mcc-tname">BRONZE</div>
+        <div class="mcc-tko">브론즈 멤버</div>
+        <div class="mcc-tth">월 수익 <b>100만원</b> 돌파</div>
+      </div>
+      <div class="mcc-tier mcc-silver">
+        <svg class="mcc-medal-svg" viewBox="0 0 88 108" aria-hidden="true"><defs><linearGradient id="mccS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4F6F8"/><stop offset="1" stop-color="#9BA2AB"/></linearGradient></defs><path d="M32 2 L32 40 L44 31 L56 40 L56 2 Z" fill="url(#mccS)" opacity=".5"/><circle cx="44" cy="68" r="30" fill="url(#mccS)"/><circle cx="44" cy="68" r="23" fill="none" stroke="#ffffff88" stroke-width="1.4"/><text x="44" y="80" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="34" font-weight="700" fill="#5f666e">S</text></svg>
+        <div class="mcc-tname">SILVER</div>
+        <div class="mcc-tko">실버 멤버</div>
+        <div class="mcc-tth">월 수익 <b>300만원</b> 돌파</div>
+      </div>
+      <div class="mcc-tier mcc-gold">
+        <svg class="mcc-medal-svg" viewBox="0 0 88 108" aria-hidden="true"><defs><linearGradient id="mccG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBEFCB"/><stop offset="1" stop-color="#C79A44"/></linearGradient></defs><path d="M32 2 L32 40 L44 31 L56 40 L56 2 Z" fill="url(#mccG)" opacity=".5"/><circle cx="44" cy="68" r="30" fill="url(#mccG)"/><circle cx="44" cy="68" r="23" fill="none" stroke="#ffffff77" stroke-width="1.4"/><text x="44" y="80" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="34" font-weight="700" fill="#7a5a18">G</text></svg>
+        <div class="mcc-tname">GOLD</div>
+        <div class="mcc-tko">골드 멤버</div>
+        <div class="mcc-tth">월 수익 <b>500만원</b> 돌파</div>
+      </div>
+    </div>
+
+    <div class="mcc-dia ash-reveal">
+      <div class="mcc-dia-glow"></div>
+      <svg class="mcc-medal-svg mcc-medal-lg" viewBox="0 0 120 120" aria-hidden="true"><defs><linearGradient id="mccD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EAFBFF"/><stop offset=".5" stop-color="#8FD8F5"/><stop offset="1" stop-color="#B9A2FF"/></linearGradient></defs><path d="M60 108 L18 46 L36 20 L84 20 L102 46 Z" fill="url(#mccD)"/><path d="M18 46 L102 46" stroke="#ffffff88" stroke-width="1.6"/><path d="M36 20 L48 46 L60 108 L72 46 L84 20" fill="none" stroke="#ffffff77" stroke-width="1.2"/><path d="M48 46 L60 20 L72 46" fill="none" stroke="#ffffff66" stroke-width="1"/><path d="M60 20 L60 46" stroke="#ffffff55" stroke-width="1"/></svg>
+      <div class="mcc-dia-body">
+        <div class="mcc-dia-name">DIAMOND</div>
+        <div class="mcc-tko">다이아 멤버 · 최고 등급</div>
+        <div class="mcc-tth">월 수익 <b>1,000만원</b> 돌파</div>
+        <p class="mcc-dia-desc">머니크루가 인정하는 <b style="color:#9FE3FF">최상위 등급</b>. 극소수만 도달하는 자리이며, 별도 프리미엄 혜택이 함께 제공됩니다.</p>
+      </div>
+    </div>
+
+    <p class="mcc-cert-lead ash-reveal">▼ 실제 발급되는 인증서는 이렇게 생겼습니다</p>
+    <div class="mcc-cert ash-reveal">
+      <div class="mcc-cert-inner">
+        <div class="mcc-cert-top">
+          <div class="mcc-cert-seal"><svg viewBox="0 0 54 54"><circle cx="27" cy="27" r="25" fill="none" stroke="#c39a45" stroke-width="1.5"/><circle cx="27" cy="27" r="20" fill="none" stroke="#c39a45" stroke-width=".8"/><text x="27" y="34" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="20" font-weight="700" fill="#a9791f">MC</text></svg></div>
+          <div class="mcc-cert-kicker">MONEY CREW · OFFICIAL</div>
+        </div>
+        <div class="mcc-cert-title">CERTIFICATE</div>
+        <div class="mcc-cert-subt">of Achievement · 수익 성취 인증서</div>
+        <div class="mcc-cert-line"></div>
+        <div class="mcc-cert-body">
+          <div class="mcc-cert-label">This certifies that</div>
+          <div class="mcc-cert-name">홍 길 동</div>
+          <div class="mcc-cert-label">님은 아래의 성취를 공식 달성하였음을 이에 인증합니다</div>
+          <div class="mcc-cert-ach">
+            <span class="mcc-cert-tier">GOLD MEMBER</span>
+            <span class="mcc-cert-amt">월 수익 <b>500만원</b> 돌파</span>
+          </div>
+        </div>
+        <div class="mcc-cert-foot">
+          <div class="mcc-cert-meta"><span>발급일 &nbsp;2026. 08. 30</span><span>인증번호 &nbsp;MC-2026-0847</span></div>
+          <div class="mcc-cert-sign">
+            <div class="mcc-cert-signname">윤 상 현</div>
+            <div class="mcc-cert-signrole">머니크루 대표</div>
+          </div>
+          <div class="mcc-cert-stamp">인증</div>
+        </div>
+      </div>
+    </div>
+    <p class="mcc-cert-note ash-reveal">✦ 인증서는 <b>고해상도 이미지</b>로 발급되어 SNS · 블로그 · 포트폴리오에 자유롭게 자랑할 수 있습니다.</p>
   </div>
 </section>
 
