@@ -1701,24 +1701,15 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
 <!-- ===== HOW IT WORKS (진행 방식) ===== -->
 <style>
 .hiw-grad{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-.hiw-phase{max-width:880px;margin:0 auto;}
-.hiw-phase-h{text-align:center;font-size:16px;font-weight:700;color:var(--text);margin-bottom:18px;}
-.hiw-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#1a1200;background:var(--grad-gold);padding:4px 10px;border-radius:5px;margin-right:8px;vertical-align:middle;}
-.hiw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
-.hiw-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 16px;text-align:center;transition:transform .2s,border-color .2s;}
-.hiw-card:hover{transform:translateY(-4px);border-color:rgba(227,193,121,.4);}
-.hiw-card .hiw-n{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gold);letter-spacing:.08em;}
-.hiw-card .hiw-t{font-size:16px;font-weight:800;color:var(--text);margin:7px 0 5px;}
-.hiw-card .hiw-d{font-size:12.5px;color:var(--text-dim);line-height:1.55;}
-.hiw-arrow{text-align:center;font-size:26px;color:var(--gold);margin:16px 0;line-height:1;}
-.hiw-flow{display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap;gap:8px;}
-.hiw-step{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 12px;text-align:center;font-size:13px;font-weight:700;color:var(--text);min-width:100px;line-height:1.45;display:flex;flex-direction:column;justify-content:center;}
-.hiw-step .hiw-ic{display:block;font-size:22px;margin-bottom:6px;}
-.hiw-step.hiw-end{background:linear-gradient(150deg,rgba(227,193,121,.18),rgba(18,18,24,.5));border-color:rgba(227,193,121,.45);}
-.hiw-ar{display:flex;align-items:center;color:var(--gold);font-size:18px;font-weight:800;}
-.hiw-weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:780px;margin:36px auto 0;}
-.hiw-week{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:13px 10px;text-align:center;font-size:13px;color:var(--text-dim);}
-.hiw-week b{display:block;color:var(--gold);font-size:11px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;margin-bottom:5px;}
+.hiw-flow3{display:flex;align-items:stretch;justify-content:center;gap:14px;max-width:900px;margin:0 auto;flex-wrap:wrap;}
+.hiw-p{flex:1 1 240px;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:30px 26px;text-align:center;transition:transform .2s,border-color .2s;}
+.hiw-p:hover{transform:translateY(-4px);border-color:rgba(227,193,121,.4);}
+.hiw-p-end{background:linear-gradient(150deg,rgba(227,193,121,.16),rgba(18,18,24,.5));border-color:rgba(227,193,121,.45);}
+.hiw-pn{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;color:var(--gold);}
+.hiw-pt{font-size:24px;font-weight:800;color:var(--text);margin:8px 0 10px;}
+.hiw-pd{font-size:13.5px;color:var(--text-dim);line-height:1.7;}
+.hiw-pd b{color:var(--text);}
+.hiw-ar3{display:flex;align-items:center;color:var(--gold);font-size:22px;font-weight:800;}
 .hiw-adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 .hiw-adv{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:26px 22px;transition:transform .2s,border-color .2s;}
 .hiw-adv:hover{transform:translateY(-4px);border-color:rgba(227,193,121,.4);}
@@ -1726,56 +1717,30 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
 .hiw-adv h3{font-size:17px;font-weight:800;color:var(--text);margin:0 0 8px;}
 .hiw-adv p{font-size:13.5px;color:var(--text-dim);line-height:1.7;margin:0;}
 .hiw-adv p b{color:var(--text);}
+.hiw-prog{margin-top:15px;display:flex;align-items:center;gap:10px;}
+.hiw-prog-bar{flex:1;height:7px;border-radius:4px;background:rgba(255,255,255,.08);overflow:hidden;}
+.hiw-prog-bar i{display:block;height:100%;width:68%;background:var(--grad-gold);border-radius:4px;}
+.hiw-prog span{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold);white-space:nowrap;}
 @media(max-width:760px){
-  .hiw-grid{grid-template-columns:repeat(2,1fr);}
-  .hiw-weeks{grid-template-columns:repeat(2,1fr);}
+  .hiw-flow3{gap:10px;}
+  .hiw-ar3{transform:rotate(90deg);width:100%;justify-content:center;}
+  .hiw-p{flex:1 1 100%;padding:24px 22px;}
   .hiw-adv-grid{grid-template-columns:1fr;}
-  .hiw-flow{gap:6px;}
-  .hiw-step{min-width:82px;font-size:11.5px;padding:11px 8px;}
-  .hiw-step .hiw-ic{font-size:18px;}
-  .hiw-ar{font-size:14px;}
 }
 </style>
 <section class="ash-pad" id="ash-howitworks">
   <div class="ash-wrap">
     <div class="ash-sec-head ash-reveal">
       <span class="ash-eyebrow">How It Works</span>
-      <h2>순서대로 따라만 하면<br><span class="hiw-grad">자동 수익 시스템</span>이 완성됩니다</h2>
-      <p>이론으로 원리를 잡고(4강), 화면을 그대로 따라 만들면(4스텝) 광고가 24시간 판매하는 구조가 남습니다.</p>
+      <h2>배우고, 따라 만들고,<br><span class="hiw-grad">자동으로 법니다</span></h2>
+      <p>복잡한 준비물은 필요 없습니다. 딱 3단계 — 나머지는 강의 안에서 화면 그대로 따라만 하세요.</p>
     </div>
-
-    <div class="hiw-phase ash-reveal">
-      <div class="hiw-phase-h"><span class="hiw-tag">PART 1 · 이론</span> 돈이 흐르는 구조의 원리</div>
-      <div class="hiw-grid">
-        <div class="hiw-card"><div class="hiw-n">1강</div><div class="hiw-t">생각의 기술</div><div class="hiw-d">수익이 흐르는 구조 설계</div></div>
-        <div class="hiw-card"><div class="hiw-n">2강</div><div class="hiw-t">가격 전략</div><div class="hiw-d">팔리는 가격의 원리</div></div>
-        <div class="hiw-card"><div class="hiw-n">3강</div><div class="hiw-t">메타 광고</div><div class="hiw-d">고객을 데려오는 광고</div></div>
-        <div class="hiw-card"><div class="hiw-n">4강</div><div class="hiw-t">웹사이트</div><div class="hiw-d">초보도 만드는 판매 사이트</div></div>
-      </div>
-    </div>
-
-    <div class="hiw-arrow">⌄</div>
-
-    <div class="hiw-phase ash-reveal">
-      <div class="hiw-phase-h"><span class="hiw-tag">PART 2 · 실전</span> 화면 그대로 따라 만들기</div>
-      <div class="hiw-flow">
-        <div class="hiw-step"><span class="hiw-ic">📘</span>STEP 1<br>콘텐츠 제작</div>
-        <span class="hiw-ar">→</span>
-        <div class="hiw-step"><span class="hiw-ic">🏪</span>STEP 2<br>상점 오픈</div>
-        <span class="hiw-ar">→</span>
-        <div class="hiw-step"><span class="hiw-ic">🖼️</span>STEP 3<br>상세페이지</div>
-        <span class="hiw-ar">→</span>
-        <div class="hiw-step"><span class="hiw-ic">📣</span>STEP 4<br>광고 자동화</div>
-        <span class="hiw-ar">→</span>
-        <div class="hiw-step hiw-end"><span class="hiw-ic">💰</span>자동화<br>수익</div>
-      </div>
-    </div>
-
-    <div class="hiw-weeks ash-reveal">
-      <div class="hiw-week"><b>WEEK 1</b>아이템 · 준비</div>
-      <div class="hiw-week"><b>WEEK 2</b>상품 제작</div>
-      <div class="hiw-week"><b>WEEK 3</b>사이트 · 상세</div>
-      <div class="hiw-week"><b>WEEK 4</b>광고 · 런칭</div>
+    <div class="hiw-flow3 ash-reveal">
+      <div class="hiw-p"><div class="hiw-pn">STEP 1</div><div class="hiw-pt">배운다</div><div class="hiw-pd">돈이 흐르는 <b>구조의 원리</b>를 먼저 이해합니다.</div></div>
+      <span class="hiw-ar3">→</span>
+      <div class="hiw-p"><div class="hiw-pn">STEP 2</div><div class="hiw-pt">만든다</div><div class="hiw-pd">화면을 따라 <b>나만의 자동 수익 시스템</b>을 세팅합니다.</div></div>
+      <span class="hiw-ar3">→</span>
+      <div class="hiw-p hiw-p-end"><div class="hiw-pn">STEP 3</div><div class="hiw-pt">번다</div><div class="hiw-pd">한 번 세팅하면 <b>광고가 24시간</b> 대신 판매합니다.</div></div>
     </div>
   </div>
 </section>
@@ -1785,16 +1750,16 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
   <div class="ash-wrap">
     <div class="ash-sec-head ash-reveal">
       <span class="ash-eyebrow">Why This Class</span>
-      <h2>이 강의만의 <span class="hiw-grad">차별점</span></h2>
-      <p>같은 'AI 부업'이라도, 끝까지 완성하게 만드는 장치가 다릅니다.</p>
+      <h2>끝까지 <span class="hiw-grad">완주하게</span> 만드는<br>머니크루만의 학습 시스템</h2>
+      <p>강의만 던져주지 않습니다. 완주율을 끌어올리는 장치가 다 들어 있습니다.</p>
     </div>
     <div class="hiw-adv-grid ash-reveal">
-      <div class="hiw-adv"><span class="hiw-adv-ic">🖥️</span><h3>컴맹도 OK</h3><p>화면을 <b>그대로 따라 하는</b> 단계별 영상. 수강생 70% 이상이 비전공·초보였습니다.</p></div>
-      <div class="hiw-adv"><span class="hiw-adv-ic">🤖</span><h3>AI가 대신 제작</h3><p>아이템 발굴 · 콘텐츠 · 상세페이지까지 <b>AI가 자동으로</b> 만들어 줍니다.</p></div>
-      <div class="hiw-adv"><span class="hiw-adv-ic">🙋</span><h3>1:1 피드백</h3><p>막히면 질문 → <b>캡처까지 하나하나</b> 답변. 끝까지 포기하지 않게.</p></div>
-      <div class="hiw-adv"><span class="hiw-adv-ic">🗓️</span><h3>4주 실행 로드맵</h3><p><b>하루 할 일 딱 1개.</b> 완벽하게 하려다 멈추지 않도록 설계했습니다.</p></div>
-      <div class="hiw-adv"><span class="hiw-adv-ic">♾️</span><h3>평생 소장 · 업데이트</h3><p>53개 레슨 <b>이어보기 · 진도 저장</b>, 이후 업데이트도 무료.</p></div>
-      <div class="hiw-adv"><span class="hiw-adv-ic">🏅</span><h3>수료증 · 등급 인증</h3><p>성과에 따라 <b>스타터 → 골드 → 다이아</b> 공식 인증서를 발급합니다.</p></div>
+      <div class="hiw-adv"><span class="hiw-adv-ic">📊</span><h3>진도율 자동 표시</h3><p>지금 <b>몇 %까지 들었는지</b> 실시간 표시. 완주 게이지가 끝까지 가게 만듭니다.</p><div class="hiw-prog"><div class="hiw-prog-bar"><i></i></div><span>68% 완료</span></div></div>
+      <div class="hiw-adv"><span class="hiw-adv-ic">🔖</span><h3>이어보기 · 진도 저장</h3><p>진도가 <b>자동 저장</b>되어, 며칠에 걸쳐 봐도 <b>이어서</b> 학습할 수 있습니다.</p></div>
+      <div class="hiw-adv"><span class="hiw-adv-ic">✅</span><h3>런칭 체크리스트</h3><p>출시 직전 <b>인터랙티브 체크리스트</b>로 하나씩 점검하고 광고를 켭니다.</p></div>
+      <div class="hiw-adv"><span class="hiw-adv-ic">🙋</span><h3>1:1 피드백</h3><p>막히면 질문 → <b>캡처까지 하나하나</b> 답변. 포기 없이 완주하게.</p></div>
+      <div class="hiw-adv"><span class="hiw-adv-ic">💾</span><h3>전체 강의 저장</h3><p>강의를 <b>통째로 소장</b>. 오프라인에서도 언제든 다시 볼 수 있습니다.</p></div>
+      <div class="hiw-adv"><span class="hiw-adv-ic">🏅</span><h3>완주 · 등급 인증서</h3><p>수료·성과에 따라 <b>스타터 → 골드 → 다이아</b> 공식 인증서를 발급합니다.</p></div>
     </div>
   </div>
 </section>
