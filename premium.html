@@ -28,11 +28,13 @@ body{min-height:100dvh;background:#0A0A0B;color:#EFEFF2;font-family:Pretendard,s
 .wrap{position:relative;z-index:3;padding:40px 26px;max-width:560px;
   opacity:0;transform:translateY(18px);animation:rise 1.1s cubic-bezier(.2,.7,.2,1) .1s forwards;}
 @keyframes rise{to{opacity:1;transform:none;}}
-.seal{width:96px;height:96px;margin:0 auto 30px;border-radius:50%;border:1px solid rgba(227,193,121,.5);
-  display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:34px;font-weight:700;
-  color:var(--gold);letter-spacing:.03em;background:radial-gradient(circle,rgba(227,193,121,.14),transparent 70%);
-  box-shadow:0 0 50px -8px rgba(227,193,121,.4);position:relative;}
-.seal::after{content:'';position:absolute;inset:-9px;border-radius:50%;border:1px solid rgba(227,193,121,.22);}
+.mcp-seal{width:112px;height:112px;position:relative;margin:0 auto 26px;}
+.mcp-seal .mcp-ring{width:100%;height:100%;animation:mcp-spin 26s linear infinite;}
+@keyframes mcp-spin{to{transform:rotate(360deg);}}
+.mcp-seal .mcp-ctext{fill:#E3C179;font-family:var(--mono);font-size:8px;letter-spacing:2px;}
+.mcp-seal .mcp-mono{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.mcp-seal .mcp-mono b{font-family:var(--serif);font-size:31px;font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
+.mcp-seal .mcp-mono i{font-family:var(--mono);font-size:7px;letter-spacing:.24em;color:#9a9280;font-style:normal;margin-top:3px;}
 .kicker{font-family:var(--mono);font-size:13px;letter-spacing:.42em;color:var(--gold);text-transform:uppercase;margin-bottom:22px;}
 .title{font-family:var(--serif);font-size:clamp(38px,10vw,62px);font-weight:700;line-height:1.12;letter-spacing:.01em;}
 .title .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
@@ -58,7 +60,10 @@ body{min-height:100dvh;background:#0A0A0B;color:#EFEFF2;font-family:Pretendard,s
   <span class="cf tl"></span><span class="cf tr"></span><span class="cf bl"></span><span class="cf br"></span>
 
   <div class="wrap">
-    <div class="seal">MC</div>
+    <div class="mcp-seal">
+      <svg class="mcp-ring" viewBox="0 0 150 150"><defs><path id="mcpcp" d="M75,75 m-58,0 a58,58 0 1,1 116,0 a58,58 0 1,1 -116,0"/></defs><text class="mcp-ctext"><textPath href="#mcpcp" startOffset="0">PREMIUM&nbsp;CLASS · EST.&nbsp;2024 · MEMBERS&nbsp;ONLY · </textPath></text></svg>
+      <div class="mcp-mono"><b>MC</b><i>PREMIUM</i></div>
+    </div>
     <div class="kicker">Premium · Members Only</div>
     <h1 class="title"><span class="g">PREMIUM</span><br><span class="g">CLASS</span></h1>
     <div class="hair"></div>
