@@ -131,7 +131,16 @@ section{position:relative;}
   .ash-hero .mcp-corner.c3{bottom:14px;top:auto;}
   .ash-hero .mcp-corner.c4{bottom:14px;right:14px;top:auto;left:auto;}
 }
-@media(prefers-reduced-motion:reduce){.mcp-seal .mcp-ring{animation:none;}.ash-hero h1 .ash-grad{animation:none;background-position:0 0;}}
+@media(prefers-reduced-motion:reduce){.mcp-seal .mcp-ring{animation:none;}.ash-hero h1 .ash-grad,.mcp-shim{animation:none;background-position:0 0;}}
+/* ===== PREMIUM 결합 · 하단 FINAL CTA ===== */
+.ash-final-cta .mcp-corner{position:absolute;z-index:2;width:30px;height:30px;border:1px solid rgba(227,193,121,.45);pointer-events:none;}
+.ash-final-cta .mcp-corner.c1{top:22px;left:22px;border-right:0;border-bottom:0;}
+.ash-final-cta .mcp-corner.c2{top:22px;right:22px;border-left:0;border-bottom:0;}
+.ash-final-cta .mcp-corner.c3{bottom:22px;left:22px;border-right:0;border-top:0;}
+.ash-final-cta .mcp-corner.c4{bottom:22px;right:22px;border-left:0;border-top:0;}
+.ash-final-cta .mcp-seal,.ash-final-cta .mcp-label,.ash-final-cta .mcp-hairline{position:relative;z-index:2;}
+.mcp-shim{background:linear-gradient(100deg,#C79A44 0%,#E9C97E 30%,#FFF6DF 46%,#E9C97E 62%,#C79A44 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:mcp-shimmer 4.4s linear infinite;}
+@media(max-width:920px){.ash-final-cta .mcp-corner{width:20px;height:20px;top:14px;left:14px;}.ash-final-cta .mcp-corner.c2{right:14px;left:auto;}.ash-final-cta .mcp-corner.c3{bottom:14px;top:auto;}.ash-final-cta .mcp-corner.c4{bottom:14px;right:14px;top:auto;left:auto;}}
 .ash-hero p.ash-sub{font-size:clamp(16px,2vw,19px);color:var(--text-dim);max-width:600px;margin:0 auto 40px;word-break:keep-all;}
 .ash-hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:56px;}
 .ash-btn-primary{padding:18px 36px;border-radius:100px;background:var(--grad-main);color:#0a0a12;font-weight:800;font-size:17px;border:none;
@@ -1549,9 +1558,15 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
 <!-- ===== FINAL CTA ===== -->
 <section class="ash-final-cta">
   <div class="ash-bg-orb"></div>
+  <span class="mcp-corner c1"></span><span class="mcp-corner c2"></span><span class="mcp-corner c3"></span><span class="mcp-corner c4"></span>
   <div class="ash-wrap">
-    <span class="ash-eyebrow ash-reveal">Last Call</span>
-    <h2 class="ash-reveal">지금 시작하지 않으면<br>내년에도 똑같은 고민을 하고 있을 거예요</h2>
+    <div class="mcp-seal ash-reveal">
+      <svg class="mcp-ring" viewBox="0 0 150 150"><defs><path id="mcpcp2" d="M75,75 m-58,0 a58,58 0 1,1 116,0 a58,58 0 1,1 -116,0"/></defs><text class="mcp-ctext"><textPath href="#mcpcp2" startOffset="0">MONEY&nbsp;CREW · LAST&nbsp;CALL · EST.&nbsp;2024 · </textPath></text></svg>
+      <div class="mcp-mono"><b>MC</b><i>PREMIUM</i></div>
+    </div>
+    <div class="mcp-label ash-reveal"><span>Last Call · 마감 임박</span></div>
+    <div class="mcp-hairline"></div>
+    <h2 class="ash-reveal">지금 시작하지 않으면<br><span class="mcp-shim">내년에도 똑같은 고민</span>을 하고 있을 거예요</h2>
     <p class="ash-reveal">수량 소진시 조기 마감됩니다.</p>
     <button class="ash-btn-primary ash-reveal" onclick="location.href='https://moneyfix.co.kr/shop_view/?idx=3'">할인받고 시작하기 →</button>
   </div>
