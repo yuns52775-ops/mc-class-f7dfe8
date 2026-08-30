@@ -557,10 +557,10 @@ body.ash-modal-lock{overflow:hidden;}
 .mcc-cert-stat .k{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.14em;color:#9a7a35;text-transform:uppercase;}
 .mcc-cert-stat .v{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:#2a2110;margin-top:4px;white-space:nowrap;}
 .mcc-cert-stat .v.gold{color:#a9791f;}
-.mcc-cert-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-top:28px;}
-.mcc-cert-meta{display:flex;flex-direction:column;gap:3px;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.03em;color:#8b7748;}
-.mcc-cert-seal2{width:66px;flex:none;}
-.mcc-cert-sign{position:relative;text-align:center;min-width:156px;}
+.mcc-cert-foot{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:16px;margin-top:28px;}
+.mcc-cert-meta{display:flex;flex-direction:column;gap:3px;text-align:left;justify-self:start;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.03em;color:#8b7748;}
+.mcc-cert-seal2{width:66px;flex:none;justify-self:center;}
+.mcc-cert-sign{position:relative;text-align:center;justify-self:end;min-width:156px;}
 .mcc-cert-signmark{font-family:'Nanum Pen Script',cursive;font-size:48px;line-height:.78;color:#1e1a0c;transform:rotate(-4deg);margin:0 0 5px;}
 .mcc-cert-signline{width:144px;height:1px;background:rgba(160,120,50,.5);margin:0 auto;}
 .mcc-cert-signrole{font-size:9.5px;color:#8b7748;margin-top:6px;letter-spacing:.1em;}
