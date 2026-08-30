@@ -2075,7 +2075,8 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
 .vs-final{margin-top:20px;padding:26px 24px;border-radius:16px;background:linear-gradient(150deg,rgba(227,193,121,.15),rgba(18,18,24,.35));border:1px solid rgba(227,193,121,.42);text-align:center;}
 .vs-final-l{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;}
 .vs-final-price{margin-top:12px;font-size:16px;color:var(--text-dim);display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;}
-.vs-final-price del{color:var(--text-faint);font-size:16px;}
+.vs-final-price del{color:var(--text-faint);font-size:17px;text-decoration:none;position:relative;padding:0 2px;}
+.vs-final-price del::after{content:'';position:absolute;left:-3px;right:-3px;top:50%;height:2.5px;background:#e0604c;border-radius:2px;transform:rotate(-9deg);box-shadow:0 0 8px -1px rgba(224,96,76,.55);}
 .vs-final-price b{font-size:38px;font-weight:900;color:var(--text);letter-spacing:-.02em;}
 .vs-off{display:inline-block;background:var(--grad-gold);color:#1a1200;font-weight:800;font-size:12.5px;border-radius:6px;padding:5px 11px;}
 .vs-final-note{font-size:12.5px;color:var(--text-dim);margin-top:12px;}
@@ -2102,7 +2103,7 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
         <div class="vs-final-price"><del>2,970,000원</del><b>54,000원</b><span class="vs-off">98% OFF</span></div>
         <div class="vs-final-note">무이자 할부 가능 · 완주 시 공식 인증서 발급</div>
       </div>
-      <p class="vs-why">이 시스템 하나를 완성하기까지 <b>수년의 시행착오와 수백만 원</b>이 들었습니다. 하지만 운영을 온라인·자동화로 바꾸고 <b>소수 정예로 인원을 제한</b>하니, 한 분당 드는 원가가 크게 낮아졌습니다. 그래서 이번 기수에 한해 — 더 많은 분이 같은 길을 <b>빠르게</b> 갈 수 있도록 — <b>원가에 가까운 54,000원</b>에 공개합니다.</p>
+      <p class="vs-why">원래 이 시스템은 <b>1:1 밀착으로 297만원</b>에 운영하던 것입니다. 하지만 그 과정을 그대로 <b>온라인 시스템에 옮겨 담자</b>, 한 분을 가르치는 데 드는 원가가 크게 낮아졌습니다. 덕분에 <b>더 많은 분이 같은 시스템을</b> 시작할 수 있게 되었고 — 그래서 이번 기수에 한해, <b>동일한 시스템을 54,000원</b>에 공개합니다.</p>
     </div>
   </div>
 </section>
