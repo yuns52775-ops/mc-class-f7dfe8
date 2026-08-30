@@ -1196,12 +1196,13 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
             var g=function(id){return (document.getElementById(id).textContent||'').trim();};
             var name=g('sch-cname'),start=g('sch-cstart'),startDot=g('sch-cstart2'),issued=g('sch-cdate'),cno=g('sch-cno'),mno=g('sch-cmno');
             var sig=document.querySelector('.sch-sigimg');
-            var S=2,W=1200,H=780,cx=W/2;
+            var S=2,W=760,H=850,cx=W/2;
             var cv=document.createElement('canvas');cv.width=W*S;cv.height=H*S;
             var ctx=cv.getContext('2d');ctx.scale(S,S);ctx.textBaseline='alphabetic';
             function lsp(v){try{ctx.letterSpacing=v;}catch(e){}}
             function C(t,y,f,col,sp){ctx.font=f;ctx.fillStyle=col;ctx.textAlign='center';lsp(sp||'0px');ctx.fillText(t,cx,y);lsp('0px');}
-            try{await document.fonts.load('700 46px "Cormorant Garamond"');await document.fonts.load('700 58px "Cormorant Garamond"');await document.fonts.load('600 12px "IBM Plex Mono"');await document.fonts.ready;}catch(e){}
+            function wrap(txt,maxW){var line='',out=[];for(var i=0;i<txt.length;i++){var t=line+txt[i];if(ctx.measureText(t).width>maxW&&line){out.push(line);line=txt[i];}else line=t;}if(line)out.push(line);return out;}
+            try{await document.fonts.load('700 44px "Cormorant Garamond"');await document.fonts.load('700 56px "Cormorant Garamond"');await document.fonts.load('600 12px "IBM Plex Mono"');await document.fonts.ready;}catch(e){}
             var SER='"Cormorant Garamond","Nanum Myeongjo","Batang",serif';
             var MONO='"IBM Plex Mono",monospace';
             var SANS='"Pretendard","Malgun Gothic","Apple SD Gothic Neo",sans-serif';
@@ -1209,37 +1210,41 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
             ctx.fillStyle=gb;ctx.fillRect(0,0,W,H);
             var pg=ctx.createLinearGradient(0,0,0,H);pg.addColorStop(0,'#FCF9F0');pg.addColorStop(1,'#F1E6C9');
             ctx.fillStyle=pg;ctx.fillRect(9,9,W-18,H-18);
-            ctx.strokeStyle='rgba(160,120,50,.5)';ctx.lineWidth=1.5;ctx.strokeRect(26,26,W-52,H-52);
-            ctx.strokeStyle='rgba(160,120,50,.32)';ctx.lineWidth=1;ctx.strokeRect(33,33,W-66,H-66);
-            ctx.strokeStyle='#b8933f';ctx.lineWidth=1.6;var cc=40;
-            [[46,46,1,1],[W-46,46,-1,1],[46,H-46,1,-1],[W-46,H-46,-1,-1]].forEach(function(p){ctx.beginPath();ctx.moveTo(p[0]+p[2]*cc,p[1]);ctx.lineTo(p[0],p[1]);ctx.lineTo(p[0],p[1]+p[3]*cc);ctx.stroke();});
-            ctx.strokeStyle='#c39a45';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(cx,86,24,0,7);ctx.stroke();ctx.lineWidth=.8;ctx.beginPath();ctx.arc(cx,86,19,0,7);ctx.stroke();
-            C('MC',94,'700 22px '+SER,'#a9791f','0px');
-            C('MONEY CREW \u00b7 OFFICIAL CERTIFICATION',134,'600 11px '+MONO,'#9a7a35','3px');
-            C('STARTER',190,'700 58px '+SER,'#26200f','10px');
-            C('CERTIFICATE \u00b7 \uc218\uac15 \uc2dc\uc791 \uc778\uc99d\uc11c',216,'500 12px '+MONO,'#8a6f34','2px');
-            var lg=ctx.createLinearGradient(cx-45,0,cx+45,0);lg.addColorStop(0,'rgba(195,154,69,0)');lg.addColorStop(.5,'#c39a45');lg.addColorStop(1,'rgba(195,154,69,0)');
-            ctx.strokeStyle=lg;ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(cx-45,240);ctx.lineTo(cx+45,240);ctx.stroke();
-            ctx.save();ctx.translate(cx,240);ctx.rotate(Math.PI/4);ctx.fillStyle='#c39a45';ctx.fillRect(-3,-3,6,6);ctx.restore();
-            C('This is to certify that',278,'400 13px '+MONO,'#7c6c4a','1px');
-            C(name,330,'700 46px '+SER,'#211b0c','8px');
+            ctx.strokeStyle='rgba(160,120,50,.5)';ctx.lineWidth=1.5;ctx.strokeRect(24,24,W-48,H-48);
+            ctx.strokeStyle='rgba(160,120,50,.32)';ctx.lineWidth=1;ctx.strokeRect(31,31,W-62,H-62);
+            ctx.strokeStyle='#b8933f';ctx.lineWidth=1.6;var cc=38;
+            [[44,44,1,1],[W-44,44,-1,1],[44,H-44,1,-1],[W-44,H-44,-1,-1]].forEach(function(p){ctx.beginPath();ctx.moveTo(p[0]+p[2]*cc,p[1]);ctx.lineTo(p[0],p[1]);ctx.lineTo(p[0],p[1]+p[3]*cc);ctx.stroke();});
+            ctx.strokeStyle='#c39a45';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(cx,80,23,0,7);ctx.stroke();ctx.lineWidth=.8;ctx.beginPath();ctx.arc(cx,80,18,0,7);ctx.stroke();
+            C('MC',88,'700 21px '+SER,'#a9791f','0px');
+            C('MONEY CREW \u00b7 OFFICIAL CERTIFICATION',126,'600 10.5px '+MONO,'#9a7a35','2.6px');
+            C('STARTER',188,'700 56px '+SER,'#26200f','9px');
+            C('CERTIFICATE \u00b7 \uc218\uac15 \uc2dc\uc791 \uc778\uc99d\uc11c',216,'500 11.5px '+MONO,'#8a6f34','2px');
+            var lg=ctx.createLinearGradient(cx-44,0,cx+44,0);lg.addColorStop(0,'rgba(195,154,69,0)');lg.addColorStop(.5,'#c39a45');lg.addColorStop(1,'rgba(195,154,69,0)');
+            ctx.strokeStyle=lg;ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(cx-44,242);ctx.lineTo(cx+44,242);ctx.stroke();
+            ctx.save();ctx.translate(cx,242);ctx.rotate(Math.PI/4);ctx.fillStyle='#c39a45';ctx.fillRect(-3,-3,6,6);ctx.restore();
+            C('This is to certify that',280,'400 12.5px '+MONO,'#7c6c4a','1px');
+            C(name,338,'700 44px '+SER,'#211b0c','7px');
             ctx.font='400 14px '+SANS;ctx.fillStyle='#5f5334';ctx.textAlign='center';lsp('0px');
-            var stmt='\uc704 \ud68c\uc6d0\uc740 '+start+', \uba38\ub2c8\ud06c\ub8e8 AI \uc790\ub3d9\ud654 \uc218\uc775\ud654 \uc2e4\uc804 \ud074\ub798\uc2a4\uc5d0 \uc815\uc2dd \ub4f1\ub85d\ud558\uace0, \uc624\ub9ac\uc5d4\ud14c\uc774\uc158 \uacfc\uc815\uc744 \uc218\ub8cc\ud558\uc5ec \uc218\uc775\ud654 \uc5ec\uc815\uc744 \uacf5\uc2dd\uc801\uc73c\ub85c \uc2dc\uc791\ud558\uc600\uc74c\uc744 \uc774\uc5d0 \uc778\uc99d\ud569\ub2c8\ub2e4.';
-            var maxW=560,line='',lines=[];for(var i=0;i<stmt.length;i++){var t=line+stmt[i];if(ctx.measureText(t).width>maxW&&line){lines.push(line);line=stmt[i];}else line=t;}if(line)lines.push(line);
-            var yy=368;lines.forEach(function(L){ctx.fillText(L,cx,yy);yy+=23;});
-            var bx=cx-250,by=436,bw=500,bh=60;
+            var seg1='\uc704 \ud68c\uc6d0\uc740 '+start+', \uba38\ub2c8\ud06c\ub8e8 AI \uc790\ub3d9\ud654 \uc218\uc775\ud654 \uc2e4\uc804 \ud074\ub798\uc2a4\uc5d0 \uc815\uc2dd \ub4f1\ub85d\ud558\uace0,';
+            var seg2='\uc624\ub9ac\uc5d4\ud14c\uc774\uc158 \uacfc\uc815\uc744 \uc218\ub8cc\ud558\uc5ec \uc218\uc775\ud654 \uc5ec\uc815\uc744 \uacf5\uc2dd\uc801\uc73c\ub85c \uc2dc\uc791\ud558\uc600\uc74c\uc744 \uc774\uc5d0 \uc778\uc99d\ud569\ub2c8\ub2e4.';
+            var lines=wrap(seg1,600).concat(wrap(seg2,600));
+            var yy=384;lines.forEach(function(L){ctx.fillText(L,cx,yy);yy+=25;});
+            yy+=8;
+            var bw=520,bx=cx-bw/2,bh=64,by=yy;
             ctx.fillStyle='rgba(233,201,126,.2)';ctx.strokeStyle='rgba(160,120,50,.4)';ctx.lineWidth=1;roundRect(ctx,bx,by,bw,bh,9);ctx.fill();ctx.stroke();
             var cells=[['START DATE',startDot,'#a9791f'],['ENROLLED COURSE','AI \uc790\ub3d9\ud654 \ud074\ub798\uc2a4','#2a2110'],['MEMBER GRADE','STARTER','#2a2110']];
-            cells.forEach(function(c,i){var ccx=bx+bw/6+(bw/3)*i;if(i>0){ctx.strokeStyle='rgba(160,120,50,.28)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(bx+(bw/3)*i,by+11);ctx.lineTo(bx+(bw/3)*i,by+bh-11);ctx.stroke();}ctx.font='600 8px '+MONO;ctx.fillStyle='#9a7a35';ctx.textAlign='center';lsp('1px');ctx.fillText(c[0],ccx,by+23);lsp('0px');ctx.font='700 19px '+SER;ctx.fillStyle=c[2];ctx.fillText(c[1],ccx,by+47);});
-            (function(){var label='CERTIFIED COURSE';var txt='  AI \uc790\ub3d9\ud654 \uc218\uc775\ud654 \uc2e4\uc804 \ud074\ub798\uc2a4 \u00b7 \uc774\ub860 4\uac15 \u00b7 \uc2e4\uc804 4\uc2a4\ud15d';ctx.font='400 11px '+SANS;var tw=ctx.measureText(txt).width;ctx.font='600 8px '+MONO;var lw=ctx.measureText(label).width+16;var total=lw+tw;var sx=cx-total/2;ctx.fillStyle='#a9791f';roundRect(ctx,sx,528,lw,18,3);ctx.fill();ctx.fillStyle='#fff8ea';ctx.textAlign='left';ctx.font='600 8px '+MONO;lsp('1px');ctx.fillText(label,sx+8,540);lsp('0px');ctx.fillStyle='#6a5c38';ctx.font='400 11px '+SANS;ctx.fillText(txt,sx+lw,540);ctx.textAlign='center';})();
+            cells.forEach(function(c,i){var ccx=bx+bw/6+(bw/3)*i;if(i>0){ctx.strokeStyle='rgba(160,120,50,.28)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(bx+(bw/3)*i,by+12);ctx.lineTo(bx+(bw/3)*i,by+bh-12);ctx.stroke();}ctx.font='600 8px '+MONO;ctx.fillStyle='#9a7a35';ctx.textAlign='center';lsp('1px');ctx.fillText(c[0],ccx,by+24);lsp('0px');ctx.font='700 19px '+SER;ctx.fillStyle=c[2];ctx.fillText(c[1],ccx,by+48);});
+            yy=by+bh+32;
+            (function(){var label='CERTIFIED COURSE';var txt='  AI \uc790\ub3d9\ud654 \uc218\uc775\ud654 \uc2e4\uc804 \ud074\ub798\uc2a4 \u00b7 \uc774\ub860 4\uac15 \u00b7 \uc2e4\uc804 4\uc2a4\ud15d';ctx.font='400 11px '+SANS;var tw=ctx.measureText(txt).width;ctx.font='600 8px '+MONO;var lw=ctx.measureText(label).width+16;var total=lw+tw;var sx=cx-total/2;ctx.fillStyle='#a9791f';roundRect(ctx,sx,yy-13,lw,18,3);ctx.fill();ctx.fillStyle='#fff8ea';ctx.textAlign='left';ctx.font='600 8px '+MONO;lsp('1px');ctx.fillText(label,sx+8,yy);lsp('0px');ctx.fillStyle='#6a5c38';ctx.font='400 11px '+SANS;ctx.fillText(txt,sx+lw,yy);ctx.textAlign='center';})();
+            var fy=H-152;
             ctx.textAlign='left';ctx.font='400 9px '+MONO;ctx.fillStyle='#8b7748';lsp('.3px');
-            ctx.fillText('\ubc1c\uae09\uc77c  '+issued,72,646);ctx.fillText('\uc778\uc99d\ubc88\ud638  '+cno,72,662);ctx.fillText('\ud68c\uc6d0\ubc88\ud638  '+mno,72,678);lsp('0px');
-            drawRosette(ctx,cx,636);
-            if(sig&&sig.complete&&sig.naturalWidth){var sw=120,sh=sw*(sig.naturalHeight/sig.naturalWidth);ctx.drawImage(sig,W-72-sw,606,sw,sh);}
-            ctx.strokeStyle='rgba(160,120,50,.5)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(W-72-120,666);ctx.lineTo(W-72,666);ctx.stroke();
-            ctx.font='400 10px '+SANS;ctx.fillStyle='#8b7748';ctx.textAlign='center';ctx.fillText('\uc724\uc0c1\ud604 \u00b7 \uba38\ub2c8\ud06c\ub8e8 \ub300\ud45c',W-72-60,682);
-            ctx.strokeStyle='rgba(160,120,50,.28)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(60,710);ctx.lineTo(W-60,710);ctx.stroke();
-            C('\ubcf8 \uc778\uc99d\uc11c\ub294 \uba38\ub2c8\ud06c\ub8e8\uac00 \uacf5\uc2dd \ubc1c\uae09\ud55c \ubb38\uc11c\uc774\uba70, \uc778\uc99d\ubc88\ud638\ub85c \uc9c4\uc704 \uc5ec\ubd80\ub97c \ud655\uc778\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4  \u00b7  VERIFY AT moneyfix.co.kr',730,'400 9px '+MONO,'#9a8a5e','.2px');
+            ctx.fillText('\ubc1c\uae09\uc77c  '+issued,64,fy);ctx.fillText('\uc778\uc99d\ubc88\ud638  '+cno,64,fy+16);ctx.fillText('\ud68c\uc6d0\ubc88\ud638  '+mno,64,fy+32);lsp('0px');
+            drawRosette(ctx,cx,fy-10);
+            if(sig&&sig.complete&&sig.naturalWidth){var sw=120,sh=sw*(sig.naturalHeight/sig.naturalWidth);ctx.drawImage(sig,W-64-sw,fy-46,sw,sh);}
+            ctx.strokeStyle='rgba(160,120,50,.5)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(W-64-120,fy+14);ctx.lineTo(W-64,fy+14);ctx.stroke();
+            ctx.font='400 10px '+SANS;ctx.fillStyle='#8b7748';ctx.textAlign='center';ctx.fillText('\uc724\uc0c1\ud604 \u00b7 \uba38\ub2c8\ud06c\ub8e8 \ub300\ud45c',W-64-60,fy+30);
+            ctx.strokeStyle='rgba(160,120,50,.28)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(56,H-72);ctx.lineTo(W-56,H-72);ctx.stroke();
+            C('\ubcf8 \uc778\uc99d\uc11c\ub294 \uba38\ub2c8\ud06c\ub8e8\uac00 \uacf5\uc2dd \ubc1c\uae09\ud55c \ubb38\uc11c\uc774\uba70, \uc778\uc99d\ubc88\ud638\ub85c \uc9c4\uc704 \uc5ec\ubd80\ub97c \ud655\uc778\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4  \u00b7  VERIFY AT moneyfix.co.kr',H-52,'400 8.5px '+MONO,'#9a8a5e','.2px');
             return await new Promise(function(res){cv.toBlob(function(b){res(b);},'image/png');});
           }
           async function download(){try{var b=await renderBlob();var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download='\uba38\ub2c8\ud06c\ub8e8_\uc2a4\ud0c0\ud130\uc778\uc99d\uc11c_'+(document.getElementById('sch-cname').textContent||'')+'.png';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u);},5000);}catch(e){alert('\uc774\ubbf8\uc9c0 \uc0dd\uc131\uc5d0 \uc2e4\ud328\ud588\uc5b4\uc694. \ub2e4\uc2dc \uc2dc\ub3c4\ud574 \uc8fc\uc138\uc694.');}}
