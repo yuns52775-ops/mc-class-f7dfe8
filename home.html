@@ -603,7 +603,8 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
 .ash-foot-logo{font-weight:800;color:var(--text-dim);font-size:15px;margin-bottom:8px;}
 
 /* ===== Sticky bottom CTA (mobile) ===== */
-.ash-sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:90;background:linear-gradient(180deg,#15121f 0%,#0a0812 100%);color:var(--text);backdrop-filter:blur(14px);border-top:1px solid rgba(201,162,78,.35);box-shadow:0 -10px 30px rgba(0,0,0,.5);padding:10px 14px calc(20px + env(safe-area-inset-bottom));display:none;flex-direction:column;gap:8px;}
+.ash-sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:90;background:linear-gradient(180deg,#15121f 0%,#0a0812 100%);color:var(--text);backdrop-filter:blur(14px);border-top:1px solid rgba(201,162,78,.35);box-shadow:0 -10px 30px rgba(0,0,0,.5);padding:10px 14px calc(20px + env(safe-area-inset-bottom));display:none;flex-direction:column;gap:8px;transform:translateY(130%);opacity:0;transition:transform .55s cubic-bezier(.2,.85,.25,1),opacity .45s ease;will-change:transform;}
+.ash-sticky-cta.ash-sticky-in{transform:none;opacity:1;}
 .ash-sticky-urgency{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 10px;background:linear-gradient(90deg,rgba(255,77,77,.16),rgba(251,191,36,.12));border:1px solid rgba(255,77,77,.35);border-radius:10px;padding:6px 12px;}
 .ash-sticky-timer{font-size:11.5px;font-weight:700;color:var(--text);white-space:nowrap;}
 .ash-sticky-timer b{color:#ff5f5f;font-weight:800;}
@@ -2745,7 +2746,7 @@ setInterval(updateLadderFast, 50);
 (function(){
   var el=document.getElementById('ashHGlitch'); if(!el) return;
   var reduce=false; try{ reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches; }catch(e){}
-  if(reduce){ el.style.visibility=''; return; }
+  if(reduce){ el.style.visibility=''; revealSticky(); return; }
   var finalHTML=el.innerHTML;
   var text=el.textContent;
   var GLYPHS='ｦｧｨｩｪｫﾞﾟ#%@&✦❖⌇/\\|_=+*<>[]{}▓▒░ΩΣΞΨΔ01ㄱㄴㄷㅁㅂㅅㅇㅈㅊ';
@@ -2758,6 +2759,7 @@ setInterval(updateLadderFast, 50);
   });
   var rnd=function(){ return GLYPHS[Math.floor(Math.random()*GLYPHS.length)]; };
   var f=0, raf=0;
+  function revealSticky(){ var b=document.querySelector('.ash-sticky-cta'); if(b) b.classList.add('ash-sticky-in'); }
   function tick(){
     var out='',done=0,active=false;
     for(var i=0;i<plan.length;i++){ var p=plan[i];
@@ -2767,17 +2769,17 @@ setInterval(updateLadderFast, 50);
       else { active=true; }
     }
     el.innerHTML=out+(active?'<span class="ash-cur"></span>':'');
-    if(done>=plan.length){ el.innerHTML=finalHTML; el.classList.remove('decoding'); return; }
+    if(done>=plan.length){ el.innerHTML=finalHTML; el.classList.remove('decoding'); setTimeout(revealSticky,260); return; }
     f++; raf=requestAnimationFrame(tick);
   }
-  function finish(){ if(raf) cancelAnimationFrame(raf); el.innerHTML=finalHTML; el.classList.remove('decoding'); }
+  function finish(){ if(raf) cancelAnimationFrame(raf); el.innerHTML=finalHTML; el.classList.remove('decoding'); setTimeout(revealSticky,260); }
   function run(){ el.style.visibility=''; f=0; el.classList.add('decoding'); tick(); setTimeout(function(){ if(el.classList.contains('decoding')) finish(); }, dur+900); }
   function start(){ if(el._gstarted) return; el._gstarted=true; run(); }
   if('IntersectionObserver' in window && 'requestAnimationFrame' in window){
     var io=new IntersectionObserver(function(es){ for(var j=0;j<es.length;j++){ if(es[j].isIntersecting){ io.disconnect(); start(); break; } } }, {rootMargin:'-38% 0px -38% 0px', threshold:0});
     io.observe(el);
     setTimeout(function(){ if(!el._gstarted){ try{io.disconnect();}catch(e){} start(); } }, 4000);
-  } else { el.style.visibility=''; el.innerHTML=finalHTML; }
+  } else { el.style.visibility=''; el.innerHTML=finalHTML; revealSticky(); }
 })();
 </script>
 </body>
