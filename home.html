@@ -2772,7 +2772,12 @@ setInterval(updateLadderFast, 50);
   }
   function finish(){ if(raf) cancelAnimationFrame(raf); el.innerHTML=finalHTML; el.classList.remove('decoding'); }
   function run(){ el.style.visibility=''; f=0; el.classList.add('decoding'); tick(); setTimeout(function(){ if(el.classList.contains('decoding')) finish(); }, dur+900); }
-  if('requestAnimationFrame' in window){ setTimeout(run, 420); } else { el.style.visibility=''; el.innerHTML=finalHTML; }
+  function start(){ if(el._gstarted) return; el._gstarted=true; run(); }
+  if('IntersectionObserver' in window && 'requestAnimationFrame' in window){
+    var io=new IntersectionObserver(function(es){ for(var j=0;j<es.length;j++){ if(es[j].isIntersecting){ io.disconnect(); start(); break; } } }, {rootMargin:'-38% 0px -38% 0px', threshold:0});
+    io.observe(el);
+    setTimeout(function(){ if(!el._gstarted){ try{io.disconnect();}catch(e){} start(); } }, 4000);
+  } else { el.style.visibility=''; el.innerHTML=finalHTML; }
 })();
 </script>
 </body>
