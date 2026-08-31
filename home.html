@@ -99,6 +99,13 @@ section{position:relative;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
 .ash-hero h1{font-size:clamp(34px,6vw,64px);font-weight:800;letter-spacing:-0.03em;line-height:1.18;margin-bottom:14px;word-break:keep-all;}
 .ash-hero h1 .ash-grad{background:var(--grad-main);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+/* 히어로 글리치 디코드 (DNA 사주 톤) */
+.ash-hglitch{display:inline;}
+.ash-hglitch.decoding{background:var(--grad-main);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.ash-hglitch.decoding .gl{-webkit-text-fill-color:currentColor;color:#F5E4B8;font-family:'IBM Plex Mono',ui-monospace,SFMono-Regular,monospace;font-weight:600;text-shadow:1.4px 0 rgba(255,90,80,.6),-1.4px 0 rgba(90,200,255,.55);}
+.ash-hglitch .ash-cur{display:inline-block;width:.58em;height:1em;margin-left:2px;vertical-align:-.12em;background:#E3C179;box-shadow:0 0 10px rgba(227,193,121,.85);animation:ashCur .5s steps(1) infinite;}
+@keyframes ashCur{0%,100%{opacity:1}50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.ash-hglitch.decoding .gl{text-shadow:none;}}
 /* ===== PREMIUM 요소 (씰 A / 라벨 B / 코너·광택 결합) ===== */
 .ash-hero .mcp-corner{position:absolute;z-index:2;width:30px;height:30px;border:1px solid rgba(227,193,121,.45);pointer-events:none;}
 .ash-hero .mcp-corner.c1{top:22px;left:22px;border-right:0;border-bottom:0;}
@@ -721,7 +728,7 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
     <div class="mcp-hairline"></div>
     <div class="mcp-sub">소수 정예 · 프리미엄 클래스</div>
     <div class="ash-badge"><span class="ash-pulse"></span>마감 <b>D-5</b> · 남은수량 4개</div>
-    <h1>퇴근 후 하루 1시간<br><span class="ash-grad">AI</span>로 만드는 <span class="ash-grad">월 500+ 부수입</span></h1>
+    <h1>퇴근 후 하루 1시간<br><span class="ash-hglitch" id="ashHGlitch"><span class="ash-grad">AI</span>로 만드는 <span class="ash-grad">월 500+ 부수입</span></span></h1>
     <p class="ash-hero-urgency">지금 시작하지 않으면<br><b>내년에도 똑같은 고민을 하고 있을 거예요</b></p>
     <div class="ash-hero-trust">
       <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l2.9 6.3 6.9.9-5 4.8 1.2 6.9L12 17.6l-6 3.3 1.2-6.9-5-4.8 6.9-.9z"/></svg> <span class="ash-stat-num ash-stat-inline" data-count="49" data-decimal="true" data-suffix=" / 5.0 (">0</span><span class="ash-stat-num ash-stat-inline" data-count="647" data-suffix="개 후기)">0</span></span>
@@ -2730,6 +2737,41 @@ function updateLadderFast() {
 updateLadderFast();
 setInterval(updateLadderFast, 50);
 
+</script>
+<script>
+/* 히어로 문구 글리치 디코드 (DNA 사주 톤) */
+(function(){
+  var el=document.getElementById('ashHGlitch'); if(!el) return;
+  var reduce=false; try{ reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches; }catch(e){}
+  if(reduce) return;
+  var finalHTML=el.innerHTML;
+  var text=el.textContent;
+  var GLYPHS='ｦｧｨｩｪｫﾞﾟ#%@&✦❖⌇/\\|_=+*<>[]{}▓▒░ΩΣΞΨΔ01ㄱㄴㄷㅁㅂㅅㅇㅈㅊ';
+  var chars=Array.from(text), dur=1150, total=Math.max(22,Math.round(dur/16.6));
+  var plan=chars.map(function(ch){
+    if(ch===' ') return {ch:ch,space:true};
+    var start=Math.floor(Math.random()*total*0.5);
+    var end=start+Math.floor(total*0.3)+Math.floor(Math.random()*total*0.4);
+    return {ch:ch,start:start,end:end,r:''};
+  });
+  var rnd=function(){ return GLYPHS[Math.floor(Math.random()*GLYPHS.length)]; };
+  var f=0, raf=0;
+  function tick(){
+    var out='',done=0,active=false;
+    for(var i=0;i<plan.length;i++){ var p=plan[i];
+      if(p.space){ out+=' '; done++; continue; }
+      if(f>=p.end){ out+=p.ch; done++; }
+      else if(f>=p.start){ active=true; if(!p.r||Math.random()<0.32) p.r=rnd(); out+='<span class="gl">'+p.r+'</span>'; }
+      else { active=true; }
+    }
+    el.innerHTML=out+(active?'<span class="ash-cur"></span>':'');
+    if(done>=plan.length){ el.innerHTML=finalHTML; el.classList.remove('decoding'); return; }
+    f++; raf=requestAnimationFrame(tick);
+  }
+  function finish(){ if(raf) cancelAnimationFrame(raf); el.innerHTML=finalHTML; el.classList.remove('decoding'); }
+  function run(){ f=0; el.classList.add('decoding'); tick(); setTimeout(function(){ if(el.classList.contains('decoding')) finish(); }, dur+900); }
+  if('requestAnimationFrame' in window){ setTimeout(run, 260); } else { el.innerHTML=finalHTML; }
+})();
 </script>
 </body>
 </html>
