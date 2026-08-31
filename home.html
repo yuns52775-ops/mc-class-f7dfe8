@@ -101,6 +101,7 @@ section{position:relative;}
 .ash-hero h1 .ash-grad{background:var(--grad-main);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
 /* 히어로 글리치 디코드 (DNA 사주 톤) */
 .ash-hglitch{display:inline;}
+.ash-hero h1 .ash-hglitch{display:block;white-space:nowrap;font-size:clamp(15px,4.3vw,38px);line-height:1.16;}
 .ash-hglitch.decoding{background:var(--grad-main);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
 .ash-hglitch.decoding .gl{-webkit-text-fill-color:currentColor;color:#F5E4B8;font-family:'IBM Plex Mono',ui-monospace,SFMono-Regular,monospace;font-weight:600;text-shadow:1.4px 0 rgba(255,90,80,.6),-1.4px 0 rgba(90,200,255,.55);}
 .ash-hglitch .ash-cur{display:inline-block;width:.58em;height:1em;margin-left:2px;vertical-align:-.12em;background:#E3C179;box-shadow:0 0 10px rgba(227,193,121,.85);animation:ashCur .5s steps(1) infinite;}
@@ -728,7 +729,8 @@ footer{border-top:1px solid var(--border);padding:48px 0 100px;background:var(--
     <div class="mcp-hairline"></div>
     <div class="mcp-sub">소수 정예 · 프리미엄 클래스</div>
     <div class="ash-badge"><span class="ash-pulse"></span>마감 <b>D-5</b> · 남은수량 4개</div>
-    <h1>퇴근 후 하루 1시간<br><span class="ash-hglitch" id="ashHGlitch"><span class="ash-grad">24시간</span> 알아서 돌아가는 <span class="ash-grad">월 1000+ 자동화</span></span></h1>
+    <h1>퇴근 후 하루 1시간<span class="ash-hglitch" id="ashHGlitch"><span class="ash-grad">24시간</span> 알아서 돌아가는 <span class="ash-grad">월 1000+ 자동화</span></span></h1>
+    <script>(function(){var e=document.getElementById("ashHGlitch");if(e)e.style.visibility="hidden";})();</script>
     <p class="ash-hero-urgency">지금 시작하지 않으면<br><b>내년에도 똑같은 고민을 하고 있을 거예요</b></p>
     <div class="ash-hero-trust">
       <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l2.9 6.3 6.9.9-5 4.8 1.2 6.9L12 17.6l-6 3.3 1.2-6.9-5-4.8 6.9-.9z"/></svg> <span class="ash-stat-num ash-stat-inline" data-count="49" data-decimal="true" data-suffix=" / 5.0 (">0</span><span class="ash-stat-num ash-stat-inline" data-count="647" data-suffix="개 후기)">0</span></span>
@@ -2743,7 +2745,7 @@ setInterval(updateLadderFast, 50);
 (function(){
   var el=document.getElementById('ashHGlitch'); if(!el) return;
   var reduce=false; try{ reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches; }catch(e){}
-  if(reduce) return;
+  if(reduce){ el.style.visibility=''; return; }
   var finalHTML=el.innerHTML;
   var text=el.textContent;
   var GLYPHS='ｦｧｨｩｪｫﾞﾟ#%@&✦❖⌇/\\|_=+*<>[]{}▓▒░ΩΣΞΨΔ01ㄱㄴㄷㅁㅂㅅㅇㅈㅊ';
@@ -2769,8 +2771,8 @@ setInterval(updateLadderFast, 50);
     f++; raf=requestAnimationFrame(tick);
   }
   function finish(){ if(raf) cancelAnimationFrame(raf); el.innerHTML=finalHTML; el.classList.remove('decoding'); }
-  function run(){ f=0; el.classList.add('decoding'); tick(); setTimeout(function(){ if(el.classList.contains('decoding')) finish(); }, dur+900); }
-  if('requestAnimationFrame' in window){ setTimeout(run, 260); } else { el.innerHTML=finalHTML; }
+  function run(){ el.style.visibility=''; f=0; el.classList.add('decoding'); tick(); setTimeout(function(){ if(el.classList.contains('decoding')) finish(); }, dur+900); }
+  if('requestAnimationFrame' in window){ setTimeout(run, 420); } else { el.style.visibility=''; el.innerHTML=finalHTML; }
 })();
 </script>
 </body>
