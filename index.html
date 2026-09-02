@@ -566,6 +566,12 @@ body::before{
       <div class="lnk" data-target="ot-cert"><span class="chk">✓</span><span class="lt">🎓 스타터 인증서 발급</span></div>
     </div>
 
+    <!-- NEW: 신규 출시 프로그램 안내 -->
+    <div class="mod">
+      <div class="mod-h"><span class="no">★</span><span class="tt">신규 출시 프로그램 안내<small>New · AI E-Book Studio</small></span></div>
+      <div class="lnk" data-target="prog-launch"><span class="chk">✓</span><span class="lt">🚀 AI 전자책 자동작성 프로그램</span></div>
+    </div>
+
     <!-- M1 -->
     <div class="mod">
       <div class="mod-h"><span class="no">1</span><span class="tt">돈이 따르게 만드는 생각의 기술<small>Mindset · 8 Lessons</small></span></div>
@@ -1295,6 +1301,16 @@ body::before{
       </article>
 
       <!-- ===== MODULE 1 · 생각의 기술 ===== -->
+      <article class="lesson" id="prog-launch">
+        <div class="l-eyebrow"><span class="mono">New · 신규 출시 프로그램</span><span class="ch">Program</span></div>
+        <h1 class="l-title">AI가 대신 써주는 <span class="g">전자책 자동작성</span> 프로그램</h1>
+        <p class="l-key">강의에서 배운 걸, 이제 클릭 몇 번으로 — 주제만 정하면 팔리는 전자책이 통째로 완성됩니다.</p>
+        <div class="l-body" style="padding:0;">
+          <iframe src="sales.html" title="머니크루 전자책 스튜디오" style="width:100%;border:0;display:block;border-radius:16px;overflow:hidden;background:#0a0a0d;min-height:640px;" scrolling="no" loading="lazy"></iframe>
+        </div>
+        <!--FOOT-->
+      </article>
+
       <article class="lesson" id="c1-1">
         <div class="l-eyebrow"><span class="mono">Module 01 · 생각의 기술</span><span class="ch">Chapter 1</span></div>
         <h1 class="l-title">나에게 맞는 <span class="g">수익의 흐름</span>을 설계하는 법</h1>
@@ -5206,7 +5222,7 @@ body::before{
   function linkFor(id){return links.filter(function(a){return a.getAttribute('data-target')===id;})[0];}
 
   function updateProgress(){
-    var total=order.filter(function(x){return x!=='ot-cert'&&x!=='prompt-pack';}).length, n=0;
+    var total=order.filter(function(x){return x!=='ot-cert'&&x!=='prompt-pack'&&x!=='prog-launch';}).length, n=0;
     order.forEach(function(id){if(done[id])n++;});
     var pct=total?Math.round(n/total*100):0;
     document.getElementById('progbar').style.width=pct+'%';
@@ -5226,7 +5242,7 @@ body::before{
     var cur=document.getElementById(id);
     var idx=order.indexOf(id);
     var pv=cur.querySelector('.pv'), nx=cur.querySelector('.nx'), db=cur.querySelector('.l-done-btn');
-    if(db && (id==='ot-cert'||id==='prompt-pack')){db.style.display='none';db=null;}
+    if(db && (id==='ot-cert'||id==='prompt-pack'||id==='prog-launch')){db.style.display='none';db=null;}
     if(pv){pv.disabled=idx<=0; pv.onclick=function(){if(idx>0)show(order[idx-1],true);};}
     if(nx){nx.disabled=idx>=order.length-1; nx.onclick=function(){if(idx<order.length-1)show(order[idx+1],true);};}
     if(db){
@@ -5400,5 +5416,17 @@ body::before{
 })();
 </script>
 
+<script>
+/* 프로그램 안내 탭: 세일즈 iframe 높이 자동 맞춤 (같은 도메인) */
+(function(){
+  var art=document.getElementById('prog-launch'); if(!art)return;
+  var f=art.querySelector('iframe'); if(!f)return;
+  function fit(){ if(!art.classList.contains('show'))return;
+    try{ var d=f.contentDocument; if(d&&d.body){ var h=Math.max(d.body.scrollHeight,d.documentElement.scrollHeight); if(h>200) f.style.height=h+'px'; } }catch(e){} }
+  f.addEventListener('load',function(){ setTimeout(fit,120); setTimeout(fit,600); setTimeout(fit,1500); });
+  window.addEventListener('resize',fit);
+  try{ new MutationObserver(function(){ setTimeout(fit,60); setTimeout(fit,450); }).observe(art,{attributes:true,attributeFilter:['class']}); }catch(e){}
+})();
+</script>
 </body>
 </html>
