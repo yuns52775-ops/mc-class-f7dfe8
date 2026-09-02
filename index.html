@@ -1306,7 +1306,7 @@ body::before{
         <h1 class="l-title">AI가 대신 써주는 <span class="g">전자책 자동작성</span> 프로그램</h1>
         <p class="l-key">강의에서 배운 걸, 이제 클릭 몇 번으로 — 주제만 정하면 팔리는 전자책이 통째로 완성됩니다.</p>
         <div class="l-body" style="padding:0;">
-          <iframe src="sales.html" title="머니크루 전자책 스튜디오" style="width:100%;border:0;display:block;border-radius:16px;overflow:hidden;background:#0a0a0d;min-height:640px;" scrolling="no" loading="lazy"></iframe>
+          <iframe src="sales.html" title="머니크루 전자책 스튜디오" style="width:100%;border:0;display:block;background:transparent;min-height:400px;" scrolling="no"></iframe>
         </div>
         <!--FOOT-->
       </article>
@@ -5421,11 +5421,14 @@ body::before{
 (function(){
   var art=document.getElementById('prog-launch'); if(!art)return;
   var f=art.querySelector('iframe'); if(!f)return;
+  var timer=null;
   function fit(){ if(!art.classList.contains('show'))return;
     try{ var d=f.contentDocument; if(d&&d.body){ var h=Math.max(d.body.scrollHeight,d.documentElement.scrollHeight); if(h>200) f.style.height=h+'px'; } }catch(e){} }
-  f.addEventListener('load',function(){ setTimeout(fit,120); setTimeout(fit,600); setTimeout(fit,1500); });
+  function poll(){ clearInterval(timer); var n=0; fit(); timer=setInterval(function(){ fit(); if(++n>25) clearInterval(timer); },200); }
+  f.addEventListener('load',poll);
   window.addEventListener('resize',fit);
-  try{ new MutationObserver(function(){ setTimeout(fit,60); setTimeout(fit,450); }).observe(art,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  try{ new MutationObserver(function(){ if(art.classList.contains('show')) poll(); }).observe(art,{attributes:true,attributeFilter:['class']}); }catch(e){}
+  if(art.classList.contains('show')) poll();
 })();
 </script>
 </body>
