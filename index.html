@@ -570,6 +570,7 @@ body::before{
     <div class="mod">
       <div class="mod-h"><span class="no">★</span><span class="tt">신규 출시 프로그램 안내<small>New · AI E-Book Studio</small></span></div>
       <div class="lnk" data-target="prog-launch"><span class="chk">✓</span><span class="lt">🚀 AI 전자책 자동작성 프로그램</span></div>
+      <div class="lnk" data-target="prog-enter"><span class="chk">✓</span><span class="lt">🔑 구매자 입장하기</span></div>
     </div>
 
     <!-- M1 -->
@@ -1307,6 +1308,22 @@ body::before{
         <p class="l-key">강의에서 배운 걸, 이제 클릭 몇 번으로 — 주제만 정하면 팔리는 전자책이 통째로 완성됩니다.</p>
         <div class="l-body" style="padding:0;">
           <iframe src="sales.html" title="머니크루 전자책 스튜디오" style="width:100%;border:0;display:block;background:transparent;min-height:400px;" scrolling="no"></iframe>
+        </div>
+        <!--FOOT-->
+      </article>
+
+      <article class="lesson" id="prog-enter">
+        <div class="l-eyebrow"><span class="mono">구매자 전용 · Access</span><span class="ch">Enter</span></div>
+        <h1 class="l-title">프로그램을 구매하셨나요? <span class="g">여기로 입장</span>하세요</h1>
+        <p class="l-key">결제를 완료하신 분은 아래 버튼을 눌러 전자책 자동작성 프로그램에 입장할 수 있습니다.</p>
+        <div class="l-body">
+          <div style="text-align:center;border:1px solid var(--line);background:linear-gradient(160deg,rgba(227,193,121,.06),var(--panel));border-radius:16px;padding:44px 26px;margin:22px 0;">
+            <div style="font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;">Member Access</div>
+            <p style="font-size:17px;color:var(--ink);font-weight:700;margin:0 0 6px;">전자책 자동작성 프로그램 입장</p>
+            <p style="font-size:14px;color:var(--ink-dim);margin:0 0 28px;">구매자 전용 페이지에서 프로그램을 바로 실행할 수 있어요.</p>
+            <a href="https://moneyfix.co.kr/74" target="_top" style="display:inline-block;background:var(--grad-gold);color:#241a05;font-weight:800;font-size:17px;padding:16px 42px;border-radius:14px;text-decoration:none;box-shadow:0 14px 34px -14px rgba(227,193,121,.6);">프로그램 입장하기 →</a>
+            <p style="font-size:12.5px;color:var(--ink-faint);margin:20px 0 0;">아직 구매 전이신가요? 위 <b style="color:var(--ink-dim)">[신규 출시 프로그램 안내]</b> 탭에서 확인하세요.</p>
+          </div>
         </div>
         <!--FOOT-->
       </article>
@@ -5222,7 +5239,7 @@ body::before{
   function linkFor(id){return links.filter(function(a){return a.getAttribute('data-target')===id;})[0];}
 
   function updateProgress(){
-    var total=order.filter(function(x){return x!=='ot-cert'&&x!=='prompt-pack'&&x!=='prog-launch';}).length, n=0;
+    var total=order.filter(function(x){return x!=='ot-cert'&&x!=='prompt-pack'&&x!=='prog-launch'&&x!=='prog-enter';}).length, n=0;
     order.forEach(function(id){if(done[id])n++;});
     var pct=total?Math.round(n/total*100):0;
     document.getElementById('progbar').style.width=pct+'%';
@@ -5242,7 +5259,7 @@ body::before{
     var cur=document.getElementById(id);
     var idx=order.indexOf(id);
     var pv=cur.querySelector('.pv'), nx=cur.querySelector('.nx'), db=cur.querySelector('.l-done-btn');
-    if(db && (id==='ot-cert'||id==='prompt-pack'||id==='prog-launch')){db.style.display='none';db=null;}
+    if(db && (id==='ot-cert'||id==='prompt-pack'||id==='prog-launch'||id==='prog-enter')){db.style.display='none';db=null;}
     if(pv){pv.disabled=idx<=0; pv.onclick=function(){if(idx>0)show(order[idx-1],true);};}
     if(nx){nx.disabled=idx>=order.length-1; nx.onclick=function(){if(idx<order.length-1)show(order[idx+1],true);};}
     if(db){
